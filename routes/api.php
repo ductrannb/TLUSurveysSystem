@@ -74,5 +74,5 @@ Route::get('formsendtarget',function(){
     return view('formsendtarget');
 });
 Route::get('shortanswer',function(){
-    return view('shortanswer');
+    return view('shortanswer'); 
 });
