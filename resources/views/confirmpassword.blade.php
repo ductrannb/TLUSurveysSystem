@@ -31,7 +31,7 @@
                     <input class="confirm-password-input" type="text" placeholder="**********">
                     <i class="icon-confirm fa-regular fa-eye"></i>
                 </div>
-                <a href="{{ asset('api/recoveryback') }}">
+                  <a href="{{ asset('api/recoveryback') }}">
                     <button type="button"  class="recovery-btn-back">Quay lại</button>
                 </a>
                 <a href="{{ asset('api/adminlogin') }}">
