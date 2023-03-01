@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
 use App\Services\ResponseService;
 use App\Services\UserService;
-use App\Ultis\CookieEditor;
-use Throwable;
+use Hash;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -18,15 +19,16 @@ class AuthController extends Controller
 
     public function __construct(UserService $user_service, ResponseService $response_service)
     {
-        $this->middleware('auth:api', ['except' => ['login', 'resetPassword']]);
+        $this->middleware('auth:api', ['except' => ['login', 'resetPassword', 'forgotPassword']]);
         $this->user_service = $user_service;
         $this->response_service = $response_service;
     }
 
     public function login(Request $request)
     {
+        // dd(Hash::make($request->password));
         $credentials = $request->only('username', 'password');
-        if (! $token = auth()->attempt($credentials)) {
+        if (!$token = auth()->attempt($credentials)) {
             return $this->response_service->error('Unauthenticate');
         }
         return $this->respondWithToken($token);
@@ -54,12 +56,51 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
+            'expires_in' => auth()->factory()->getTTL() * 60,
         ]);
     }
 
-    // public function resetPassword(Request $request)
-    // {
-    //     return $email = $this->user_service->getUserByEmail($request->email)->email;
-    // }
+    public function forgotPassword(Request $request)
+    {
+        try {
+            $request->validate(['email' => 'required|email']);
+
+            $status = Password::sendResetLink(
+                $request->only('email')
+            );
+
+            return $status === Password::RESET_LINK_SENT
+            ? back()->with(['status' => __($status)])
+            : back()->withErrors(['email' => __($status)]);
+            
+        } catch (Throwable $throw) {
+            return $this->response_service->error($throw->getMessage());
+        }
+    }
+
+    public function resetPassword(Request $request)
+    {
+        $request->validate([
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:8|confirmed',
+        ]);
+
+        $status = Password::reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function ($user, $password) {
+                $user->forceFill([
+                    'password' => Hash::make($password),
+                ])->setRememberToken(Str::random(60));
+
+                $user->save();
+
+                event(new PasswordReset($user));
+            }
+        );
+
+        return $status === Password::PASSWORD_RESET
+        ? redirect()->route('login')->with('status', __($status))
+        : back()->withErrors(['email' => [__($status)]]);
+    }
 }
