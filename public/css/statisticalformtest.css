@@ -1,0 +1,305 @@
+.app{
+      
+}
+.header{
+    position: absolute;
+    width: 100%;
+    height: 120px;
+    left: 0px;
+    top: 0px;
+    background-color: #fff;
+}
+.logo-img{
+    width: 142px;
+    height: 105px;
+    left: 74px;
+    top: 15px;
+    z-index: 10;
+    margin: -2px 0 0 30px;
+    border-radius: 20px;
+}
+.title-heading_1{
+    left: 230px;
+    position: absolute;
+    color: #001373;
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 700;
+    top: 22px;
+}
+.title-heading_2{
+    position: absolute;
+    left: 230px;
+    color: #007BFF;
+    font-size: 30px;
+    font-weight: 300;
+    letter-spacing: 7px;
+    margin-left: 2px;
+    line-height: 36px;
+    top: 76px;
+}
+.navbar{
+    position: absolute;
+    width: 100%;
+    height: 61px;
+    left: 0px;
+    top: 10px;
+    background: #673AB7;
+}
+.navbar-option{
+    position: absolute;
+    width: 72%;
+    height: 45px;
+    bottom: 0;
+    background: #fff;
+    left: 183px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px 5px 0 0;
+}
+.navbar-title{
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 28px;
+    padding: 30px;
+    color: #000;
+}
+.navbar-count{
+    position: absolute;
+    left: 532px;
+    width: 17px;
+    height: 30px;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    color: #000;
+}
+.navbar-btn{
+    color: #fff;
+    width: 50px;
+    height: 30px;
+    right: 20px;
+    font-size: 16px;
+    position: absolute;
+    background: #673AB7;
+    border-radius: 8px;
+    border: solid 1px #673AB7;
+
+}
+
+.form_option--reply{
+    position: absolute;
+    width: 72%;
+    height: 2900px;
+    left: 183px;
+    top: 180px;
+    background:#FFFFFF;;
+    box-shadow: 0px 5px 15px -15px rgba(0, 0, 0, 0.25);
+}
+.form_option--reply::before{
+    content: '';
+    position: absolute;
+    width: 92%;
+    height: 0px;
+    top: 420px;
+    left: 20px;
+    border: 1px solid #CECACA;
+}
+.form_option--reply::after{
+    content: '';
+    position: absolute;
+    width: 92%;
+    height: 0px;
+    top: 1100px;
+    left: 20px;
+    border: 1px solid #CECACA;
+}
+.title-heading{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 42px;
+    color: #000000;
+}
+.title-list{
+    position: absolute;
+    width: 125px;
+    height: 30px;
+    left:30px;
+    top: 100px;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+    color: #000000;  
+}
+.title-point{
+    position: absolute;
+    width: 125px;
+    height: 30px;
+    left:30px;
+    top: 460px;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+    color: #000000;  
+}
+.title-poin-heading{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    left:30px;
+    top: 540px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #000000;
+    justify-content: space-between;  
+}
+
+.list-member{
+    list-style: none;
+    position: absolute;
+    top: 160px;
+    width: 90%;
+}
+.list-member-name{
+    line-height: 50px;
+    height: 53px;
+    background: #ECEDEF;
+    border-radius: 10px;
+    padding: 0 0 0 20px;
+}
+.list-member-icon{  
+    width: 50px;
+    height: 32px;
+    margin-left: 600px;
+}
+.list-title{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    margin-left: 40px;
+}
+.point-title{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    margin-right: 200px;
+}
+.list-point{
+    list-style: none;
+    position: absolute;
+    top: 600px;
+    width: 90%;
+}
+.list-point-member{
+    line-height: 50px;
+    height: 53px;
+    background: #ECEDEF;
+    border-radius: 10px;
+    padding: 0 0 0 20px;
+    margin: 10px 0 10px 0;
+}
+.list-point-number{
+    margin-left: 72%;
+}
+
+.chart-pie{
+    position: absolute;
+    top: 1180px;
+    left: 30px;
+}
+.question-chart-pie{
+    font-size: 20px;
+    color: #000;
+    font-weight: 400;
+    line-height: 40px;
+}
+.reply-chart-pie{
+    font-size: 15px;
+    font-weight: 400;
+    color: #000;
+}
+#myChart{
+    position: absolute;
+    top: 1280px;
+    left: 100px;
+}
+
+.boder-chart-pie{
+    position: absolute;
+    width: 92%;
+    height: 0px;
+    left: 30px;
+    top: 1700px;
+    border: 1px solid #CECACA;
+}
+.chart-horizontal{
+    position: absolute;
+    top: 1780px;
+    left: 30px;
+}
+.question-chart-horizontal{
+    font-size: 20px;
+    color: #000;
+    font-weight: 400;
+    line-height: 40px;
+}
+.reply-chart-horizontal{
+    font-size: 15px;
+    font-weight: 400;
+    color: #000;
+}
+#horizontal{
+    position: absolute;
+    top: 1880px;
+    left: 100px;
+}
+.boder-chart-horizontal{
+    position: absolute;
+    width: 92%;
+    height: 0px;
+    left: 30px;
+    top: 2200px;
+    border: 1px solid #CECACA;
+}
+.chart-column{
+    position: absolute;
+    width: 100%;
+    top: 2300px;
+    left: 30px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+}
+.chart-point{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+    margin-left: -100px;
+}
+.chart-quantity{
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+}
+.chart-poin-end{
+   position: absolute;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    right: 0;
+    bottom: 0;
+    right: 70px;
+}
