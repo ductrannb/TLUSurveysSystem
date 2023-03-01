@@ -73,3 +73,6 @@ Route::get('verifycode',function(){
 Route::get('formsendtarget',function(){
     return view('formsendtarget');
 });
+Route::get('shortanswer',function(){
+    return view('shortanswer');
+});

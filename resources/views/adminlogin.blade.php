@@ -19,14 +19,15 @@
             <h2 class="title-heading_1 hide-on-mobile-tablet">TRƯỜNG ĐẠI HỌC THỦY LỢI</h2>
             <h2 class="title-heading_2">HỆ THỐNG KHẢO SÁT TRỰC TUYẾN</h2>
             </div>
-            <form class="form_admin" action="">
+            <form class="form_admin" action="" onsubmit="login()">
                 <h1 class="form_admin--title">Đăng Nhập Hệ Thống</h1>
-                <input class="form_admin--login" type="text" placeholder="   Tên đăng nhập">
-                <input class="form_admin--password" type="text" placeholder="    Mật khẩu">
+                <input id="username" class="form_admin--login" type="text" placeholder="Tên đăng nhập">
+                <input id="password" class="form_admin--password" type="password" placeholder="Mật khẩu">
                 <button class="form_admin--btn">Đăng nhập</button>
                 <a class="forgot-password" href="{{ asset('api/recoverypassword') }}">Quên mật khẩu</a>
             </form>
         </header>
     </div>
+    <script src="{{ asset('js/chart/adminlogin.js') }}"></script>
 </body>
 </html>
