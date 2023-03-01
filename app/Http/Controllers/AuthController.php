@@ -14,45 +14,29 @@ use Throwable;
 class AuthController extends Controller
 {
     private $user_service;
+    private $response_service;
 
-    public function __construct(UserService $user_service)
+    public function __construct(UserService $user_service, ResponseService $response_service)
     {
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api', ['except' => ['login', 'resetPassword']]);
         $this->user_service = $user_service;
+        $this->response_service = $response_service;
     }
 
-    /**
-     * Get a JWT via given credentials.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function login(Request $request)
     {
-        // $passwordHashed = Hash::make($request->password);
-        // dd($passwordHashed, $request->password);
         $credentials = $request->only('username', 'password');
         if (! $token = auth()->attempt($credentials)) {
-            return $this->response_service->error("Tài khoản hoặc mật khẩu không chính xác");
+            return $this->response_service->error('Unauthenticate');
         }
-
         return $this->respondWithToken($token);
     }
 
-    /**
-     * Get the authenticated User.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function me()
     {
         return response()->json(auth()->user());
     }
 
-    /**
-     * Log the user out (Invalidate the token).
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function logout()
     {
         auth()->logout();
@@ -60,23 +44,11 @@ class AuthController extends Controller
         return response()->json(['message' => 'Successfully logged out']);
     }
 
-    /**
-     * Refresh a token.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function refresh()
     {
         return $this->respondWithToken(auth()->refresh());
     }
 
-    /**
-     * Get the token array structure.
-     *
-     * @param  string $token
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
     protected function respondWithToken($token)
     {
         return response()->json([
@@ -85,4 +57,9 @@ class AuthController extends Controller
             'expires_in' => auth()->factory()->getTTL() * 60
         ]);
     }
+
+    // public function resetPassword(Request $request)
+    // {
+    //     return $email = $this->user_service->getUserByEmail($request->email)->email;
+    // }
 }
