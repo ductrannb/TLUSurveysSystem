@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('fullname');
             $table->string('email')->unique();
-            $table->string('api_token', 80)->unique()->nullable()->default(null);
+            $table->string('api_token', 500)->unique()->nullable()->default(null);
             $table->timestamps();
             $table->softDeletes();
         });

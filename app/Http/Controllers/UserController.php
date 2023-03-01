@@ -24,21 +24,9 @@ class UserController extends Controller
         $this->token_ctl = $token_ctl;
     }
 
-    public function login(Request $request)
+    public function update(Request $request)
     {
-        // dd($request);
-        try {
-            $user = $this->user_service->getUser($request->username);
-            if ($user->username == $request->username and $user->password == $request->password) {
-                $token = $this->token_ctl->update($request);
-                dd($token);
-                $this->cookie_editor->setCookie($token);
-                return $this->response_service->success("Đăng nhập thành công");
-            } else {
-                return $this->response_service->error("Tài khoản hoặc mật khẩu không chính xác");
-            }
-        } catch (Throwable $throw) {
-            return $this->response_service->error($throw->getMessage());
-        }
+        return $this->user_service->update();
     }
+
 }
