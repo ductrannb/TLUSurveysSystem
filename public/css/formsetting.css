@@ -1,0 +1,251 @@
+.app{
+
+}
+.header{
+    position: absolute;
+    width: 100%;
+    height: 120px;
+    left: 0px;
+    top: 0px;
+    background-color: #fff;
+}
+.logo-img{
+    width: 142px;
+    height: 105px;
+    left: 74px;
+    top: 15px;
+    z-index: 10;
+    margin: -2px 0 0 30px;
+    border-radius: 20px;
+}
+.title-heading_1{
+    left: 230px;
+    position: absolute;
+    color: #001373;
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 700;
+    top: 22px;
+}
+.title-heading_2{
+    position: absolute;
+    left: 230px;
+    color: #007BFF;
+    font-size: 30px;
+    font-weight: 300;
+    letter-spacing: 7px;
+    margin-left: 2px;
+    line-height: 36px;
+    top: 76px;
+}
+.navbar{
+    position: absolute;
+    width: 100%;
+    height: 61px;
+    left: 0px;
+    top: 10px;
+    background: #673AB7;
+}
+.navbar-option{
+    position: absolute;
+    width: 72%;
+    height: 45px;
+    bottom: 0;
+    background: #fff;
+    left: 183px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px 5px 0 0;
+}
+.navbar-titlte{
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 28px;
+    padding: 30px;
+    color: #000;
+}
+.navbar-count{
+    position: absolute;
+    left: 532px;
+    width: 17px;
+    height: 30px;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    color: #000;
+}
+.navbar-btn{
+    color: #fff;
+    width: 50px;
+    height: 30px;
+    right: 20px;
+    font-size: 16px;
+    position: absolute;
+    background: #673AB7;
+    border-radius: 8px;
+    border: solid 1px #673AB7;
+
+}
+
+.form_option--setting{
+    position: absolute;
+    width: 72%;
+    height: 919px;
+    left: 183px;
+    top: 180px;
+    background:#FFFFFF;;
+    box-shadow: 0px 5px 15px -15px rgba(0, 0, 0, 0.25);
+}
+.form_option--setting::before{
+    content: "";
+    position: absolute;
+    left: 3.86%;
+    right: 5.78%;
+    top: 9.03%;
+    bottom: 90.97%;
+    
+    border: 1px solid #AFAFAF;
+    transform: rotate(-0.12deg);
+    
+}
+.form_option--title{
+    position: absolute;
+    left: 5.05%;
+    right: 85.67%;
+    top: 2.5%;
+    bottom: 93.58%;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+    
+    color: #000000;
+}
+.oder-title{
+    position: absolute;
+    left: 9.73%;
+    right: 65%;
+    top: 14.91%;
+    bottom: 82.48%;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    
+    color: #000000;
+}
+.point-title{
+    position: absolute;
+    left: 9.73%;
+    right: 34.25%;
+    top: 18.61%;
+    bottom: 79.11%;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 21px;
+    
+    
+    color: #919191;
+    
+}
+.value-poin{
+    position: absolute;
+    left: 14.6%;
+    right: 65%;
+    top: 24.16%;
+    bottom: 73.88%;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    
+    color: #000000;
+    
+}
+.see-total{
+    position: absolute;
+    left: 14.6%;
+    right: 35.63%;
+    top: 27.2%;
+    bottom: 70.84%;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    
+    color: #919191;
+    
+}
+.value-poin-default{
+    position: absolute;
+    left: 14.6%;
+    right: 40%;
+    top: 31.99%;
+    bottom: 66.05%;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    
+    color: #000000;
+    
+    
+}
+.value-new-point{
+    position: absolute;
+    left: 14.6%;
+    right: 44.46%;
+    top: 35.04%;
+    bottom: 63%;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    
+    color: #919191;
+    
+}
+.btn-icon{
+    position: absolute;
+    right: 0;
+    top: 150px;
+    font-size: 30px;
+    border-radius: 15px;
+    right: 80px;
+}
+.point-question{
+
+    position: absolute;
+    top: 305px;
+    left: 87%;
+    width: 30px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #333;
+    text-align: center;
+
+}
+.form_option--setting .text{
+    position: absolute;
+    top: 315px;
+    left: 93%;
+    font-size: 16px;
+    color: #ccc;
+}
