@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 
+test
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
