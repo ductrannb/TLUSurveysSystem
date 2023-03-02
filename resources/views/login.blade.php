@@ -25,7 +25,7 @@
                 <input id="username" class="form_admin--login" type="text" placeholder="Tên đăng nhập" name='username'>
                 <input id="password" class="form_admin--password" type="password" placeholder="Mật khẩu" name='password'>
                 <button class="form_admin--btn">Đăng nhập</button>
-                <a class="forgot-password" href="{{ asset('api/recoverypassword') }}">Quên mật khẩu</a>
+                <a class="forgot-password" href="{{ asset('api/forgot-password') }}">Quên mật khẩu</a>
             </form>
         </header>
     </div>
