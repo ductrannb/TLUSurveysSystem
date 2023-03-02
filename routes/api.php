@@ -31,7 +31,7 @@ Route::group([
     Route::post('logout', [AuthController::class, 'logout']);
     Route::post('refresh', [AuthController::class, 'refresh']);
     Route::post('me', [AuthController::class, 'me']);
-    Route::get('auth/login', function () {
+    Route::get('login', function () {
         return view('login');
     })->name('login');
 
