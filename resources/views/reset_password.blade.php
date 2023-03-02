@@ -24,7 +24,7 @@
             <form class="recovery-password" method="POST" action="/api/reset-password">
                 @csrf
                 <div name='token' value="{{$token}}"></div>
-                <div name='email' value="{{$email}}"></div>
+                <div name='email' value="{{$request->only('email')}}"></div>
                 <h1 class="recovery-title">Khôi phục mật khẩu </h1>
                 <div class="confirm-password">
                     <span class="confirm-password-title">Nhập mật khẩu mới</span>
