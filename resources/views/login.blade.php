@@ -22,8 +22,8 @@
             <form class="form_admin" method='POST' action="login">
                 @csrf
                 <h1 class="form_admin--title">Đăng Nhập Hệ Thống</h1>
-                <input id="username" class="form_admin--login" type="text" placeholder="Tên đăng nhập">
-                <input id="password" class="form_admin--password" type="password" placeholder="Mật khẩu">
+                <input id="username" class="form_admin--login" type="text" placeholder="Tên đăng nhập" name='username'>
+                <input id="password" class="form_admin--password" type="password" placeholder="Mật khẩu" name='password'>
                 <button class="form_admin--btn">Đăng nhập</button>
                 <a class="forgot-password" href="{{ asset('api/recoverypassword') }}">Quên mật khẩu</a>
             </form>
