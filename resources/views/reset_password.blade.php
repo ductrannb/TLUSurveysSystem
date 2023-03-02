@@ -23,8 +23,8 @@
             <img class="img-bg" src="{{ asset('img/img_form-survey.jpg') }}" alt="">
             <form class="recovery-password" method="POST" action="/api/reset-password">
                 @csrf
-                <input name='token' value="{{$token}}">
-                <input name='email' value="{{$_GET['email']}}">
+                <input type='hidden' name='token' value="{{$token}}">
+                <input type='hidden' name='email' value="{{$_GET['email']}}">
                 <h1 class="recovery-title">Khôi phục mật khẩu </h1>
                 <div class="confirm-password">
                     <span class="confirm-password-title">Nhập mật khẩu mới</span>
