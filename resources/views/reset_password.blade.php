@@ -36,7 +36,7 @@
                   <a href="{{ asset('forgot-password') }}">
                     <button type="button"  class="recovery-btn-back">Quay lại</button>
                 </a>
-                    <button type="button"  class="recovery-btn">Xác nhận </button>
+                    <button type="submit"  class="recovery-btn">Xác nhận </button>
             </form>
             
         </div>
