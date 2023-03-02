@@ -27,10 +27,10 @@
                 <h1 class="recovery-title">Khôi phục mật khẩu </h1>
                 <div class="confirm-password">
                     <span class="confirm-password-title">Nhập mật khẩu mới</span>
-                    <input class="confirm-password-input" type="text" placeholder="**********">
+                    <input class="confirm-password-input" type="text" placeholder="**********" name='password'>
                     <i class="icon-newconfirm fa-regular fa-eye"></i>
                     <span class="confirm-password-title">Xác nhận lại mật khẩu</span>
-                    <input class="confirm-password-input" type="text" placeholder="**********">
+                    <input class="confirm-password-input" type="text" placeholder="**********" name='password_confirmation'>
                     <i class="icon-confirm fa-regular fa-eye"></i>
                 </div>
                   <a href="{{ asset('forgot-password') }}">
