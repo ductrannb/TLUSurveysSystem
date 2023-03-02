@@ -21,7 +21,7 @@
         </header>
         <div class="img-tlu">
             <img class="img-bg" src="{{ asset('img/img_form-survey.jpg') }}" alt="">
-            <form class="recovery-password" method="POST" action="reset-password">
+            <form class="recovery-password" method="POST" action="">
                 @csrf
                 <div name='token' value="{{$token}}"></div>
                 <h1 class="recovery-title">Khôi phục mật khẩu </h1>
