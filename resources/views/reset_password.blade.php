@@ -21,22 +21,23 @@
         </header>
         <div class="img-tlu">
             <img class="img-bg" src="{{ asset('img/img_form-survey.jpg') }}" alt="">
-            <form class="recovery-password" action="">
+            <form class="recovery-password" method="POST" action="/api/reset-password">
+                @csrf
+                <input type='hidden' name='token' value="{{$token}}">
+                <input type='hidden' name='email' value="{{$_GET['email']}}">
                 <h1 class="recovery-title">Khôi phục mật khẩu </h1>
                 <div class="confirm-password">
                     <span class="confirm-password-title">Nhập mật khẩu mới</span>
-                    <input class="confirm-password-input" type="text" placeholder="**********">
+                    <input class="confirm-password-input" type="text" placeholder="**********" name='password'>
                     <i class="icon-newconfirm fa-regular fa-eye"></i>
                     <span class="confirm-password-title">Xác nhận lại mật khẩu</span>
-                    <input class="confirm-password-input" type="text" placeholder="**********">
+                    <input class="confirm-password-input" type="text" placeholder="**********" name='password_confirmation'>
                     <i class="icon-confirm fa-regular fa-eye"></i>
                 </div>
-                  <a href="{{ asset('api/recoveryback') }}">
+                  <a href="{{ asset('forgot-password') }}">
                     <button type="button"  class="recovery-btn-back">Quay lại</button>
                 </a>
-                <a href="{{ asset('api/adminlogin') }}">
-                    <button type="button"  class="recovery-btn">Xác nhận </button>
-                   </a>
+                    <button type="submit"  class="recovery-btn">Xác nhận </button>
             </form>
             
         </div>
