@@ -19,7 +19,8 @@
             <h2 class="title-heading_1 hide-on-mobile-tablet">TRƯỜNG ĐẠI HỌC THỦY LỢI</h2>
             <h2 class="title-heading_2">HỆ THỐNG KHẢO SÁT TRỰC TUYẾN</h2>
             </div>
-            <form class="form_admin" method='POST' action="auth/login">
+            <form class="form_admin" method='POST' action="login">
+                @csrf
                 <h1 class="form_admin--title">Đăng Nhập Hệ Thống</h1>
                 <input id="username" class="form_admin--login" type="text" placeholder="Tên đăng nhập">
                 <input id="password" class="form_admin--password" type="password" placeholder="Mật khẩu">
