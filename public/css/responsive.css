@@ -12,11 +12,6 @@
 }
 /* Mobile */
 @media (max-width: 739px) {
-	.hide-on-mobile {
-		display: none;
-	}
-    .header{
-        width: 100%;
-        height: 100%;
-    }
+	
+	
 }

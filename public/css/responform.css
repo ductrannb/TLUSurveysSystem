@@ -1,0 +1,143 @@
+.app{
+    
+}
+.header{
+    position: absolute;
+    width: 100%;
+    height: 120px;
+    left: 0px;
+    top: 0px;
+    background-color: #fff;
+}
+.logo-img{
+    width: 142px;
+    height: 105px;
+    left: 74px;
+    top: 15px;
+    z-index: 10;
+    margin: -2px 0 0 30px;
+    border-radius: 20px;
+}
+.title-heading_1{
+    left: 230px;
+    position: absolute;
+    color: #001373;
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 700;
+    top: 22px;
+}
+.title-heading_2{
+    position: absolute;
+    left: 230px;
+    color: #007BFF;
+    font-size: 30px;
+    font-weight: 300;
+    letter-spacing: 7px;
+    margin-left: 2px;
+    line-height: 36px;
+    top: 76px;
+}
+.img-tlu{
+    position: absolute;
+    top: 120px;
+    height: 100%;
+}
+.form-respon{
+    position: absolute;
+    width: 1000px;
+    height: 400px;
+    left: 180px;
+    top: 200px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+.heading-title{
+    position: absolute;
+    width: 830px;
+    height: 72px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 36px;
+    top: 20px;
+    left: 50px;
+    color: #000000;
+}
+.record-title{
+    position: absolute;
+    width: 268px;
+    height: 18px;
+    left: 50px;
+    top: 100px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    
+    color: #000000;
+}
+.opinion-title{
+    position: absolute;
+    width: 216px;
+    height: 18px;
+    left: 50px;
+    top: 120px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    color: #000000;
+    
+}
+.form-opinion{
+    position: absolute;
+    width: 910px;
+    height: 170px;
+    left: 223px;
+    top: 350px;
+    background: #FFFFFF;
+    border: 1px solid #CECACA;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    outline: none;
+    border: none;
+}
+.form-opinion-input{
+    position: absolute;
+    width: 910px;
+    height: 30px;
+    background: #FFFFFF;
+    outline: none;
+    border: none;
+    padding: 10px;
+}
+.review-survey{
+    position: absolute;
+    width: 141px;
+    height: 18px;
+    left: 20px;
+    bottom: 20px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    text-decoration: none;
+    color: #007BFF;
+}
+.btn-end{
+    position: absolute;
+    width: 90px;
+    height: 40px;
+    right: 20px;
+    bottom: 20px;
+    color: #fff;
+    background: #673AB7;
+    border-radius: 10px;
+    border: solid 1px #673AB7;
+}
