@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\SurveyService;
 use App\Services\ResponseService;
+use App\Models\Survey;
 
 class SurveyController extends Controller
 {
@@ -32,6 +33,27 @@ class SurveyController extends Controller
             $this->survey_service->create($request->only('user_id', 'name', 'start_at', 'end_at', 'type'));
 
             return $this->response->success('create survey success !');
+        } catch (\Throwable $throw) {
+            return $this->response->error($throw->getMessage());
+        }
+    }
+
+    public function update(Request $request)
+    {
+        try {
+            $request->validate([
+                'id' => 'required',
+                'user_id' => 'required',
+                'name' => 'required',
+                'start_at' => 'date',
+                'end_at' => 'date|after:start_at',
+                'type' => 'integer',
+            ]);
+            $survey = Survey::findOrFail($request->id);
+
+            $this->survey_service->update($request->only('id' ,'name', 'start_at', 'end_at', 'type'));
+
+            return $this->response->success('updated survey success !');
         } catch (\Throwable $throw) {
             return $this->response->error($throw->getMessage());
         }
