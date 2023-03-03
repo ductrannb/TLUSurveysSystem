@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SurveyController;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
@@ -48,3 +49,10 @@ Route::get('/reset-password/{token}', function ($token) {
 })->middleware('guest')->name('password.reset');
 
 Route::post('/reset-password', [AuthController::class,'resetPassword'])->middleware('guest')->name('password.update');
+
+Route::group([
+    'prefix' => 'survey',
+    'controller' => SurveyController::class
+], function () {
+    Route::post('create', 'create');
+});
