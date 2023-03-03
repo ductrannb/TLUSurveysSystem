@@ -55,4 +55,5 @@ Route::group([
     'controller' => SurveyController::class
 ], function () {
     Route::post('create', 'create');
+    Route::post('update', 'update');
 });

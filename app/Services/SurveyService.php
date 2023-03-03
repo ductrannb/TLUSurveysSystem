@@ -17,4 +17,9 @@ class SurveyService
     {
         return $this->survey_repo->create($data);
     }
+
+    public function update(array $data)
+    {
+        return $this->survey_repo->update($data);
+    }
 }
