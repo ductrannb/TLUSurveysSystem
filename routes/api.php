@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SurveyController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
@@ -56,4 +57,12 @@ Route::group([
 ], function () {
     Route::post('create', 'create');
     Route::post('update', 'update');
+});
+
+Route::group([
+    'prefix' => 'report',
+    'controller' => ReportController::class
+], function () {
+    Route::get('/', 'index');
+    Route::post('create', 'create');
 });
