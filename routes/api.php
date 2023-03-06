@@ -35,7 +35,6 @@ Route::group([
     Route::get('login', function () {
         return view('login');
     })->name('login');
-
 });
 
 Route::get('/forgot-password', function () {
@@ -48,7 +47,7 @@ Route::get('/reset-password/{token}', function ($token) {
     return view('reset_password', ['token' => $token]);
 })->middleware('guest')->name('password.reset');
 
-Route::post('/reset-password', [AuthController::class,'resetPassword'])->middleware('guest')->name('password.update');
+Route::post('/reset-password', [AuthController::class, 'resetPassword'])->middleware('guest')->name('password.update');
 
 Route::group([
     'prefix' => 'survey',
@@ -56,4 +55,8 @@ Route::group([
 ], function () {
     Route::post('create', 'create');
     Route::post('update', 'update');
+});
+
+Route::get('formmain', function () {
+    return view('formmain');
 });
