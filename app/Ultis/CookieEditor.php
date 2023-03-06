@@ -2,16 +2,13 @@
 
 namespace App\Ultis;
 
+use Illuminate\Support\Facades\Cookie;
+
 class CookieEditor
 {
-    public function setCookie(Request $request)
+    public function setCookie($name, $value, $minutes)
     {
-        $name = $request->name;
-        $value = $request->value;
-        $minutes = $request->minutes;
-        $response = new Response('Set Cookie');
-        $response->withCookie(cookie($name, $value, $minutes));
-        return $response;
+        Cookie::queue($name, $value, $minutes);
     }
     
     public function getCookie(Request $request){

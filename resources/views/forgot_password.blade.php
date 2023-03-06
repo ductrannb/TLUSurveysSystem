@@ -21,12 +21,12 @@
         </header>
         <div class="img-tlu">
             <img class="img-bg" src="{{ asset('img/img_form-survey.jpg') }}" alt="">
-            <form class="recovery-password" method='POST' action="forgot-password">
+            <form class="recovery-password" method='POST' action="{{route('password.email')}}">
                 @csrf
                 <h1 class="recovery-title">Khôi phục mật khẩu </h1>
                 <span class="recovery-email">Nhập địa chỉ email</span>
                 <input class="recovery-input" type="email" placeholder="2051063880@e.tlu.edu.vn" name='email'>
-                <a href="auth/login">
+                <a href="/login">
                     <button type="button"  class="recovery-btn-back">Quay lại</button>
                 </a>
                 <button type="submit"  class="recovery-btn">Gửi </button>
