@@ -33,21 +33,11 @@ class UserRepository
 
     public function getUser(string $username)
     {
-        try {
-            if ($username != null) {
-                return User::where('username', $username)->firstOrFail();
-            }
-        } catch (Throwable $throw) {
-            return $this->response_service->error($throw->getMessage());
-        }
+        return User::where('username', $username)->firstOrFail();
     }
 
     public function getUserByEmail(string $email)
     {
-        try {
-            return User::where('email', $email)->firstOrFail();
-        } catch (Throwable $throw) {
-            return $this->response_service->error($throw->getMessage());
-        }
+        return User::where('email', $email)->firstOrFail();
     }
 }

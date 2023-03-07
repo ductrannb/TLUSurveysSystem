@@ -14,14 +14,12 @@ class UserController extends Controller
     private $user_service;
     private $response_service;
     private $cookie_editor;
-    private $token_ctl;
 
-    public function __construct(UserService $user_service, ResponseService $response_service, CookieEditor $cookie_editor, ApiTokenController $token_ctl)
+    public function __construct(UserService $user_service, ResponseService $response_service, CookieEditor $cookie_editor)
     {
         $this->user_service = $user_service;
         $this->response_service = $response_service;
         $this->cookie_editor = $cookie_editor;
-        $this->token_ctl = $token_ctl;
     }
 
     public function update(Request $request)
@@ -29,4 +27,8 @@ class UserController extends Controller
         return $this->user_service->update();
     }
 
+    public function getUser(string $username)
+    {
+        return $this->user_service->getUser($username);
+    }
 }
