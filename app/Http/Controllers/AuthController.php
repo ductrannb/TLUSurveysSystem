@@ -16,14 +16,14 @@ use App\Ultis\CookieEditor;
 
 class AuthController extends Controller
 {
-    private $user_service;
+    private $user_ctl;
     private $response_service;
     private $cookie_editor;
 
-    public function __construct(UserService $user_service, ResponseService $response_service, CookieEditor $cookie_editor)
+    public function __construct(UserController $user_ctl, ResponseService $response_service, CookieEditor $cookie_editor)
     {
         // $this->middleware('auth:api', ['except' => ['login', 'resetPassword', 'forgotPassword']]);
-        $this->user_service = $user_service;
+        $this->user_ctl = $user_ctl;
         $this->response_service = $response_service;
         $this->cookie_editor = $cookie_editor;
     }
@@ -32,9 +32,9 @@ class AuthController extends Controller
     {
         $credentials = $request->only('username', 'password');
         if (auth()->attempt($credentials)) {
-            return redirect('/');
+            return route('home');
         }
-        return redirect()->back()->with('error', 'Wrong credentials!');
+        return redirect()->back();
     }
 
     public function me()
