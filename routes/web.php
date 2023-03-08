@@ -50,3 +50,7 @@ Route::group([
     Route::get('/', 'index');
     Route::post('create', 'create');
 });
+
+Route::get('newform',function(){
+    return view('newform');
+});
