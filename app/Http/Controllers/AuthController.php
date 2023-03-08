@@ -34,7 +34,7 @@ class AuthController extends Controller
         if (auth()->attempt($credentials)) {
             return route('home');
         }
-        return redirect()->back();
+        return redirect()->back()->withInput(['error'=>'error !']);
     }
 
     public function me()
