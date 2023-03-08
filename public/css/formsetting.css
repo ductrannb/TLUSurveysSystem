@@ -140,7 +140,7 @@
     
     color: #000000;
 }
-.point-title{
+.points-title{
     position: absolute;
     left: 9.73%;
     right: 34.25%;
@@ -169,7 +169,6 @@
     font-weight: 400;
     font-size: 15px;
     line-height: 18px;
-    
     color: #000000;
     
 }
