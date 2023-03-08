@@ -25,9 +25,17 @@
                 <input id="username" class="form_admin--login" type="text" placeholder="Tên đăng nhập" name='username'>
                 <input id="password" class="form_admin--password" type="password" placeholder="Mật khẩu" name='password'>
                 <button type='submit' class="form_admin--btn">Đăng nhập</button>
+                
                 @if (session('error'))
                 {{-- <p class="alert alert-warning">{{ session('error') }}</p> --}}
                 {{-- Code trong đây --}}
+                    <div class="form_admin--failed">
+                        <img class="img-close" src="{{ asset('img/close.png') }}" alt="">
+                        <Span class="warning-failed">Lỗi</Span>
+                        <span class="warning-pw">Tài khoản hoặc mật khẩu không đúng</span>
+                        <span class="warning-retype">Vui lòng nhập lại !</span>
+                        <button class="btn-confirm">Xác nhận</button>
+                    </div>
                 @endif
                 <a class="forgot-password" href="{{ asset('/forgot-password') }}">Quên mật khẩu</a>
             </form>
