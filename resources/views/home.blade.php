@@ -89,7 +89,7 @@
                         </div>
                         @foreach ($surveys as $survey)
                             <div>
-                                <a href="#" class="content-main-element content-main-img">
+                                <a href="{{route('view_survey', ['id'=>$survey->id])}}" class="content-main-element content-main-img">
                                     <img src="{{ asset('img/survey_avt.png') }}" alt="">
                                 </a>
                                 <p class="content-main-sub-img">{{ $survey->name }}</p>
