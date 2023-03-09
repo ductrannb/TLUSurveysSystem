@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\Question;
+use App\Models\Answer;
 use Illuminate\Http\Request;
 
 class AnswerRepository
@@ -12,4 +12,13 @@ class AnswerRepository
         return Answer::create($data);
     }
 
+    public function update(array $data)
+    {
+        return Answer::where('id', $data['id'])->update($data);
+    }
+    
+    public function delete(int $data)
+    {
+        return Answer::where('id', $data)->delete();
+    }
 }
