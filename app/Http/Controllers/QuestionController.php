@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Question;
-use Illuminate\Http\RedirectResponse;
+use App\Services\QuestionService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -52,19 +52,17 @@ class QuestionController extends Controller
         }
     }
 
-    public function delete(Request $request)
+    public function delete(int $id)
     {
         try {
-            $request->validate([
-                'id' => 'required'
-            ]);
-            $question = Question::findOrFail($request->id);
 
-            $question->delete();
+            $question = Question::findOrFail($id);
 
-            // Question::destroy($request->id);
+            $this->question_service->delete();
 
-            return $this->response->success('delete delete success !');
+            // Question::destroy($id);
+
+            return $this->response->success('delete Question success !');
         } catch (\Throwable $throw) {
             return $this->response->error($throw->getMessage());
         }
