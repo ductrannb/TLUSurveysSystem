@@ -24,6 +24,11 @@ class SurveyController extends Controller
         return view('new_surveys');    
     }
 
+    public function viewDetail(Request $request)
+    {
+        return view('view_survey');
+    }
+
     public function create(Request $request)
     {
         try {
