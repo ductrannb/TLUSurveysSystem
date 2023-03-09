@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SurveyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,7 @@ Route::get('login', function () {
     return view('login');
 });
 
+
 Route::get('/forgot-password', function () {
     return view('forgot_password');
 })->name('password.request');
@@ -39,6 +41,7 @@ Route::group([
     'prefix' => 'survey',
     'controller' => SurveyController::class
 ], function () {
+    Route::get('create', 'index');
     Route::post('create', 'create');
     Route::post('update', 'update');
 });
@@ -53,4 +56,8 @@ Route::group([
 
 Route::get('newform',function(){
     return view('newform');
+});
+
+Route::get('report', function () {
+    return view('form_report');
 });

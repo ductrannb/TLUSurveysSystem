@@ -18,80 +18,86 @@
 </head>
 
 <body>
-    <div class="overlay">
-        <div class="modal">
-            <div class="modal-header">
-                <i class="modal-header-icon fa-solid fa-lock"></i>
-                <span>Đổi mật khẩu</span>
-                <i class="modal-header-quit fa-solid fa-xmark"></i>
-            </div>
-            <div class="modal-content">
-                <div class="modal-content-lock">
-                    <i class="fa-solid fa-lock"></i>
+    <div class="container">
+        <div class="overlay">
+            <div class="modal">
+                <div class="modal-header">
+                    <i class="modal-header-icon fa-solid fa-lock"></i>
+                    <span>Đổi mật khẩu</span>
+                    <i class="modal-header-quit fa-solid fa-xmark"></i>
                 </div>
-                <div class="modal-form">
-                    <label for="1">Mật khẩu hiện thời</label>
-                    <input type="text" id="1" />
+                <div class="modal-content">
+                    <div class="modal-content-lock">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <div class="modal-form">
+                        <label for="1">Mật khẩu hiện thời</label>
+                        <input type="text" id="1" />
 
-                    <label for="2">Mật khẩu mới</label>
-                    <input type="text" id="2" />
+                        <label for="2">Mật khẩu mới</label>
+                        <input type="text" id="2" />
 
-                    <label for="3">Nhập lại mật khẩu</label>
-                    <input type="text" id="3" />
+                        <label for="3">Nhập lại mật khẩu</label>
+                        <input type="text" id="3" />
 
-                    <div class="modal-form-btn">
-                        <button class="modal-form-quit btn">Hủy</button>
-                        <button class="modal-form-update btn">Cập nhật</button>
+                        <div class="modal-form-btn">
+                            <button class="modal-form-quit btn">Hủy</button>
+                            <button class="modal-form-update btn">Cập nhật</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="app">
-        <header class="header header-with-search">
-            <img src="{{ asset('img/img-logo.jpg') }}" alt="" class="header-logo" />
-            <div class="header-title">
-                <h1 class="header-main-title">TRƯỜNG ĐẠI HỌC THỦY LỢI</h1>
-                <p class="header-sub-title">THUYLOI UNIVERSITY</p>
-            </div>
-        </header>
-        <div class="content">
-            <div class="content-nav">
-                <div class="content-nav-input">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Tìm kiếm" />
+        <div class="app">
+            <header class="header header-with-search">
+                <img src="{{ asset('img/img-logo.jpg') }}" alt="" class="header-logo" />
+                <div class="header-title">
+                    <h1 class="header-main-title">TRƯỜNG ĐẠI HỌC THỦY LỢI</h1>
+                    <p class="header-sub-title">THUYLOI UNIVERSITY</p>
                 </div>
-                <div class="content-nav-user">
-                    <span>{{ auth()->user()->fullname }}</span>
-                    <i class="fa-regular fa-circle-user"></i>
-                    <div class="user-info">
-                        <div class="user-info-content">
-                            <i class="fa-solid fa-lock"></i>
-                            <span>Đổi mật khẩu</span>
-                        </div>
+            </header>
+            <div class="content">
+                <div class="content-nav">
+                    <div class="content-nav-input">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Tìm kiếm" />
+                    </div>
+                    <div class="content-nav-user">
+                        <span>{{ auth()->user()->fullname }}</span>
+                        <i class="fa-regular fa-circle-user"></i>
+                        <div class="user-info">
+                            <div class="user-info-content">
+                                <i class="fa-solid fa-lock"></i>
+                                <span>Đổi mật khẩu</span>
+                            </div>
 
-                        <div class="user-info-content">
-                            <i class="fa-solid fa-lock"></i>
-                            <span>Đổi mật khẩu</span>
+                            <div class="user-info-content">
+                                <i class="fa-solid fa-lock"></i>
+                                <span>Đổi mật khẩu</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="content-main">
-                <h2 class="content-main-heading">Biểu mẫu của bạn</h2>
-                <div class="content-main-wrap-element">
-                    <a href="#" class="content-main-element">
-                        <div class="content-main-img"></div>
-                        <p class="content-main-sub-img">Tạo mới</p>
-                    </a>
-                    @foreach ($surveys as $survey)
-                        <a href="#" class="content-main-element">
-                            <div class="content-main-img"></div>
-                            <p class="content-main-sub-img">{{ $survey->name }}</p>
-                        </a>
-                    @endforeach
+                <div class="content-main">
+                    <h2 class="content-main-heading">Biểu mẫu của bạn</h2>
+                    <div class="content-main-wrap-element">
+                        <div>
+                            <a href="/survey/create" class="content-main-element content-main-img">
+                                <img src="{{ asset('img/new_survey.jpg') }}" alt="">
+                            </a>
+                            <p class="content-main-sub-img">Tạo mới</p>
+                        </div>
+                        @foreach ($surveys as $survey)
+                            <div>
+                                <a href="#" class="content-main-element content-main-img">
+                                    <img src="{{ asset('img/survey_avt.png') }}" alt="">
+                                </a>
+                                <p class="content-main-sub-img">{{ $survey->name }}</p>
+                            </div>
+                        @endforeach
+                    </div>
+                    {{ $surveys->links() }}
                 </div>
-				{{ $surveys->links() }}
             </div>
         </div>
     </div>

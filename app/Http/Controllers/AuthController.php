@@ -32,7 +32,7 @@ class AuthController extends Controller
     {
         $credentials = $request->only('username', 'password');
         if (auth()->attempt($credentials)) {
-            return route('home');
+            return redirect()->route('home');
         }
         return redirect()->back()->with('error', 'Wrong credentials!');
     }
