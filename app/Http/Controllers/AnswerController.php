@@ -3,65 +3,65 @@
 namespace App\Http\Controllers;
 
 use App\Models\Answer;
-use Illuminate\Http\RedirectResponse;
+use App\Services\AnswerService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class AnswerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index(): Response
+    private $answer_service;
+    private $response;
+
+    public function __construct(AnswerService $answer_service, ResponseService $response)
     {
-        //
+        $this->answer_service = $answer_service;
+        $this->response= $response;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create(): Response
+    public function create(Request $request)
     {
-        //
+        try {
+            $request->validate([
+                'question_id' => 'required',
+                'content' => 'required'
+            ]);
+
+            $this->answer_service->create($request->only('question_id','content'));
+            return $this->response->success('create answer success !');
+        } catch (\Throwable $throw) {
+            return $this->response->error($throw->getMessage());
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request): RedirectResponse
+    public function update(Request $request)
     {
-        //
+        try {
+            $request->validate([
+                'id' => 'required',
+                'question_id' => 'required',
+                'content' => 'required',
+            ]);
+            $answer = Answer::findOrFail($request->id);
+
+            $this->answer_service->update($request->only('question_id','content'));
+
+            return $this->response->success('updated answer success !');
+        } catch (\Throwable $throw) {
+            return $this->response->error($throw->getMessage());
+        }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Answer $answer): Response
+    public function delete(int $id)
     {
-        //
-    }
+        try {
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Answer $answer): Response
-    {
-        //
-    }
+            $answer = Answer::findOrFail($id);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Answer $answer): RedirectResponse
-    {
-        //
-    }
+            $this->answer_service->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Answer $answer): RedirectResponse
-    {
-        //
+            return $this->response->success('delete answer success !');
+        } catch (\Throwable $throw) {
+            return $this->response->error($throw->getMessage());
+        }
     }
 }
