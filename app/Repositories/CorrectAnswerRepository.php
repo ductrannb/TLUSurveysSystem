@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\Question;
+use App\Models\CorrectAnswer;
 use Illuminate\Http\Request;
 
 class CorrectAnswerRepository
