@@ -42,6 +42,7 @@ Route::group([
     'controller' => SurveyController::class
 ], function () {
     Route::get('create', 'index');
+    Route::get('view', 'viewDetail')->name('view_survey');
     Route::post('create', 'create');
     Route::post('update', 'update');
 });
