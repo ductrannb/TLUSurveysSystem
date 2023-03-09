@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\Question;
+use App\Models\Answer;
 use Illuminate\Http\Request;
 
 class AnswerRepository
