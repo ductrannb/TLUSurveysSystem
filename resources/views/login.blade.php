@@ -19,13 +19,25 @@
             <h2 class="title-heading_1 hide-on-mobile-tablet">TRƯỜNG ĐẠI HỌC THỦY LỢI</h2>
             <h2 class="title-heading_2">HỆ THỐNG KHẢO SÁT TRỰC TUYẾN</h2>
             </div>
-            <form class="form_admin" method='POST' action="login">
+            <form class="form_admin" method='POST' action="{{ route('login') }}">
                 @csrf
                 <h1 class="form_admin--title">Đăng Nhập Hệ Thống</h1>
                 <input id="username" class="form_admin--login" type="text" placeholder="Tên đăng nhập" name='username'>
                 <input id="password" class="form_admin--password" type="password" placeholder="Mật khẩu" name='password'>
-                <button class="form_admin--btn">Đăng nhập</button>
-                <a class="forgot-password" href="{{ asset('api/forgot-password') }}">Quên mật khẩu</a>
+                <button type='submit' class="form_admin--btn">Đăng nhập</button>
+                
+                @if (session('error'))
+                {{-- <p class="alert alert-warning">{{ session('error') }}</p> --}}
+                {{-- Code trong đây --}}
+                    <div class="form_admin--failed">
+                        <img class="img-close" src="{{ asset('img/close.png') }}" alt="">
+                        <Span class="warning-failed">Lỗi</Span>
+                        <span class="warning-pw">Tài khoản hoặc mật khẩu không đúng</span>
+                        <span class="warning-retype">Vui lòng nhập lại !</span>
+                        <button class="btn-confirm">Xác nhận</button>
+                    </div>
+                @endif
+                <a class="forgot-password" href="{{ asset('/forgot-password') }}">Quên mật khẩu</a>
             </form>
         </header>
     </div>

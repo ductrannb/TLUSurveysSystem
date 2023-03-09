@@ -1,98 +1,8 @@
-.app{
-      
-}
-.header{
-    position: absolute;
-    width: 100%;
-    height: 120px;
-    left: 0px;
-    top: 0px;
-    background-color: #fff;
-}
-.logo-img{
-    width: 142px;
-    height: 105px;
-    left: 74px;
-    top: 15px;
-    z-index: 10;
-    margin: -2px 0 0 30px;
-    border-radius: 20px;
-}
-.title-heading_1{
-    left: 230px;
-    position: absolute;
-    color: #001373;
-    font-size: 30px;
-    line-height: 36px;
-    font-weight: 700;
-    top: 22px;
-}
-.title-heading_2{
-    position: absolute;
-    left: 230px;
-    color: #007BFF;
-    font-size: 30px;
-    font-weight: 300;
-    letter-spacing: 7px;
-    margin-left: 2px;
-    line-height: 36px;
-    top: 76px;
-}
-.navbar{
-    position: absolute;
-    width: 100%;
-    height: 61px;
-    left: 0px;
-    top: 10px;
-    background: #673AB7;
-}
-.navbar-option{
-    position: absolute;
-    width: 72%;
-    height: 45px;
-    bottom: 0;
-    background: #fff;
-    left: 183px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px 5px 0 0;
-}
-.navbar-title{
-    text-decoration: none;
-    font-weight: 400;
-    font-size: 23px;
-    line-height: 28px;
-    padding: 30px;
-    color: #000;
-}
-.navbar-count{
-    position: absolute;
-    left: 532px;
-    width: 17px;
-    height: 30px;
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 27px;
-    color: #000;
-}
-.navbar-btn{
-    color: #fff;
-    width: 50px;
-    height: 30px;
-    right: 20px;
-    font-size: 16px;
-    position: absolute;
-    background: #673AB7;
-    border-radius: 8px;
-    border: solid 1px #673AB7;
-
-}
 
 .form_option--reply{
     position: absolute;
     width: 72%;
-    height: 2900px;
+    height: 3900px;
     left: 183px;
     top: 180px;
     background:#FFFFFF;;
@@ -265,7 +175,7 @@
     width: 92%;
     height: 0px;
     left: 30px;
-    top: 2200px;
+    top: 2400px;
     border: 1px solid #CECACA;
 }
 .chart-column{
@@ -302,4 +212,8 @@
     right: 0;
     bottom: 0;
     right: 70px;
+}
+.icon-download{
+    font-size: 20px;
+    color: #000;
 }

@@ -14,12 +14,9 @@
             $this->user_repo = $user_repo;
         }
 
-        public function getUser(string $username = null, string $email = null)
+        public function getUser(string $username)
         {
-            if ($username != null) {
-                return $this->user_repo->getUser($username);
-            }
-            return $this->user_repo->getUser($email);
+            return $this->user_repo->getUser($username);
         }
 
         public function getUserByEmail(string $email)

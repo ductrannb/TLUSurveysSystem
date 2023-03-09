@@ -39,25 +39,12 @@
     top: 76px;
 }
 .navbar{
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 61px;
     left: 0px;
     top: 10px;
     background: #673AB7;
-    display: flex;
-    justify-content: center;
-} 
-.navbar-question{
-    position: relative;
-    width: 100%;
-    height: 61px;
-    left: 0px;
-    display: flex;
-    justify-content: center;
-}
-.navbar-question-title {
-    color: #673AB7;
 }
 .navbar-option{
     position: absolute;
@@ -71,17 +58,23 @@
     align-items: center;
     border-radius: 5px 5px 0 0;
 }
-.navbar-title{
+.navbar-titlte{
     text-decoration: none;
     font-weight: 400;
     font-size: 23px;
     line-height: 28px;
-    padding: 0px;
+    padding: 30px;
     color: #000;
-    border: 1px;
-    border-radius: 10px solid #000;
-    background-color: #fff;
-    margin: 50px;
+}
+.navbar-count{
+    position: absolute;
+    left: 532px;
+    width: 17px;
+    height: 30px;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    color: #000;
 }
 .navbar-btn{
     color: #fff;
@@ -119,7 +112,7 @@
     font-size: 40px;
     line-height: 48px;  
     position: absolute;
-    width: 80%;
+    width: 143px;
     height: 48px;
     top: 10px;
     left: 40px;
@@ -131,16 +124,11 @@
 }
 .form_option--description{
     position: absolute;
-    width: 80%;
+    width: 67px;
     height: 23px;
-    left: 50px;
-    top: 120px;
-    border: none;
-    outline: none;
-
-}
-.form_option--description::placeholder{
-    color: #000;
+    left: 40px;
+    top: 100px;
+    border: solid 1px #fff;
 }
 .form_option--email{
     position: absolute;
@@ -161,12 +149,9 @@
 }
 .form_option--input{
     position: relative;
-    width: 300px;
     top: 40px;
     left: -50px;
     border: solid 1px #fff;
-    border: none;
-    outline: none;
 }
 .form_option--description::placeholder{
     color: #000;
@@ -188,23 +173,21 @@
 
 .form_option--heading{
     position: absolute;
-    width: 50%;
-    height: 40px;
+    width: 100px;
+    height: 30px;
     top: 40px;
     left: 30px;
     font-weight: 500;
     font-size: 27px;
     line-height: 33px;
-    border: none;
-    outline: none;
-
+    color: #000000;
 }
-.boder_option--heading{
-    left: 30px;
+.form_option--heading::before{
+    content: '';
     position: absolute;
     width: 600px;
     height: 0px;
-    top:80px;
+    top:30px;
     border: 2px solid #A588D5;
 }
 .form_selection{
@@ -306,15 +289,6 @@
 .dropdown-btn{
     position: absolute;
     top: 14px;
-    left: 50px;
-}
-.dropdown-icon--radio{
-    position: absolute;
-    left: 0;
-    margin-left: 20px;
-}
-.dropdown-icon--radio:hover{
-    transform: scale(1.5);
 }
 .dropdown-icon--down{
     position: absolute;
@@ -335,18 +309,18 @@
     background: #F1EDED;
     border: none;
 }
-.dropdown-menu{
+ul.dropdown-menu{
     width: 26%;
     border: none;
 }
-.dropdown-selection{
+li.dropdown-selection{
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     padding: 15px 68px;
     gap: 10px;
     width: 289px;
-    height: 4   0px;
+    height: 52px;
     background: #FFFFFF;
     flex: none;
     order: 0;
@@ -405,7 +379,17 @@
     transform: scale(1.5);
 }
 
-.form_option--checkbox1{
+.form_option--pharagrap{
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    height: 439px;
+    top: 2050px;
+    background: #FFFFFF;
+    border: 2px solid #E8E7E4;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+}
+.form_option--answer{
     box-sizing: border-box;
     position: absolute;
     width: 100%;
@@ -415,15 +399,39 @@
     border: 2px solid #E8E7E4;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
 }
-.form-option-shortanswer{
+
+.input-answer{
     position: absolute;
-    top: 150px;
-    left: 30px;
-    height: 50px;
-    width: 90%;
-    border: none;
     outline: none;
+    border:none;
+    top: 130px;
+    left: 30px;
 }
-.form-option-shortanswer::placeholder{
-    color:#BDB8B8;
+
+.form_option--answer::before{
+    content: '';
+    top: 170px;
+    position: absolute;
+    width: 90%;
+    left: 30px;
+    height: 0px;
+    border: 1px solid rgba(189, 184, 184, 0.75);
+    transform: rotate(-0.06deg);
+}
+.input-paragraph{
+    position: absolute;
+    outline: none;
+    border:none;
+    top: 130px;
+    left: 30px;
+}
+.form_option--pharagrap::before{
+    content: '';
+    top: 170px;
+    position: absolute;
+    width: 90%;
+    left: 30px;
+    height: 0px;
+    border: 1px solid rgba(189, 184, 184, 0.75);
+    transform: rotate(-0.06deg);
 }

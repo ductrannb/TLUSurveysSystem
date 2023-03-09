@@ -21,7 +21,7 @@
         </header>
         <div class="img-tlu">
             <img class="img-bg" src="{{ asset('img/img_form-survey.jpg') }}" alt="">
-            <form class="recovery-password" method="POST" action="/api/reset-password">
+            <form class="recovery-password" method="POST" action="{{route('password.update')}}">
                 @csrf
                 <input type='hidden' name='token' value="{{$token}}">
                 <input type='hidden' name='email' value="{{$_GET['email']}}">

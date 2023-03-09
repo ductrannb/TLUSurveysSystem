@@ -12,27 +12,29 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Throwable;
+use App\Ultis\CookieEditor;
 
 class AuthController extends Controller
 {
-    private $user_service;
+    private $user_ctl;
     private $response_service;
+    private $cookie_editor;
 
-    public function __construct(UserService $user_service, ResponseService $response_service)
+    public function __construct(UserController $user_ctl, ResponseService $response_service, CookieEditor $cookie_editor)
     {
-        $this->middleware('auth:api', ['except' => ['login', 'resetPassword', 'forgotPassword']]);
-        $this->user_service = $user_service;
+        // $this->middleware('auth:api', ['except' => ['login', 'resetPassword', 'forgotPassword']]);
+        $this->user_ctl = $user_ctl;
         $this->response_service = $response_service;
+        $this->cookie_editor = $cookie_editor;
     }
 
     public function login(Request $request)
     {
-        // dd(Hash::make($request->password));
         $credentials = $request->only('username', 'password');
-        if (!$token = auth()->attempt($credentials)) {
-            return $this->response_service->error('Unauthenticate');
+        if (auth()->attempt($credentials)) {
+            return route('home');
         }
-        return $this->respondWithToken($token);
+        return redirect()->back()->with('error', 'Wrong credentials!');
     }
 
     public function me()
@@ -69,10 +71,11 @@ class AuthController extends Controller
             $status = Password::sendResetLink(
                 $request->only('email')
             );
-
-            return $status === Password::RESET_LINK_SENT
+            // dd($request->only('email'),$status);
+            $status === Password::RESET_LINK_SENT
             ? back()->with(['status' => __($status)])
             : back()->withErrors(['email' => __($status)]);
+            return redirect()->route('password.request'); 
 
         } catch (Throwable $throw) {
             return $this->response_service->error($throw->getMessage());
@@ -85,7 +88,7 @@ class AuthController extends Controller
             $request->validate([
                 'token' => 'required',
                 'email' => 'required|email',
-                'password' => 'required|min:8|confirmed',
+                'password' => 'required|confirmed',
             ]);
 
             $status = Password::reset(
@@ -103,7 +106,7 @@ class AuthController extends Controller
             ? redirect()->route('login')->with('status', __($status))
             : back()->withErrors(['email' => [__($status)]]);
         } catch (Throwable $throw) {
-            return $this->response_service->error($throw->getMessage());
+            return redirect()->back();
         }   
     }
 }
