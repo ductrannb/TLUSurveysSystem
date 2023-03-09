@@ -3,65 +3,65 @@
 namespace App\Http\Controllers;
 
 use App\Models\CorrectAnswer;
-use Illuminate\Http\RedirectResponse;
+use App\Services\CorrectAnswerService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class CorrectAnswerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index(): Response
+    private $correct_answer_service;
+    private $response;
+
+    public function __construct(CorrectAnswerService $correct_answer_service, ResponseService $response)
     {
-        //
+        $this->correct_answer_service = $correct_answer_service;
+        $this->response= $response;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create(): Response
+    public function create(Request $request)
     {
-        //
+        try {
+            $request->validate([
+                'question_id' => 'required',
+                'content' => 'required'
+            ]);
+
+            $this->correct_answer_service->create($request->only('question_id','content'));
+            return $this->response->success('create CorrectAnswer success !');
+        } catch (\Throwable $throw) {
+            return $this->response->error($throw->getMessage());
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request): RedirectResponse
+    public function update(Request $request)
     {
-        //
+        try {
+            $request->validate([
+                'id' => 'required',
+                'question_id' => 'required',
+                'content' => 'required',
+            ]);
+            $correct_answer = CorrectAnswer::findOrFail($request->id);
+
+            $this->correct_answer_service->update($request->only('question_id','content'));
+
+            return $this->response->success('updated CorrectAnswer success !');
+        } catch (\Throwable $throw) {
+            return $this->response->error($throw->getMessage());
+        }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(CorrectAnswer $correctAnswer): Response
+    public function delete(int $id)
     {
-        //
-    }
+        try {
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(CorrectAnswer $correctAnswer): Response
-    {
-        //
-    }
+            $correct_answer = CorrectAnswer::findOrFail($id);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, CorrectAnswer $correctAnswer): RedirectResponse
-    {
-        //
-    }
+            $this->correct_answer_service->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(CorrectAnswer $correctAnswer): RedirectResponse
-    {
-        //
+            return $this->response->success('delete CorrectAnswer success !');
+        } catch (\Throwable $throw) {
+            return $this->response->error($throw->getMessage());
+        }
     }
 }
