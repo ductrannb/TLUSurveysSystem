@@ -85,10 +85,12 @@
                         <p class="content-main-sub-img">Tạo mới</p>
                     </a>
                     @foreach ($surveys as $survey)
+                    <div>
                         <a href="#" class="content-main-element">
                             <div class="content-main-img"></div>
-                            <p class="content-main-sub-img">{{ $survey->name }}</p>
                         </a>
+                        <p class="content-main-sub-img">{{ $survey->name }}</p>
+                    </div>
                     @endforeach
                 </div>
 				{{ $surveys->links() }}
