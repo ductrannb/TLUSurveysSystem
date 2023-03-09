@@ -18,4 +18,12 @@ class QuestionService
         return $this->question_repo->create($data);
     }
 
+    public function update(array $data)
+    {
+        return $this->question_repo->update($data);
+    }
+    public function delete(int $data)
+    {
+        return $this->question_repo->delete($data);
+    }
 }
