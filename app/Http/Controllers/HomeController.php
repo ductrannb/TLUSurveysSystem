@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $surveys = Survey::where('user_id', auth()->user()->id)->simplePaginate(3);
+        $surveys = Survey::where('user_id', auth()->user()->id)->paginate(3);
         return view('home', ['surveys' => $surveys]);
     }
 }
