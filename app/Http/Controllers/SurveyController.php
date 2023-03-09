@@ -14,9 +14,14 @@ class SurveyController extends Controller
 
     public function __construct(SurveyService $survey_service, ResponseService $response)
     {
-        $this->middleware('auth:api');
+        $this->middleware('auth');
         $this->survey_service = $survey_service;
         $this->response= $response;
+    }
+
+    public function index() 
+    {
+        return view('new_surveys');    
     }
 
     public function create(Request $request)
