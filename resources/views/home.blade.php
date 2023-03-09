@@ -90,7 +90,7 @@
                         @foreach ($surveys as $survey)
                             <div>
                                 <a href="#" class="content-main-element content-main-img">
-                                    <img src="{{ asset('img/new_survey.jpg') }}" alt="">
+                                    <img src="{{ asset('img/survey_avt.png') }}" alt="">
                                 </a>
                                 <p class="content-main-sub-img">{{ $survey->name }}</p>
                             </div>
