@@ -53,3 +53,11 @@ Route::group([
     Route::get('/', 'index');
     Route::post('create', 'create');
 });
+
+Route::get('newform',function(){
+    return view('newform');
+});
+
+Route::get('report', function () {
+    return view('form_report');
+});
