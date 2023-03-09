@@ -3,65 +3,68 @@
 namespace App\Http\Controllers;
 
 use App\Models\Question;
-use Illuminate\Http\RedirectResponse;
+use App\Services\QuestionService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class QuestionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index(): Response
+    private $question_service;
+    private $response;
+
+    public function __construct(QuestionService $question_service, ResponseService $response)
     {
-        //
+        $this->question_service = $question_service;
+        $this->response= $response;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create(): Response
+    public function create(Request $request)
     {
-        //
+        try {
+            $request->validate([
+                'content' => 'required',
+                'type' => 'required'
+            ]);
+
+            $this->question_service->create($request->only('survey_id','content','type','essay_correct_answer'));
+            return $this->response->success('create question success !');
+        } catch (\Throwable $throw) {
+            return $this->response->error($throw->getMessage());
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request): RedirectResponse
+    public function update(Request $request)
     {
-        //
+        try {
+            $request->validate([
+                'id' => 'required',
+                'content' => 'required',
+                'type' => 'required',
+                'essay_correct_answer'
+            ]);
+            $question = Question::findOrFail($request->id);
+
+            $this->question_service->update($request->only('content','type','essay_correct_answer'));
+
+            return $this->response->success('updated question success !');
+        } catch (\Throwable $throw) {
+            return $this->response->error($throw->getMessage());
+        }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(QuestionController $questionController): Response
+    public function delete(int $id)
     {
-        //
-    }
+        try {
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(QuestionController $questionController): Response
-    {
-        //
-    }
+            $question = Question::findOrFail($id);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, QuestionController $questionController): RedirectResponse
-    {
-        //
-    }
+            $this->question_service->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(QuestionController $questionController): RedirectResponse
-    {
-        //
+            // Question::destroy($id);
+
+            return $this->response->success('delete Question success !');
+        } catch (\Throwable $throw) {
+            return $this->response->error($throw->getMessage());
+        }
     }
 }
