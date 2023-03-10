@@ -37,7 +37,7 @@ Route::get('/reset-password/{token}', function ($token) {
     return view('reset_password', ['token' => $token]);
 })->name('password.reset');
 
-Route::post('/reset-password', [AuthController::class,'resetPassword'])->name('password.update');
+Route::post('/reset-password', [AuthController::class, 'resetPassword'])->name('password.update');
 
 Route::group([
     'prefix' => 'survey',
@@ -57,7 +57,7 @@ Route::group([
     Route::post('create', 'create');
 });
 
-Route::get('newform',function(){
+Route::get('newform', function () {
     return view('new_surveys');
 });
 
