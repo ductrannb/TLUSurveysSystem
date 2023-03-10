@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->middleware('auth')->name('home');
+Route::post('/', [HomeController::class, 'search'])->middleware('auth')->name('home2');
+
 
 Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::get('login', function () {

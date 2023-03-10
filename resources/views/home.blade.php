@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -59,8 +61,14 @@
             <div class="content">
                 <div class="content-nav">
                     <div class="content-nav-input">
+                        {{-- <form class="form_admin" method='POST' action="{{ route('home2') }}">
+                            @csrf --}}
+                        @csrf
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" placeholder="Tìm kiếm" />
+                        <input type="text" placeholder="Tìm kiếm" name='name' id='name' />
+                        <div id='form_list'></div>
+                        {{-- <input type="submit"/>
+                       </form> --}}
                     </div>
                     <div class="content-nav-user">
                         <span>{{ auth()->user()->fullname }}</span>
@@ -89,10 +97,12 @@
                         </div>
                         @foreach ($surveys as $survey)
                             <div>
-                                <a href="{{route('view_survey', ['id'=>$survey->id])}}" class="content-main-element content-main-img">
+                                <a href="{{ route('view_survey', ['id' => $survey->id]) }}"
+                                    class="content-main-element content-main-img">
                                     <img src="{{ asset('img/survey_avt.png') }}" alt="">
+                                    <p class="content-main-sub-img">{{ $survey->name }}</p>
+
                                 </a>
-                                <p class="content-main-sub-img">{{ $survey->name }}</p>
                             </div>
                         @endforeach
                     </div>
@@ -104,3 +114,34 @@
 </body>
 
 </html>
+<script>
+    $(document).ready(function() {
+
+        $('#name').keyup(function() {
+            var query = $(this).val();
+            if (query != '') {
+                var _token = $('input[name="_token"]').val();
+                $.ajax({
+                    url: "{{ route('home2') }}",
+                    method: "POST",
+                    data: {
+                        query: query,
+                        _token: _token
+                    },
+                    success: function(data) {
+                        $('#form_list').fadeIn();
+                        $('#form_list').html(
+                            data
+                        );
+                    }
+                });
+            }
+        });
+
+        $(document).on('click', 'li', function() {
+            $('#name').val($(this).text());
+            $('#form_list').fadeOut();
+        });
+
+    });
+</script>
