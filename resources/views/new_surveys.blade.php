@@ -62,10 +62,10 @@
             <h2 class="title-heading_2">THUY LOI UNIVERSITY</h2>
            <div class="navbar"> 
             <div class="navbar-option ">
-                <button class="navbar-title tablinks" onclick="openTabs(event, 'Question')">Câu hỏi</button>
-                <button class="navbar-title tablinks" onclick="openTabs(event, 'Reply')">Câu trả lời</button>
-                <button class="navbar-title tablinks" onclick="openTabs(event, 'Setting')">Cài đặt</button>
-                <button class="navbar-btn tablinks" onclick="openTabs(event,'Send')">Gửi</button>
+                <button type="button" class="navbar-title tablinks" onclick="openTabs(event, 'Question')">Câu hỏi</button>
+                <button type="button" class="navbar-title tablinks" onclick="openTabs(event, 'Reply')">Câu trả lời</button>
+                <button type="button" class="navbar-title tablinks" onclick="openTabs(event, 'Setting')">Cài đặt</button>
+                <button type="button" class="navbar-btn tablinks" onclick="openTabs(event,'Send')">Gửi</button>
             </div>
            </div>
                
@@ -80,7 +80,7 @@
     
             <form class="form_option--selection" action="">
                 <input class="form_option--heading" placeholder="Câu hỏi">
-                <div class="boder_option--heading"></div>
+                
                 <div class="form_selection">
                     <div class="form_selection--cancel">
                         <i class="fa-solid fa-xmark option-cancel"></i><br>
@@ -111,16 +111,16 @@
                     </button>
                    
                     <div class="dropdown-menu ">
-                    <button  class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'ShortAnswer')"> Trả lời ngắn</button>
-                    <button  class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'Paragraph')"> Đoạn</button>
-                    <button  class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'Multiple')"> Trắc nghiệm</button>
-                    <button  class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'CheckBox')"> Hộp kiếm</button>
+                    <button type="button" class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'ShortAnswer')"> Trả lời ngắn</button>
+                    <button type="button" class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'Paragraph')"> Đoạn</button>
+                    <button type="button" class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'Multiple')"> Trắc nghiệm</button>
+                    <button type="button" class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'CheckBox')"> Hộp kiếm</button>
                     </div>
                 </div>
                 </form>
               
              </div>
-             <form class="form_option--tool" action="">
+             <form id="tool" class="form_option--tool active" action="">
                 <img class="tool-circle" src="./img/tool1.png" alt="">
                 <img class="tool-plus" src="./img/tool2.png" alt="">
                 <i  class="fa-solid fa-image toll-img"></i>
@@ -137,7 +137,7 @@
   
             <form class="form_option--selection" action="">
               <input class="form_option--heading" placeholder="Câu hỏi">
-              <div class="boder_option--heading"></div>
+
               <div class="form_selection">
                   <div class="form_selection--cancel">
                       <i class="fa-solid fa-xmark option-cancel"></i><br>
@@ -168,22 +168,22 @@
                   </button>
                  
                   <div class="dropdown-menu ">
-                    <button  class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'ShortAnswer')"> Trả lời ngắn</button>
-                    <button  class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'Paragraph')"> Đoạn</button>
-                    <button  class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'Multiple')"> Trắc nghiệm</button>
-                    <button  class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'CheckBox')"> Hộp kiếm</button>
+                    <button type="button" class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'ShortAnswer')"> Trả lời ngắn</button>
+                    <button type="button" class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'Paragraph')"> Đoạn</button>
+                    <button type="button" class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'Multiple')"> Trắc nghiệm</button>
+                    <button type="button" class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'CheckBox')"> Hộp kiếm</button>
                     </div>
               </div>
           </form>
      </div>
-     <form class="form_option--tool" action="">
+     <form  class=" form_option--tool" action="">
         <img class="tool-circle" src="./img/tool1.png" alt="">
         <img class="tool-plus" src="./img/tool2.png" alt="">
         <i  class="fa-solid fa-image toll-img"></i>
     </form>
   </div>
   
-  <div id="Reply" class="tabcontent">
+  <div id="Reply"  class="tabcontent">
     <div class="form_option--reply" action="">
         <h1 class="title-heading">Câu trả lời</h1>
         <h2 class="title-list">Danh sách</h2>
@@ -234,7 +234,7 @@
         </div>
   </div>
   
-  <div id="Setting" class="tabcontent">
+  <div onclick="close()" id="Setting" class="tabcontent">
     <form class="form_option--setting" action="">
         <h1 class="form_option--title">Cài đặt</h1>
         <p class="oder-title">Đặt làm bài kiểm tra</p>
@@ -267,7 +267,7 @@
 
         <form class="form_option--selection" action="">
             <input class="form_option--heading" placeholder="Câu hỏi">
-            <div class="boder_option--heading"></div>
+            
             <input class="form-option-shortanswer" type="" placeholder="Văn bản trả lời ngắn">
             <div class="form_option--btn">
                 <p class="form_option--require">Bắt buộc</p>
@@ -284,10 +284,10 @@
                 </button>
                
                 <div class="dropdown-menu ">
-                    <button  class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'')"> Trả lời ngắn</button>
-                    <button  class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'')"> Đoạn</button>
-                    <button  class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'')"> Trắc nghiệm</button>
-                    <button  class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'')"> Hộp kiếm</button>
+                    <button type="button" class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'ShortAnswer')"> Trả lời ngắn</button>
+                    <button type="button" class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'Paragraph')"> Đoạn</button>
+                    <button type="button" class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'Multiple')"> Trắc nghiệm</button>
+                    <button type="button" class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'CheckBox')"> Hộp kiếm</button>
                     </div>
             </div>
             </form>
@@ -307,7 +307,7 @@
     
             <form class="form_option--selection" action="">
                 <input class="form_option--heading" placeholder="Câu hỏi">
-                <div class="boder_option--heading"></div>
+                
                 <div class="form_selection">
                     <div class="form_selection--cancel">
                         <i class="fa-solid fa-xmark option-cancel"></i><br>
@@ -338,10 +338,10 @@
                     </button>
                    
                     <div class="dropdown-menu ">
-                        <button  class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'')"> Trả lời ngắn</button>
-                        <button  class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'')"> Đoạn</button>
-                        <button  class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'')"> Trắc nghiệm</button>
-                        <button  class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'')"> Hộp kiếm</button>
+                        <button type="button" class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'ShortAnswer')"> Trả lời ngắn</button>
+                        <button type="button" class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'Paragraph')"> Đoạn</button>
+                        <button type="button" class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'Multiple')"> Trắc nghiệm</button>
+                        <button type="button" class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'CheckBox')"> Hộp kiếm</button>
                         </div>
                 </div>
                 </form>
@@ -361,17 +361,17 @@
         
                 <form class="form_option--selection" action="">
                     <input class="form_option--heading" placeholder="Câu hỏi">
-                    <div class="boder_option--heading"></div>
+                   
                     <div class="form_selection">
                         <div class="form_selection--cancel">
                             <i class="fa-solid fa-xmark option-cancel"></i><br>
                             <i class="fa-solid fa-xmark "></i>
                         </div>
                         
-                        <input class="form_selection--one" type="radio"> Tuỳ chọn 1 <br>
-                        <input class="form_selection--two" type="radio"> Tùy chọn 2   
+                        <input class="form_selection--one" type="checkbox"> Tuỳ chọn 1 <br>
+                        <input class="form_selection--two" type="checkbox"> Tùy chọn 2   
                        <div class="form_option--add">
-                        <input class="form_selection--three" type="radio"> 
+                        <input class="form_selection--three" type="checkbox"> 
                         <a class="form-add form-add-selection"> Thêm tùy chọn </a>
                         <span class="form-add">hoặc</span> 
                         <a href="" class="form-add form-add-reply"> thêm"Câu trả lời khác"</a>
@@ -392,10 +392,10 @@
                         </button>
                        
                         <div class="dropdown-menu ">
-                            <button  class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'')"> Trả lời ngắn</button>
-                            <button  class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'')"> Đoạn</button>
-                            <button  class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'')"> Trắc nghiệm</button>
-                            <button  class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'')"> Hộp kiếm</button>
+                            <button type="button" class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'ShortAnswer')"> Trả lời ngắn</button>
+                            <button type="button" class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'Paragraph')"> Đoạn</button>
+                            <button type="button" class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'Multiple')"> Trắc nghiệm</button>
+                            <button type="button" class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'CheckBox')"> Hộp kiếm</button>
                             </div>
                     </div>
                     </form>
@@ -415,7 +415,7 @@
             
                     <form class="form_option--selection" action="">
                         <input class="form_option--heading" placeholder="Câu hỏi">
-                        <div class="boder_option--heading"></div>
+                      
                         <input class="form-option-shortanswer" type="" placeholder="Văn bản trả lời dài">
                         <div class="form_option--btn">
                             <p class="form_option--require">Bắt buộc</p>
@@ -432,10 +432,10 @@
                             </button>
                            
                             <div class="dropdown-menu ">
-                                <button  class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'')"> Trả lời ngắn</button>
-                                <button  class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'')"> Đoạn</button>
-                                <button  class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'')"> Trắc nghiệm</button>
-                                <button  class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'')"> Hộp kiếm</button>
+                                <button type="button" class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'ShortAnswer')"> Trả lời ngắn</button>
+                                <button type="button" class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'Paragraph')"> Đoạn</button>
+                                <button type="button" class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'Multiple')"> Trắc nghiệm</button>
+                                <button type="button" class="dropdown-item dropdown-selection tablinks" onclick="openTabs(event,'CheckBox')"> Hộp kiếm</button>
                                 </div>
                         </div>
                         </form>

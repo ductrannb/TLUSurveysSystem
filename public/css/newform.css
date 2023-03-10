@@ -229,15 +229,7 @@
     height: 0px;
     border: 1px solid rgba(189, 184, 184, 0.75);
 }
-.form_selection::after{
-    content: '';
-    position: absolute;
-    width: 700px;
-    height: 0px;
-    top: 116px;
-    left: 20px;
-    border: 2px solid #000000;
-}
+
 
 .form_option--add{
     display: flex;
@@ -363,6 +355,7 @@
     background: #FFFFFF;
     border: 1px solid #D9D9D9;
     border-radius: 6px;
+    display: none;
 }
 .tool-circle,
  .tool-plus{
@@ -426,4 +419,7 @@
 }
 .form-option-shortanswer::placeholder{
     color:#BDB8B8;
+}
+.active{
+    display: block;
 }
