@@ -250,40 +250,43 @@ html {
 }
 
 .content-main {
-    padding-left: 220px;
     padding-top: 40px;
 }
 
 .content-main-heading {
     font-size: 28px;
+    padding-left: 220px;
+    font-weight: 400;
 }
 
 .content-main-wrap-element {
-    padding-top: 10px;
+    padding-top: -20px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
+    width: 80%;
+    margin: 0 auto;
 }
 
-.content-main-element {
-    padding-top: 30px;
-    text-decoration: none;
-    width: 25%;
-    color: #000;
+.content-link-item {
+    width: 182px;
+    margin: 50px 60px 0 60px;
 }
 
 .content-main-img {
+    margin-bottom: 10px;
+    width: 100%;
     border-radius: 10px;
-    width: 182px;
-    height: 182px;
     background: top center / cover no-repeat url(../img/logo.jpg);
 }
 
 .content-main-sub-img {
     font-size: 15px;
-    padding-top: 10px;
-    max-width: 182px;
+    margin-top: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .redirect {
@@ -316,4 +319,34 @@ html {
 
 .link i {
     font-size: 15px;
+}
+
+/* Pagination */
+nav {
+    background-color: #fff;
+    padding-top: 20px;
+}
+
+.pagination {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-item {
+    width: 40px;
+    height: 40px;
+    margin: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 18px;
+    border: 1px solid #cecaca;
+}
+
+.page-link {
+    text-decoration: none;
+    padding: 14px;
 }

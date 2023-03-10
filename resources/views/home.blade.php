@@ -34,13 +34,13 @@
                     </div>
                     <div class="modal-form">
                         <label for="1">Mật khẩu hiện thời</label>
-                        <input type="text" id="1" />
+                        <input type="text" name="password" id="1" />
 
                         <label for="2">Mật khẩu mới</label>
-                        <input type="text" id="2" />
+                        <input type="password" name="new_password" id="2" />
 
                         <label for="3">Nhập lại mật khẩu</label>
-                        <input type="text" id="3" />
+                        <input type="password" name="re_confirm" id="3" />
 
                         <div class="modal-form-btn">
                             <button class="modal-form-quit btn">Hủy</button>
@@ -89,26 +89,25 @@
                 <div class="content-main">
                     <h2 class="content-main-heading">Biểu mẫu của bạn</h2>
                     <div class="content-main-wrap-element">
-                        <div>
-                            <a href="/survey/create" class="content-main-element content-main-img">
-                                <img src="{{ asset('img/new_survey.jpg') }}" alt="">
+                        <div class="content-link-item">
+                            <a href="/survey/create" class="content-main-element">
+                                <img class=" content-main-img" src="{{ asset('img/new_survey.jpg') }}" alt="">
                             </a>
                             <p class="content-main-sub-img">Tạo mới</p>
                         </div>
                         @foreach ($surveys as $survey)
-                            <div>
-                                <a href="{{ route('view_survey', ['id' => $survey->id]) }}"
-                                    class="content-main-element content-main-img">
-                                    <img src="{{ asset('img/survey_avt.png') }}" alt="">
-                                    <p class="content-main-sub-img">{{ $survey->name }}</p>
-
+                            <div class="content-link-item">
+                                <a href="{{route('view_survey', ['user_id'=>auth()->id(),'id'=>$survey->id])}}" class="content-main-element">
+                                    <img class="content-main-img" src="{{ asset('img/survey_avt.png') }}" alt="">
                                 </a>
+                                
+                                <p class="content-main-sub-img">{{ $survey->name }}</p>
                             </div>
                         @endforeach
                     </div>
-                    {{ $surveys->links() }}
                 </div>
             </div>
+            {{ $surveys->links() }}
         </div>
     </div>
 </body>
