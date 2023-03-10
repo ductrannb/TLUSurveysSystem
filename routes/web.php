@@ -56,7 +56,7 @@ Route::group([
 });
 
 Route::get('newform',function(){
-    return view('newform');
+    return view('new_surveys');
 });
 
 Route::get('report', function () {
