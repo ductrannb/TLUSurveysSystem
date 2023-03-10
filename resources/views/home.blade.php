@@ -34,13 +34,13 @@
                     </div>
                     <div class="modal-form">
                         <label for="1">Mật khẩu hiện thời</label>
-                        <input type="text" id="1" />
+                        <input type="text" name="password" id="1" />
 
                         <label for="2">Mật khẩu mới</label>
-                        <input type="text" id="2" />
+                        <input type="password" name="new_password" id="2" />
 
                         <label for="3">Nhập lại mật khẩu</label>
-                        <input type="text" id="3" />
+                        <input type="password" name="re_confirm" id="3" />
 
                         <div class="modal-form-btn">
                             <button class="modal-form-quit btn">Hủy</button>
@@ -97,7 +97,7 @@
                         </div>
                         @foreach ($surveys as $survey)
                             <div class="content-link-item">
-                                <a href="{{route('view_survey', ['id'=>$survey->id])}}" class="content-main-element">
+                                <a href="{{route('view_survey', ['user_id'=>auth()->id(),'id'=>$survey->id])}}" class="content-main-element">
                                     <img class="content-main-img" src="{{ asset('img/survey_avt.png') }}" alt="">
                                 </a>
                                 

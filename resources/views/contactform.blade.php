@@ -16,7 +16,7 @@
 <body>
     <div class="app">
         <header class="header">
-            <img src="./assets/img/logo.jpg" alt="" class="header-logo" />
+            <img src="{{ asset('/img/img-logo.jpg') }}" alt="" class="header-logo" />
             <div class="header-title">
                 <h1 class="header-main-title">TRƯỜNG ĐẠI HỌC THỦY LỢI</h1>
                 <p class="header-sub-title">THUYLOI UNIVERSITY</p>

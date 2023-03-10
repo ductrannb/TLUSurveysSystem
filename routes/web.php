@@ -62,5 +62,13 @@ Route::get('newform', function () {
 });
 
 Route::get('report', function () {
-    return view('form_report');
+    return view('responseform');
+});
+
+Route::get('review', function () {
+    return view('reviewform');
+});
+
+Route::get('contact', function () {
+    return view('contactform');
 });
