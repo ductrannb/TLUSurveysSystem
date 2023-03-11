@@ -19,6 +19,11 @@ class ResultController extends Controller
         $this->response= $response;
     }
 
+    public function index(Request $request)
+    {
+        return view('contactform');
+    }
+
     public function create(Request $request)
     {
         try {

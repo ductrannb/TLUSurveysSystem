@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SurveyController;
+use App\Http\Controllers\ResultController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,6 +49,7 @@ Route::group([
     Route::get('view', 'viewDetail')->name('view_survey');
     Route::post('create', 'create');
     Route::post('update', 'update');
+    
 });
 
 Route::group([
@@ -69,6 +72,9 @@ Route::get('review', function () {
     return view('reviewform');
 });
 
-Route::get('contact', function () {
-    return view('contactform');
+Route::group([
+    'prefix' => 'result',
+    'controller' => ResultController::class
+], function () {
+    Route::get('/','index');
 });
