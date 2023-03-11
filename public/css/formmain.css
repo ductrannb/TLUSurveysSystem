@@ -30,6 +30,52 @@ html {
     border-radius: 10px;
     background-color: #fff;
     position: absolute;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.password-notify {
+    width: 313px;
+    height: 200px;
+    background: #ffffff;
+    border-radius: 16px;
+    position: absolute;
+    z-index: 100;
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.password-notify.active {
+    display: flex;
+}
+
+.password-notify-icon {
+    font-size: 40px;
+    color: #52ff7f;
+}
+
+.password-notify-title {
+    font-weight: 300;
+    font-size: 15px;
+    text-align: center;
+    max-width: 274px;
+    color: #52ff7f;
+}
+
+.password-notify-btn {
+    background-color: #76c376;
+    border: none;
+    font-size: 12px;
+    padding: 10px 6px;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.overlay.active {
+    display: flex;
 }
 
 .modal-header span {
@@ -109,6 +155,7 @@ html {
     color: #fff;
     border-radius: 5px;
     padding: 7px 10px;
+    cursor: pointer;
 }
 
 .modal-form-quit {
@@ -219,6 +266,16 @@ html {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    border-radius: 3px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.content-nav-user:hover #user-info {
+    display: flex;
+}
+
+.user-info.active {
+    display: flex;
 }
 
 .user-info::after {
@@ -231,6 +288,15 @@ html {
     top: 50%;
 }
 
+.user-info-content {
+    padding: 16px 30px;
+}
+
+.user-info-content:hover {
+    background-color: rgba(228, 228, 228, 0.93);
+    transition: 0.2s linear;
+}
+
 .user-info-content i {
     font-size: 20px;
     padding-right: 30px;
@@ -240,9 +306,24 @@ html {
     font-size: 18px;
 }
 
+#user-title {
+    position: relative;
+}
+
+.content-nav-user::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 20px;
+    right: 0;
+    top: 24px;
+}
+
 .content-nav-user span {
     font-size: 18px;
     padding-right: 20px;
+    user-select: none;
 }
 
 .content-nav-user i {
