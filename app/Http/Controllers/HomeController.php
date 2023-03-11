@@ -16,11 +16,10 @@ class HomeController extends Controller
 
     public function search(Request $request)
     {
-        if($request->get('query'))
-        {
+        if ($request->get('query')) {
             $query = $request->get('query');
-            $surveys = Survey::where('user_id', auth()->user()->id)->where('name','like','%'.$query.'%')->paginate(7);
+            $surveys = Survey::where('user_id', auth()->user()->id)->where('name', 'like', '%' . $query . '%')->paginate(7);
         }
-       return $surveys;
+        return $surveys;
     }
 }
