@@ -127,20 +127,33 @@
                         query: query,
                         _token: _token
                     },
-                    success: function(data) {
-                        $('#form_list').fadeIn();
-                        $('#form_list').html(
-                            data
-                        );
+                    success: function(get_data) {
+                        // $('#form_list').fadeIn();
+                        // $('#form_list').html(
+                        //     data
+                        // );
+                        data = get_data.data
+                        output = '';
+                        output += '<ul';
+                        for (value in data) {
+                            output += '<li> <a style="color:red;" href = "survey/view?id=' +
+                                data[value].id +
+                                '"> ' +
+                                data[value].name +
+                                '</a></li>'
+                        }
+                        output += '</ul>';
+                        $('#form_list').html(output);
                     }
                 });
             }
         });
 
-        $(document).on('click', 'li', function() {
-            $('#name').val($(this).text());
-            $('#form_list').fadeOut();
-        });
+
+        // $(document).on('click', 'li', function() {
+        //     $('#name').val($(this).text());
+        //     $('#form_list').fadeOut();
+        // });
 
     });
 </script>

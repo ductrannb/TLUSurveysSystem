@@ -19,17 +19,8 @@ class HomeController extends Controller
         if($request->get('query'))
         {
             $query = $request->get('query');
-
             $surveys = Survey::where('user_id', auth()->user()->id)->where('name','like','%'.$query.'%')->paginate(7);
-            $output = '<ul';
-            foreach($surveys as $row)
-            {
-               $output .= '
-               <li><a href="survey/view?id='. $row->id .'">'.$row->name.'</a></li>
-               ';
-            }
-            $output .= '</ul>';
-            echo $output;
-       }
+        }
+       return $surveys;
     }
 }
