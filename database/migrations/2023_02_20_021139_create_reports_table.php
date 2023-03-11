@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('survey_id');
             $table->longText('content');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('survey_id')->references('id')->on('surveys');
             $table->timestamps();
             $table->softDeletes();
         });
