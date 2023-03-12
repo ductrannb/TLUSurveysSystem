@@ -1,6 +1,6 @@
-.app{   
-    
- 
+.app{
+
+
 }
 .header{
     width: 1300px;
@@ -8,7 +8,8 @@
     min-height: 100%;
 }
 .bg-img{
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
 }
 .logo-img{
     width: 13%;
@@ -151,7 +152,7 @@
     top: 80px;
     border-radius: 20px;
     display: none;
-    
+
 }
 .img-close{
     position: absolute;
