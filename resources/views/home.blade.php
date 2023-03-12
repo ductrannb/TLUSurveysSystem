@@ -92,8 +92,10 @@
                             </div>
 
                             <div class="user-info-content">
-                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                                <span>Đăng xuất</span>
+                                <a href="/logout">
+                                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                    <span>Đăng xuất</span>
+                                </a>
                             </div>
                         </div>
                     </div>
