@@ -41,6 +41,9 @@ Route::get('/reset-password/{token}', function ($token) {
 
 Route::post('/reset-password', [AuthController::class, 'resetPassword'])->name('password.update');
 
+Route::post('/update-password', [AuthController::class, 'updatePassword'])->name('password.update2');
+
+
 Route::group([
     'prefix' => 'survey',
     'controller' => SurveyController::class
