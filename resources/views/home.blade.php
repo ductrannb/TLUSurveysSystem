@@ -38,19 +38,22 @@
                         <i class="fa-solid fa-lock"></i>
                     </div>
                     <div class="modal-form">
-                        <label for="1">Mật khẩu hiện thời</label>
-                        <input type="text" name="password" id="1" />
+                        <form method='POST' action="{{ route('password.update2') }}">
+                            @csrf
+                            <label for="1">Mật khẩu hiện thời</label>
+                            <input type="text" name="old_password" id="1" />
 
-                        <label for="2">Mật khẩu mới</label>
-                        <input type="password" name="new_password" id="2" />
+                            <label for="2">Mật khẩu mới</label>
+                            <input type="password" name="password" id="2" />
 
-                        <label for="3">Nhập lại mật khẩu</label>
-                        <input type="password" name="re_confirm" id="3" />
+                            <label for="3">Nhập lại mật khẩu</label>
+                            <input type="password" name="password_confirmation" id="3" />
 
-                        <div class="modal-form-btn">
-                            <button class="modal-form-quit btn">Hủy</button>
-                            <button class="modal-form-update btn">Cập nhật</button>
-                        </div>
+                            <div class="modal-form-btn">
+                                <button class="modal-form-quit btn">Hủy</button>
+                                <button class="modal-form-update btn" type="submit">Cập nhật</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

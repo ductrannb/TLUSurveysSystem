@@ -109,4 +109,30 @@ class AuthController extends Controller
             return redirect()->back();
         }
     }
+
+    public function updatePassword(Request $request){
+        try {
+            $request->validate([
+                'old_password' => 'required',
+                'password' => 'required|confirmed'
+            ]);
+// dd($request->password, auth()->user()->password);
+            if (!Hash::check($request->old_password,auth()->user()->password)) {
+                // return redirect()->back();
+                return response()->json(['message'=>'wrong password']);
+            }
+
+            auth()->user()->update(['password'=>Hash::make($request->password)]);
+
+            auth()->user()->save();
+
+            // return redirect()->route('home')->with('success','change password successfully !');
+
+            return response()->json(['message'=>'success']);
+            
+        } catch (Throwable $throw) {
+            // return redirect()->back();
+            return response()->json(['message'=>$throw->getMessage()]);
+        }   
+    }
 }
