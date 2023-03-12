@@ -10,16 +10,12 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $surveys = Survey::where('user_id', auth()->user()->id)->paginate(7);
+        $surveys = Survey::where('user_id', auth()->id())->paginate(7);
         return view('home', ['surveys' => $surveys]);
     }
 
     public function search(Request $request)
     {
-        if ($request->get('query')) {
-            $query = $request->get('query');
-            $surveys = Survey::where('user_id', auth()->user()->id)->where('name', 'like', '%' . $query . '%')->paginate(7);
-        }
-        return $surveys;
+        return Survey::where('user_id',auth()->id())->where('name', 'like', '%' . $request['query'] . '%')->take(5)->get();
     }
 }

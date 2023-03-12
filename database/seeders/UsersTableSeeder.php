@@ -14,56 +14,56 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('users')->delete();
-        
+
         \DB::table('users')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
-                'username' => 'npadula0',
-                'password' => 'Y2PK0ZR5',
+                'username' => 'duc',
+                'password' => '$2y$10$RoUbvip1wA6v1Rs2S/OHFuYcWAyqSa94hJ7iHQcIsMbSEJNQHA6Sy',
                 'fullname' => 'Trần Xuân Đức',
                 'email' => 'xduc241220020@gmail.com',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 2,
-                'username' => 'dmounfield1',
-                'password' => 'bzpHPuMLv',
+                'username' => 'ngocanh',
+                'password' => '$2y$10$RoUbvip1wA6v1Rs2S/OHFuYcWAyqSa94hJ7iHQcIsMbSEJNQHA6Sy',
                 'fullname' => 'Vũ Ngọc Anh',
                 'email' => 'vngocanh732@gmail.com',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 3,
-                'username' => 'lbubbings2',
-                'password' => '3XBAbzse6',
-                'fullname' => 'Đoàn Tiến Long',
-                'email' => 'dbubbings2@gmail.com',
+                'username' => 'dung',
+                'password' => '$2y$10$RoUbvip1wA6v1Rs2S/OHFuYcWAyqSa94hJ7iHQcIsMbSEJNQHA6Sy',
+                'fullname' => 'Hoàng Đình Dũng',
+                'email' => 'vehoang2k2@gmail.com',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 4,
-                'username' => 'wegleton3',
-                'password' => 'stWxhcYkbWTL',
-                'fullname' => 'Vũ Trọng Tú',
-                'email' => 'eegleton3@gmail.com',
+                'username' => 'hung',
+                'password' => '$2y$10$RoUbvip1wA6v1Rs2S/OHFuYcWAyqSa94hJ7iHQcIsMbSEJNQHA6Sy',
+                'fullname' => 'Đỗ Duy Hưng',
+                'email' => 'doduyhungtvb002@gmail.com',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            4 => 
+            4 =>
             array (
                 'id' => 5,
                 'username' => 'brasell4',
@@ -74,7 +74,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            5 => 
+            5 =>
             array (
                 'id' => 6,
                 'username' => 'rsmylie5',
@@ -85,7 +85,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            6 => 
+            6 =>
             array (
                 'id' => 7,
                 'username' => 'kgaytor6',
@@ -96,7 +96,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            7 => 
+            7 =>
             array (
                 'id' => 8,
                 'username' => 'gconkay7',
@@ -107,7 +107,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            8 => 
+            8 =>
             array (
                 'id' => 9,
                 'username' => 'avaughton8',
@@ -118,7 +118,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            9 => 
+            9 =>
             array (
                 'id' => 10,
                 'username' => 'cfransson9',
@@ -129,7 +129,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            10 => 
+            10 =>
             array (
                 'id' => 11,
                 'username' => 'aspellera',
@@ -140,7 +140,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            11 => 
+            11 =>
             array (
                 'id' => 12,
                 'username' => 'rcallacherb',
@@ -151,7 +151,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            12 => 
+            12 =>
             array (
                 'id' => 13,
                 'username' => 'glardinerc',
@@ -162,7 +162,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            13 => 
+            13 =>
             array (
                 'id' => 14,
                 'username' => 'atollitd',
@@ -173,7 +173,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            14 => 
+            14 =>
             array (
                 'id' => 15,
                 'username' => 'ipaytone',
@@ -184,7 +184,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            15 => 
+            15 =>
             array (
                 'id' => 16,
                 'username' => 'mlengletf',
@@ -195,7 +195,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            16 => 
+            16 =>
             array (
                 'id' => 17,
                 'username' => 'lsolomonidesg',
@@ -206,7 +206,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            17 => 
+            17 =>
             array (
                 'id' => 18,
                 'username' => 'thambletth',
@@ -217,7 +217,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            18 => 
+            18 =>
             array (
                 'id' => 19,
                 'username' => 'pwillocki',
@@ -228,7 +228,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            19 => 
+            19 =>
             array (
                 'id' => 20,
                 'username' => 'mpoupardj',
@@ -239,7 +239,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            20 => 
+            20 =>
             array (
                 'id' => 21,
                 'username' => 'aminifiek',
@@ -250,7 +250,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            21 => 
+            21 =>
             array (
                 'id' => 22,
                 'username' => 'mhucksl',
@@ -261,7 +261,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            22 => 
+            22 =>
             array (
                 'id' => 23,
                 'username' => 'aberendsm',
@@ -272,7 +272,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            23 => 
+            23 =>
             array (
                 'id' => 24,
                 'username' => 'mcorkettn',
@@ -283,7 +283,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            24 => 
+            24 =>
             array (
                 'id' => 25,
                 'username' => 'jstoddarto',
@@ -294,7 +294,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            25 => 
+            25 =>
             array (
                 'id' => 26,
                 'username' => 'cgreenhaughp',
@@ -305,7 +305,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            26 => 
+            26 =>
             array (
                 'id' => 27,
                 'username' => 'imarrisonq',
@@ -316,7 +316,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            27 => 
+            27 =>
             array (
                 'id' => 28,
                 'username' => 'kgunbyr',
@@ -327,7 +327,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            28 => 
+            28 =>
             array (
                 'id' => 29,
                 'username' => 'trikkards',
@@ -338,7 +338,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            29 => 
+            29 =>
             array (
                 'id' => 30,
                 'username' => 'rbrannit',
@@ -349,7 +349,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            30 => 
+            30 =>
             array (
                 'id' => 31,
                 'username' => 'bfleckneyu',
@@ -360,7 +360,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            31 => 
+            31 =>
             array (
                 'id' => 32,
                 'username' => 'bsalsbergv',
@@ -371,7 +371,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            32 => 
+            32 =>
             array (
                 'id' => 33,
                 'username' => 'bchoulertonw',
@@ -382,7 +382,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            33 => 
+            33 =>
             array (
                 'id' => 34,
                 'username' => 'hadkinx',
@@ -393,7 +393,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            34 => 
+            34 =>
             array (
                 'id' => 35,
                 'username' => 'spicketty',
@@ -404,7 +404,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            35 => 
+            35 =>
             array (
                 'id' => 36,
                 'username' => 'ydignumz',
@@ -415,7 +415,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            36 => 
+            36 =>
             array (
                 'id' => 37,
                 'username' => 'tdur10',
@@ -426,7 +426,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            37 => 
+            37 =>
             array (
                 'id' => 38,
                 'username' => 'spadley11',
@@ -437,7 +437,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            38 => 
+            38 =>
             array (
                 'id' => 39,
                 'username' => 'amacelane12',
@@ -448,7 +448,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            39 => 
+            39 =>
             array (
                 'id' => 40,
                 'username' => 'splait13',
@@ -459,7 +459,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            40 => 
+            40 =>
             array (
                 'id' => 41,
                 'username' => 'mreeks14',
@@ -470,7 +470,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            41 => 
+            41 =>
             array (
                 'id' => 42,
                 'username' => 'dcarlill15',
@@ -481,7 +481,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            42 => 
+            42 =>
             array (
                 'id' => 43,
                 'username' => 'zheister16',
@@ -492,7 +492,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            43 => 
+            43 =>
             array (
                 'id' => 44,
                 'username' => 'tmathieu17',
@@ -503,7 +503,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            44 => 
+            44 =>
             array (
                 'id' => 45,
                 'username' => 'cboundey18',
@@ -514,7 +514,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            45 => 
+            45 =>
             array (
                 'id' => 46,
                 'username' => 'lkaminski19',
@@ -525,7 +525,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            46 => 
+            46 =>
             array (
                 'id' => 47,
                 'username' => 'kbenfield1a',
@@ -536,7 +536,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            47 => 
+            47 =>
             array (
                 'id' => 48,
                 'username' => 'ehowlings1b',
@@ -547,7 +547,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            48 => 
+            48 =>
             array (
                 'id' => 49,
                 'username' => 'chambling1c',
@@ -558,7 +558,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            49 => 
+            49 =>
             array (
                 'id' => 50,
                 'username' => 'hboydon1d',
@@ -570,7 +570,7 @@ class UsersTableSeeder extends Seeder
                 'deleted_at' => NULL,
             ),
         ));
-        
-        
+
+
     }
 }
