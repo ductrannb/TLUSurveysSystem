@@ -23,7 +23,7 @@ class ResultController extends Controller
     public function index(Request $request)
     {
         $survey = Survey::find($request->survey_id);
-        return view('contactform', ['survey'=>$survey]);
+        return view('contactform')->with(['survey'=>$survey]);
     }
 
     public function create(Request $request)
