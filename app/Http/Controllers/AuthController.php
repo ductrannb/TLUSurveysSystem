@@ -46,7 +46,7 @@ class AuthController extends Controller
     {
         auth()->logout();
 
-        return response()->json(['message' => 'Successfully logged out']);
+        return redirect()->route('login');
     }
 
     public function refresh()
