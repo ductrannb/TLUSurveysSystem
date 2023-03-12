@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Survey;
 use Illuminate\Http\Request;
 use App\Services\ResultService;
 use App\Services\ResponseService;
@@ -21,7 +22,8 @@ class ResultController extends Controller
 
     public function index(Request $request)
     {
-        return view('contactform');
+        $survey = Survey::find($request->survey_id);
+        return view('contactform', ['survey'=>$survey]);
     }
 
     public function create(Request $request)
