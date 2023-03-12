@@ -70,182 +70,94 @@
             </form>
 
             <h2 class="form-name">II. ĐÁNH GIÁ CỦA SINH VIÊN</h2>
-            <form action="" class="form-data">
-                <div class="form-data-wrap">
-                    <h2 class="form-data-heading">
-                        A. Thống kê kết quả sử dụng CSDL sách và tạp chí
-                        điện tử Ngoại văn
-                    </h2>
-                    <p class="form-data-title">
-                        2. Mức độ sử dụng các cơ sở dữ liệu tạp chí và sách
-                        điện tử
-                    </p>
-                    <div class="form-data-select">
-                        <div></div>
-                        <span>Không thường xuyên</span>
-                        <span>Thường xuyên</span>
-                        <span>Rất thường xuyên</span>
-                    </div>
-                    <div class="form-index">
-                        <p class="form-index-title">
-                            CSDL tạp chí điện tử SAGE
-                        </p>
-                        <div class="form-index-radio">
-                            <input type="radio" name="value" />
-                            <input type="radio" name="value" />
-                            <input type="radio" name="value" />
-                        </div>
-                    </div>
-                    <div class="form-index">
-                        <p class="form-index-title">
-                            CSDL tạp chí điện tử Emerald
-                        </p>
-                        <div class="form-index-radio">
-                            <input type="radio" name="value" />
-                            <input type="radio" name="value" />
-                            <input type="radio" name="value" />
-                        </div>
-                    </div>
-                    <div class="form-index">
-                        <p class="form-index-title">
-                            CSDL sách điện tử IG Publishing
-                        </p>
-                        <div class="form-index-radio">
-                            <input type="radio" name="value" />
-                            <input type="radio" name="value" />
-                            <input type="radio" name="value" />
-                        </div>
-                    </div>
-                    <div class="form-index">
-                        <p class="form-index-title">
-                            CSDL sách điện tử Elsevier
-                        </p>
-                        <div class="form-index-radio">
-                            <input type="radio" name="value" />
-                            <input type="radio" name="value" />
-                            <input type="radio" name="value" />
-                        </div>
-                    </div>
-                    <div class="form-index">
-                        <p class="form-index-title">
-                            CSDL sách điện tử Springer
-                        </p>
-                        <div class="form-index-radio">
-                            <input type="radio" name="value" />
-                            <input type="radio" name="value" />
-                            <input type="radio" name="value" />
-                        </div>
-                    </div>
-                </div>
-            </form>
 
             <form action="" class="form-data">
                 <div class="form-data-wrap">
-                    <p class="form-data-title">
-                        3. Các CSDL sách và tạp chí điện tử giúp bạn trong
-                        công việc gì?
-                    </p>
-                    <div class="form-data-select">
-                        <div></div>
-                        <span>Không thường xuyên</span>
-                        <span>Thường xuyên</span>
-                        <span>Rất thường xuyên</span>
-                    </div>
-                    <div class="form-index">
-                        <p class="form-index-title">
-                            CSDL tạp chí điện tử SAGE
-                        </p>
-                        <div class="form-index-radio">
-                            <input type="radio" name="value" />
-                            <input type="radio" name="value" />
-                            <input type="radio" name="value" />
-                        </div>
-                    </div>
-                    <div class="form-index">
-                        <p class="form-index-title">
-                            CSDL tạp chí điện tử Emerald
-                        </p>
-                        <div class="form-index-radio">
-                            <input type="radio" name="value" />
-                            <input type="radio" name="value" />
-                            <input type="radio" name="value" />
-                        </div>
-                    </div>
-                    <div class="form-index">
-                        <p class="form-index-title">
-                            CSDL sách điện tử IG Publishing
-                        </p>
-                        <div class="form-index-radio">
-                            <input type="radio" name="value" />
-                            <input type="radio" name="value" />
-                            <input type="radio" name="value" />
-                        </div>
-                    </div>
-                    <div class="form-index">
-                        <p class="form-index-title">
-                            CSDL sách điện tử Elsevier
-                        </p>
-                        <div class="form-index-radio">
-                            <input type="radio" name="value" />
-                            <input type="radio" name="value" />
-                            <input type="radio" name="value" />
-                        </div>
-                    </div>
-                    <div class="form-index">
-                        <p class="form-index-title">
-                            CSDL sách điện tử Springer
-                        </p>
-                        <div class="form-index-radio">
-                            <input type="radio" name="value" />
-                            <input type="radio" name="value" />
-                            <input type="radio" name="value" />
-                        </div>
-                    </div>
-                </div>
-            </form>
-
-            <form action="" class="form-data">
-                <div class="form-data-wrap">
-                    <p class="form-data-title">
+                    <label class="form-data-title">
                         4. Mức độ hữu ích của các CSDL sách và tạp chí điện
                         tử giúp bạn trong học tập
-                    </p>
+                    </label>
                     <div class="form-data-choose">
-                        <input type="radio" name="data" />Rất hữu ích
+                        <input type="radio" name="data" />
+                        <label for="">
+                            Rất hữu ích
+                        </label>
                     </div>
                     <div class="form-data-choose">
-                        <input type="radio" name="data" />Hữu ích
+                        <input type="radio" name="data" />
+                        <label for="">
+                            Hữu ích
+                        </label>
                     </div>
                     <div class="form-data-choose">
-                        <input type="radio" name="data" />Không hữu ích
+                        <input type="radio" name="data" />
+                        <label for="">
+                            Không hữu ích
+                        </label>
                     </div>
                 </div>
             </form>
 
             <form action="" class="form-data">
                 <div class="form-data-wrap">
-                    <p class="form-data-title">
+                    <label class="form-data-title">
+                        4. Mức độ hữu ích của các CSDL sách và tạp chí điện
+                        tử giúp bạn trong học tập
+                    </label>
+                    <div class="form-data-choose">
+                        <input type="radio" name="data" />
+                        <label for="">
+                            Rất hữu ích
+                        </label>
+                    </div>
+                    <div class="form-data-choose">
+                        <input type="radio" name="data" />
+                        <label for="">
+                            Hữu ích
+                        </label>
+                    </div>
+                    <div class="form-data-choose">
+                        <input type="radio" name="data" />
+                        <label for="">
+                            Không hữu ích
+                        </label>
+                    </div>
+                </div>
+            </form>
+
+            <form action="" class="form-data">
+                <div class="form-data-wrap">
+                    <label class="form-data-title">
                         5. Mức độ hữu ích của các CSDL sách và tạp chí điện
                         tử giúp bạn trong nghiên cứu
-                    </p>
+                    </label>
                     <div class="form-data-choose">
-                        <input type="radio" name="data" />Rất hữu ích
+                        <input type="radio" name="data" />
+                        <label for="">
+                            Rất hữu ích
+                        </label>
                     </div>
                     <div class="form-data-choose">
-                        <input type="radio" name="data" />Hữu ích
+                        <input type="radio" name="data" />
+                        <label for="">
+                            Hữu ích
+                        </label>
                     </div>
                     <div class="form-data-choose">
-                        <input type="radio" name="data" />Không hữu ích
+                        <input type="radio" name="data" />
+                        <label for="">
+                            Không hữu ích
+                        </label>
                     </div>
                 </div>
             </form>
 
             <form action="" class="form-data">
                 <div class="form-data-wrap">
-                    <p class="form-data-title">
+                    <label class="form-data-title">
                         6. Số bài báo quốc tế có sử dụng thông tin tham khảo
                         từ các CSDL sách & tạp chí điện tử
-                    </p>
+                    </label>
                     <p class="form-data-sub">
                         (Bạn vui lòng cung cấp số bài báo quốc tế đã sử dụng
                         thông tin tham khảo từ các CSDL sách & tạp chí điện
@@ -265,26 +177,80 @@
 
             <form action="" class="form-data">
                 <div class="form-data-wrap">
-                    <p class="form-data-title">
-                        7. Bạn có đồng ý tiếp tục sử dụng cơ sở dữ liệu
-                        FiinPro trong các nghiên cứu của mình hay không?
-                    </p>
+                    <label class="form-data-title">
+                        4. Mức độ hữu ích của các CSDL sách và tạp chí điện
+                        tử giúp bạn trong học tập
+                    </label>
                     <div class="form-data-choose">
-                        <input type="radio" name="data" />Có
+                        <input type="checkbox" name="data" />
+                        <label for="">
+                            Học tập
+                        </label>
+
                     </div>
                     <div class="form-data-choose">
-                        <input type="radio" name="data" />Không
+                        <input type="checkbox" name="data" />
+                        <label for="">
+                            Nghiên cứu
+                        </label>
+                    </div>
+                    <div class="form-data-choose">
+                        <input type="checkbox" name="data" />
+                        <label for="">
+                            Truy cập dữ liệu
+                        </label>
+                    </div>
+                    <div class="form-data-choose">
+                        <input type="checkbox" name="data" />
+                        <label for="">
+                            Công việc
+                        </label>
+                    </div>
+                    <div class="form-data-choose">
+                        <input type="checkbox" name="data" />
+                        <label for="">
+                            Mục đích khác
+                        </label>
+                    </div>
+                </div>
+            </form>
+
+            <form action="" class="form-data">
+                <div class="form-data-wrap">
+                    <label class="form-data-title">
+                        7. Bạn có đồng ý tiếp tục sử dụng cơ sở dữ liệu
+                        FiinPro trong các nghiên cứu của mình hay không?
+                    </label>
+                    <div class="form-data-choose">
+                        <input type="radio" name="data" />
+                        <label for="">
+                            Có
+                        </label>
+                    </div>
+                    <div class="form-data-choose">
+                        <input type="radio" name="data" />
+                        <label for="">
+                            Không
+                        </label>
                     </div>
                 </div>
             </form>
 
             <form action="" class="form-data form-data-with-shadow">
                 <div class="form-data-wrap">
-                    <p class="form-data-title">
-                        8. Ưu/nhược điểm của FiinPro mà bạn nhận thấy trong
-                        quá trình sử dụng?
-                    </p>
-                    <input type="text" placeholder="Câu trả lời của bạn" class="form-data-answer" />
+                    <label class="form-data-title">
+                        9. Ưu/nhược điểm của FiinPro mà bạn nhận thấy trong quá trình sử dụng?
+                    </label>
+                    <input placeholder="Câu trả lời của bạn" class="form-data-answer">
+                </div>
+            </form>
+
+            <form action="" class="form-data form-data-with-shadow">
+                <div class="form-data-wrap">
+                    <label class="form-data-title">
+                        10. Ý kiến đóng góp khác?
+                    </label>
+                    <textarea placeholder="Câu trả lời của bạn" class="form-data-answer text-area"></textarea>
                 </div>
             </form>
 

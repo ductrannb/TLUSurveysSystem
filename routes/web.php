@@ -54,7 +54,6 @@ Route::group([
     Route::get('view', 'viewDetail')->name('view_survey');
     Route::post('create', 'create');
     Route::post('update', 'update');
-    
 });
 
 Route::group([
@@ -77,9 +76,13 @@ Route::get('review', function () {
     return view('reviewform');
 });
 
+Route::get('contact', function () {
+    return view('contactform');
+});
+
 Route::group([
     'prefix' => 'result',
     'controller' => ResultController::class
 ], function () {
-    Route::get('/','index');
+    Route::get('/', 'index');
 });
