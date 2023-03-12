@@ -25,7 +25,7 @@ class UsersTableSeeder extends Seeder
                 'username' => 'duc',
                 'password' => '$2y$10$RoUbvip1wA6v1Rs2S/OHFuYcWAyqSa94hJ7iHQcIsMbSEJNQHA6Sy',
                 'fullname' => 'Trần Xuân Đức',
-                'email' => 'xduc241220020@gmail.com',
+                'email' => 'xduc24122002@gmail.com',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
