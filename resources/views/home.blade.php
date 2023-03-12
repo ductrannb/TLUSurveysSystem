@@ -73,12 +73,13 @@
             </header>
             <div class="content">
                 <div class="content-nav">
-                    <div class="content-nav-input">
+                    <div class="content-nav-input" id='search-input'>
                         @csrf
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" placeholder="Tìm kiếm" name='name' id='name' />
+                        <input class="search-input" type="text" placeholder="Tìm kiếm" name='name' id='name' />
                         <div class="search-results" id="search-results">
                         </div>
+                        <i class="search-btn-x fa-solid fa-xmark" id="quit"></i>
                     </div>
                     <div class="content-nav-user">
                         <div id="user-title">
@@ -145,22 +146,22 @@
                         _token: _token
                     },
                     success: function(get_data) {
-                        // $('#form_list').fadeIn();
-                        // $('#form_list').html(
-                        //     data
-                        // );
                         data = get_data
                         output = '';
                         output += '<ul>';
                         for (value in data) {
-                            output += '<li> <a href = "survey/view?user_id={{auth()->id()}}&id=' +
+                            output += '<li> <i class="fa-solid fa-magnifying-glass"></i>'
+                            output += ' <a href = "survey/view?user_id={{auth()->id()}}&id=' +
                                 data[value].id +
                                 '"> ' +
                                 data[value].name +
                                 '</a></li>'
                         }
                         output += '</ul>';
+                        $('#search-results').css("display", "block");
                         $('#search-results').html(output);
+                        $('#search-input').css("border-radius", "20px 20px 0 0");
+                        $('#quit').css("display", "block");
                     }
                 });
             }
@@ -171,6 +172,21 @@
         //     $('#name').val($(this).text());
         //     $('#form_list').fadeOut();
         // });
+        // $('.app').onclick(() => {
+        //     $('#search-results').classList.add('hidden');
+        // })
 
+        // $('.app').addEventListener('click', () => {
+        //     $('#search-results').classList.add('hidden');
+        // })
+        const quitBtn = document.getElementById('quit')
+        const searchInput = document.querySelector('.search-input')
+        console.log(searchInput);
+        quitBtn.onclick = () => {
+            $('#search-results').css("display", "none");
+            $('#quit').css("display", "none");
+            $('#search-input').css("border-radius", "20px");
+            searchInput.value = '';
+        }
     });
 </script>
