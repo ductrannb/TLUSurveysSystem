@@ -10,6 +10,42 @@ html {
     font-family: "Roboto", sans-serif;
     background-color: rgba(88, 169, 255, 0.27);
 }
+
+.search-results {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.search-results ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.search-results li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.search-results li:last-child {
+    border-bottom: none;
+}
+
+.search-results a {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.search-results p {
+    margin: 0;
+}
+
 /* Overlay */
 .overlay {
     position: fixed;
@@ -222,6 +258,7 @@ html {
 }
 
 .content-nav-input {
+    position: relative;
     margin-left: 280px;
     width: 800px;
     padding: 10px 0 10px 12px;

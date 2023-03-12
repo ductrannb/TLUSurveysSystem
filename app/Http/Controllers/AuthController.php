@@ -75,7 +75,7 @@ class AuthController extends Controller
             $status === Password::RESET_LINK_SENT
             ? back()->with(['status' => __($status)])
             : back()->withErrors(['email' => __($status)]);
-            return redirect()->route('password.request'); 
+            return redirect()->route('password.request');
 
         } catch (Throwable $throw) {
             return $this->response_service->error($throw->getMessage());
@@ -107,6 +107,6 @@ class AuthController extends Controller
             : back()->withErrors(['email' => [__($status)]]);
         } catch (Throwable $throw) {
             return redirect()->back();
-        }   
+        }
     }
 }
