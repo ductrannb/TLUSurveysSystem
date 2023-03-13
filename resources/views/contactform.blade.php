@@ -56,8 +56,13 @@
                 @endif
                 <div class="form-data">
                     <div class="form-data-wrap">
-                        <label class="form-data-title">{{$question->content}}</label>
-                        @if($question->type == 1)
+                        <label class="form-data-title">
+                            @if($question->type < 0)
+                                <span style="color: red;">*</span>
+                            @endif
+                            {{$question->content}}
+                        </label>
+                        @if(abs($question->type) == 1)
                                 @foreach($question->answers as $answer)
                                     <div class="form-data-choose">
                                         <input type="radio" id="answer-id-{{$answer->id . "-". $question->id}}" name="answer[{{$survey->id}}][{{$question->id}}]" />
@@ -65,7 +70,7 @@
                                         </label>
                                     </div>
                                 @endforeach
-                        @elseif($question->type == 2)
+                        @elseif(abs($question->type == 2))
                             @foreach($question->answers as $answer)
                                 <div class="form-data-choose">
                                         <input type="checkbox" id="answer-id-{{$answer->id . "-". $question->id}}" name="answer[{{$survey->id}}][{{$question->id}}]" />
@@ -73,13 +78,21 @@
                                         </label>
                                 </div>
                             @endforeach
-                        @elseif($question->type == 3)
+                        @elseif(abs($question->type == 3))
                             <input placeholder="Câu trả lời của bạn" class="form-data-answer">
-                        @elseif($question->type == 4)
+                        @elseif(abs($question->type == 4))
                             <textarea placeholder="Câu trả lời của bạn" class="form-data-answer text-area"></textarea>
                         @endif
                     </div>
                 </div>
+                @if($question->type < 0)
+                    <div class="form-warn">
+                        <i class="form-warn__icon fa-solid fa-circle-exclamation"></i>
+                        <p class="form-warn__title">
+                            Đây là một câu hỏi bắt buộc
+                        </p>
+                    </div>
+                @endif
             @endforeach
                 <div class="handle">
                     <input type="submit" value="Gửi" class="submit-form-btn" />
