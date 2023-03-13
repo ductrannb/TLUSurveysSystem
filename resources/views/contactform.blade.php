@@ -36,14 +36,15 @@
                         <span>*</span>
                         <label for="{{"anser-text-box-" . $question->id}}" class="form-insert-label">{{$question->content}}</label>
                         <input type="text" class="form-input" id="{{"anser-text-box-" . $question->id}}" />
+                        <div class="form-warn">
+                            <i class="form-warn__icon fa-solid fa-circle-exclamation"></i>
+                            <p class="form-warn__title">
+                                Đây là một câu hỏi bắt buộc
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="form-warn">
-                        <i class="form-warn__icon fa-solid fa-circle-exclamation"></i>
-                        <p class="form-warn__title">
-                            Đây là một câu hỏi bắt buộc
-                        </p>
-                    </div>
+                    
                 </div>
                 @endif
             @endforeach
@@ -83,16 +84,17 @@
                         @elseif(abs($question->type) == 4)
                             <textarea placeholder="Câu trả lời của bạn" class="form-data-answer text-area"></textarea>
                         @endif
+                        @if($question->type < 0)
+                        <div class="form-warn">
+                            <i class="form-warn__icon fa-solid fa-circle-exclamation"></i>
+                            <p class="form-warn__title">
+                                Đây là một câu hỏi bắt buộc
+                            </p>
+                        </div>
+                        @endif
                     </div>
                 </div>
-                @if($question->type < 0)
-                    <div class="form-warn">
-                        <i class="form-warn__icon fa-solid fa-circle-exclamation"></i>
-                        <p class="form-warn__title">
-                            Đây là một câu hỏi bắt buộc
-                        </p>
-                    </div>
-                @endif
+                
             @endforeach
                 <div class="handle">
                     <input type="submit" value="Gửi" class="submit-form-btn" />

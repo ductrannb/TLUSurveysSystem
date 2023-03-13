@@ -123,12 +123,11 @@ html {
 .form-warn {
     display: flex;
     align-items: center;
-    margin-left: 60px;
     margin-top: 10px;
 }
 
 .form-warn__icon {
-    padding: 0 8px;
+    padding: 0 8px 0 0;
     font-size: 20px;
 }
 
@@ -157,6 +156,10 @@ html {
     font-size: 25px;
     padding-bottom: 10px;
     margin: 0;
+}
+
+.form-data-title span {
+    display: inline-block;
 }
 
 .form-data-select {
@@ -203,7 +206,7 @@ input[type="radio"] {
 .form-data-choose {
     display: flex;
     align-items: center;
-    margin: 30px 0;
+    margin: 10px 0 30px 0;
     font-size: 20px;
 }
 
@@ -235,7 +238,7 @@ input[type="radio"] {
 }
 
 .form-data-answer {
-    margin: 40px 0;
+    margin: 20px 0;
     border: none;
     outline: none;
     font-size: 25px;
