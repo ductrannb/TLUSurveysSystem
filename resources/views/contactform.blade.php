@@ -70,7 +70,7 @@
                                         </label>
                                     </div>
                                 @endforeach
-                        @elseif(abs($question->type == 2))
+                        @elseif(abs($question->type) == 2)
                             @foreach($question->answers as $answer)
                                 <div class="form-data-choose">
                                         <input type="checkbox" id="answer-id-{{$answer->id . "-". $question->id}}" name="answer[{{$survey->id}}][{{$question->id}}]" />
@@ -78,9 +78,9 @@
                                         </label>
                                 </div>
                             @endforeach
-                        @elseif(abs($question->type == 3))
+                        @elseif(abs($question->type) == 3)
                             <input placeholder="Câu trả lời của bạn" class="form-data-answer">
-                        @elseif(abs($question->type == 4))
+                        @elseif(abs($question->type) == 4)
                             <textarea placeholder="Câu trả lời của bạn" class="form-data-answer text-area"></textarea>
                         @endif
                     </div>
