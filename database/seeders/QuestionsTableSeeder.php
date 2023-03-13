@@ -14,10 +14,12 @@ class QuestionsTableSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('questions')->delete();
+        
 
+        \DB::table('questions')->delete();
+        
         \DB::table('questions')->insert(array (
-            0 =>
+            0 => 
             array (
                 'id' => 1,
                 'survey_id' => 1,
@@ -28,7 +30,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            1 =>
+            1 => 
             array (
                 'id' => 2,
                 'survey_id' => 1,
@@ -39,7 +41,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            2 =>
+            2 => 
             array (
                 'id' => 3,
                 'survey_id' => 1,
@@ -50,7 +52,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            3 =>
+            3 => 
             array (
                 'id' => 6,
                 'survey_id' => 1,
@@ -61,7 +63,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            4 =>
+            4 => 
             array (
                 'id' => 7,
                 'survey_id' => 1,
@@ -72,7 +74,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            5 =>
+            5 => 
             array (
                 'id' => 8,
                 'survey_id' => 1,
@@ -83,7 +85,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            6 =>
+            6 => 
             array (
                 'id' => 9,
                 'survey_id' => 1,
@@ -94,7 +96,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            7 =>
+            7 => 
             array (
                 'id' => 10,
                 'survey_id' => 1,
@@ -105,7 +107,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            8 =>
+            8 => 
             array (
                 'id' => 11,
                 'survey_id' => 1,
@@ -116,7 +118,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            9 =>
+            9 => 
             array (
                 'id' => 12,
                 'survey_id' => 1,
@@ -127,7 +129,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            10 =>
+            10 => 
             array (
                 'id' => 13,
                 'survey_id' => 1,
@@ -138,7 +140,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            11 =>
+            11 => 
             array (
                 'id' => 14,
                 'survey_id' => 1,
@@ -148,9 +150,119 @@ class QuestionsTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
-            )
+            ),
+            12 => 
+            array (
+                'id' => 15,
+                'survey_id' => 3,
+                'content' => '1 + 1 = ?',
+                'type' => 2,
+                'essay_correct_answer' => '',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            13 => 
+            array (
+                'id' => 16,
+                'survey_id' => 3,
+                'content' => '4 * 3 = ?',
+                'type' => 2,
+                'essay_correct_answer' => '',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            14 => 
+            array (
+                'id' => 17,
+                'survey_id' => 3,
+                'content' => '550 / 2 = ?',
+                'type' => 2,
+                'essay_correct_answer' => '',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            15 => 
+            array (
+                'id' => 18,
+                'survey_id' => 3,
+                'content' => '1000 - 6 = ?',
+                'type' => 2,
+                'essay_correct_answer' => '',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            16 => 
+            array (
+                'id' => 19,
+                'survey_id' => 3,
+                'content' => '123 + 321 = ?',
+                'type' => 2,
+                'essay_correct_answer' => '',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            17 => 
+            array (
+                'id' => 20,
+                'survey_id' => 3,
+                'content' => '12 + 13 = ?',
+                'type' => 2,
+                'essay_correct_answer' => '',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            18 => 
+            array (
+                'id' => 21,
+                'survey_id' => 3,
+                'content' => '1 + 4 / 2 = ?',
+                'type' => 2,
+                'essay_correct_answer' => '',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            19 => 
+            array (
+                'id' => 22,
+                'survey_id' => 3,
+                'content' => '|x| = 5',
+                'type' => 1,
+                'essay_correct_answer' => '',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            20 => 
+            array (
+                'id' => 23,
+                'survey_id' => 3,
+                'content' => '10 / 2 = ?',
+                'type' => 2,
+                'essay_correct_answer' => '',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            21 => 
+            array (
+                'id' => 24,
+                'survey_id' => 3,
+                'content' => '4 + 2 = ?',
+                'type' => 2,
+                'essay_correct_answer' => '',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
         ));
-
-
+        
+        
     }
 }
