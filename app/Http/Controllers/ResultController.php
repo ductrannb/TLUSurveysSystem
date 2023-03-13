@@ -23,11 +23,12 @@ class ResultController extends Controller
     public function index(Request $request)
     {
         $survey = Survey::find($request->survey_id);
-        return view('contactform', ['survey'=>$survey]);
+        return view('contactform')->with(['survey'=>$survey]);
     }
 
     public function create(Request $request)
     {
+        dd($request);
         try {
             $this->result_service->create($request->only('survey_id'));
             return $this->response->success('create result success !');
