@@ -26,12 +26,12 @@
 
 <body>
     <div class="container">
-        <div class="overlay">
-            <div class="modal" id="modal-change-password">
+        <div class="overlay" id='modal-change-password'>
+            <div class="modal">
                 <div class="modal-header">
                     <i class="modal-header-icon fa-solid fa-lock"></i>
                     <span>Đổi mật khẩu</span>
-                    <i class="modal-header-quit fa-solid fa-xmark"></i>
+                    <i class="modal-header-quit fa-solid fa-xmark" id="btn-close-modal"></i>
                 </div>
                 <div class="modal-content">
                     <div class="modal-content-lock">
@@ -50,7 +50,7 @@
                             <input type="password" name="password_confirmation" id="3" />
 
                             <div class="modal-form-btn">
-                                <button class="modal-form-quit btn">Hủy</button>
+                                <button type='button' class="modal-form-quit btn" id="btn-close-modal-2">Hủy</button>
                                 <button class="modal-form-update btn" type="submit">Cập nhật</button>
                             </div>
                         </form>
@@ -87,7 +87,7 @@
                             <i class="fa-regular fa-circle-user"></i>
                         </div>
                         <div class="user-info" id='user-info'>
-                            <div class="user-info-content user-info-content-pass" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <div class="user-info-content user-info-content-pass" id="btn-open-modal">
                                 <i class="fa-solid fa-lock"></i>
                                 <span>Đổi mật khẩu</span>
                             </div>
@@ -167,18 +167,6 @@
             }
         });
 
-
-        // $(document).on('click', 'li', function() {
-        //     $('#name').val($(this).text());
-        //     $('#form_list').fadeOut();
-        // });
-        // $('.app').onclick(() => {
-        //     $('#search-results').classList.add('hidden');
-        // })
-
-        // $('.app').addEventListener('click', () => {
-        //     $('#search-results').classList.add('hidden');
-        // })
         const quitBtn = document.getElementById('quit')
         const searchInput = document.querySelector('.search-input')
         console.log(searchInput);
@@ -188,5 +176,22 @@
             $('#search-input').css("border-radius", "20px");
             searchInput.value = '';
         }
+
+        const modal = $('#modal-change-password')
+        const btn_open = document.getElementById('btn-open-modal')
+        const btn_close_1 = document.getElementById('btn-close-modal')
+        const btn_close_2 = document.getElementById('btn-close-modal-2')
+
+        btn_open.onclick = () => {
+            modal.css('display', 'flex')
+        }
+        btn_close_1.onclick = () => {
+            modal.css('display', 'none')
+        }
+        btn_close_2.onclick = () => {
+            modal.css('display', 'none')
+        }
+
+
     });
 </script>
