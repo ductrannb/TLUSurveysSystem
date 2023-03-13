@@ -125,7 +125,6 @@
             {{ $surveys->links() }}
         </div>
     </div>
-
 {{-- <script src="{{ asset('js/chart/home.js') }}"></script> --}}
 </body>
 
@@ -191,7 +190,6 @@
         btn_close_2.onclick = () => {
             modal.css('display', 'none')
         }
-
-
+        
     });
 </script>
