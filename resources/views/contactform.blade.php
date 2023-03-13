@@ -28,7 +28,7 @@
             <span>Có {{$survey->questions->count()}} câu hỏi trong cuộc khảo sát này.</span>
 
             <h2 class="form-name">I. THÔNG TIN CHUNG</h2>
-            <form action="">
+            <form action="{{route('result.create')}}" method='POST'>
             @foreach($survey->questions as $question)
                 @if($question->type == 0)
                 <div class="form-insert">
@@ -60,16 +60,16 @@
                         @if($question->type == 1)
                                 @foreach($question->answers as $answer)
                                     <div class="form-data-choose">
-                                        <input type="radio" id="answer-id-{{$answer->id}}" name="answer[{{$survey->id}}][{{$question->id}}] id" />
-                                        <label for="answer-id-{{$answer->id}}">{{$answer->content}}
+                                        <input type="radio" id="answer-id-{{$answer->id . "-". $question->id}}" name="answer[{{$survey->id}}][{{$question->id}}]" />
+                                        <label for="answer-id-{{$answer->id . "-". $question->id}}">{{$answer->content}}
                                         </label>
                                     </div>
                                 @endforeach
                         @elseif($question->type == 2)
                             @foreach($question->answers as $answer)
                                 <div class="form-data-choose">
-                                        <input type="checkbox" name="data" />
-                                        <label for="">{{$answer->content}}
+                                        <input type="checkbox" id="answer-id-{{$answer->id . "-". $question->id}}" name="answer[{{$survey->id}}][{{$question->id}}]" />
+                                        <label for="answer-id-{{$answer->id . "-". $question->id}}">{{$answer->content}}
                                         </label>
                                 </div>
                             @endforeach

@@ -83,4 +83,6 @@ Route::group([
     'controller' => ResultController::class
 ], function () {
     Route::get('/', 'index');
+    Route::post('create', 'create')->name('result.create');
+
 });

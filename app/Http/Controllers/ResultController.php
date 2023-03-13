@@ -28,6 +28,7 @@ class ResultController extends Controller
 
     public function create(Request $request)
     {
+        dd($request);
         try {
             $this->result_service->create($request->only('survey_id'));
             return $this->response->success('create result success !');

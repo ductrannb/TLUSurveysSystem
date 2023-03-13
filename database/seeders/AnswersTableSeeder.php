@@ -14,39 +14,39 @@ class AnswersTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('answers')->delete();
-        
+
         \DB::table('answers')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 0,
-                'question_id' => 5,
+                'question_id' => 6,
                 'content' => 'Nam',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            1 => 
+            1 =>
             array (
-                'id' => 0,
+                'id' => 5,
                 'question_id' => 14,
                 'content' => 'Khu vực nhà nước',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 1,
-                'question_id' => 5,
+                'question_id' => 6,
                 'content' => 'Nữ',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 1,
                 'question_id' => 14,
@@ -55,7 +55,7 @@ class AnswersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            4 => 
+            4 =>
             array (
                 'id' => 2,
                 'question_id' => 14,
@@ -64,7 +64,7 @@ class AnswersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            5 => 
+            5 =>
             array (
                 'id' => 3,
                 'question_id' => 14,
@@ -73,7 +73,7 @@ class AnswersTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            6 => 
+            6 =>
             array (
                 'id' => 4,
                 'question_id' => 14,
@@ -83,7 +83,7 @@ class AnswersTableSeeder extends Seeder
                 'deleted_at' => NULL,
             ),
         ));
-        
-        
+
+
     }
 }
