@@ -29,6 +29,7 @@
 
             <h2 class="form-name">I. THÔNG TIN CHUNG</h2>
             <form action="{{route('result.create')}}" method='POST'>
+            @csrf
             @foreach($survey->questions as $question)
                 @if($question->type == 0)
                 <div class="form-insert">
@@ -44,7 +45,7 @@
                         </div>
                     </div>
 
-                    
+
                 </div>
                 @endif
             @endforeach
@@ -94,7 +95,7 @@
                         @endif
                     </div>
                 </div>
-                
+
             @endforeach
                 <div class="handle">
                     <input type="submit" value="Gửi" class="submit-form-btn" />
