@@ -76,13 +76,13 @@ Route::get('review', function () {
     return view('reviewform');
 });
 
-Route::get('contact', function () {
-    return view('contactform');
-});
+Route::get('contact', [ResultController::class,'index']);
 
 Route::group([
     'prefix' => 'result',
     'controller' => ResultController::class
 ], function () {
     Route::get('/', 'index');
+    Route::post('create', 'create')->name('result.create');
+
 });

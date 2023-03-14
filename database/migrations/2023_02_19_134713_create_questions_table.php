@@ -15,7 +15,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('survey_id');
             $table->longText('content');
-            $table->tinyInteger('type'); //type: 0 => Trắc nghiệm, 1 => Tự luận
+            $table->tinyInteger('type'); //type: 0 => Thông tin chung, 1 => radio, 2 => check box, 3 => textbox, 4 => textarea
             $table->string('essay_correct_answer');
             $table->timestamps();
             $table->softDeletes();

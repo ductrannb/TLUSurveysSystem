@@ -16,6 +16,6 @@ class HomeController extends Controller
 
     public function search(Request $request)
     {
-        return Survey::where('user_id',auth()->id())->where('name', 'like', '%' . $request['query'] . '%')->take(5)->get();
+        return Survey::where('user_id', auth()->id())->where('name', 'like', '%' . $request['query'] . '%')->take(5)->get();
     }
 }

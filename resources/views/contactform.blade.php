@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>{{$survey->name}}</title>
     <link rel="stylesheet" href="{{ asset('css/contactform.css') }}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,241 +23,84 @@
             </div>
         </header>
         <div class="content">
-            <h1 class="content-heading">
-                THỐNG KÊ KẾT QUẢ SỬ DỤNG CSDL Sách & Tạp chí điện tử Ngoại
-                văn và bộ dữ liệu Fiingroup
+            <h1 class="content-heading">{{$survey->name}}
             </h1>
-            <span>Có 8 câu hỏi trong cuộc khảo sát này.</span>
+            <span>Có {{$survey->questions->count()}} câu hỏi trong cuộc khảo sát này.</span>
 
             <h2 class="form-name">I. THÔNG TIN CHUNG</h2>
-            <form action="" class="form-insert">
-                <div class="form-insert-wrap">
-                    <span>*</span>
-                    <label for="form-input-1" class="form-insert-label">Họ và tên:</label>
-                    <input type="text" class="form-input" id="form-input-1" />
-                </div>
+            <form action="{{route('result.create')}}" method='POST'>
+            @foreach($survey->questions as $question)
+                @if($question->type == 0)
+                <div class="form-insert">
+                    <div class="form-insert-wrap">
+                        <span>*</span>
+                        <label for="{{"anser-text-box-" . $question->id}}" class="form-insert-label">{{$question->content}}</label>
+                        <input type="text" class="form-input" id="{{"anser-text-box-" . $question->id}}" />
+                        <div class="form-warn">
+                            <i class="form-warn__icon fa-solid fa-circle-exclamation"></i>
+                            <p class="form-warn__title">
+                                Đây là một câu hỏi bắt buộc
+                            </p>
+                        </div>
+                    </div>
 
-                <div class="form-warn">
-                    <i class="form-warn__icon fa-solid fa-circle-exclamation"></i>
-                    <p class="form-warn__title">
-                        Đây là một câu hỏi bắt buộc
-                    </p>
+                    
                 </div>
-            </form>
-            <form action="" class="form-insert">
-                <div class="form-insert-wrap">
-                    <span>*</span>
-                    <label for="form-input-2" class="form-insert-label">Mã sinh viên:</label>
-                    <input type="text" class="form-input" id="form-input-2" />
-                </div>
-
-                <!-- <div class="form-warn">
-						<i class="form-warn__icon fa-solid fa-circle-exclamation"></i>
-						<p class="form-warn__title">Đây là một câu hỏi bắt buộc</p>
-					</div> -->
-            </form>
-            <form action="" class="form-insert">
-                <div class="form-insert-wrap">
-                    <span>*</span>
-                    <label for="form-input-3" class="form-insert-label">Email:</label>
-                    <input type="email" class="form-input" id="form-input-3" />
-                </div>
-
-                <!-- <div class="form-warn">
-						<i class="form-warn__icon fa-solid fa-circle-exclamation"></i>
-						<p class="form-warn__title">Đây là một câu hỏi bắt buộc</p>
-					</div> -->
-            </form>
+                @endif
+            @endforeach
 
             <h2 class="form-name">II. ĐÁNH GIÁ CỦA SINH VIÊN</h2>
 
-            <form action="" class="form-data">
-                <div class="form-data-wrap">
-                    <label class="form-data-title">
-                        4. Mức độ hữu ích của các CSDL sách và tạp chí điện
-                        tử giúp bạn trong học tập
-                    </label>
-                    <div class="form-data-choose">
-                        <input type="radio" name="data" />
-                        <label for="">
-                            Rất hữu ích
+            @foreach($survey->questions as $question)
+                @if($question->type == 0)
+                    @continue
+                @endif
+                <div class="form-data">
+                    <div class="form-data-wrap">
+                        <label class="form-data-title">
+                            @if($question->type < 0)
+                                <span style="color: red;">*</span>
+                            @endif
+                            {{$question->content}}
                         </label>
-                    </div>
-                    <div class="form-data-choose">
-                        <input type="radio" name="data" />
-                        <label for="">
-                            Hữu ích
-                        </label>
-                    </div>
-                    <div class="form-data-choose">
-                        <input type="radio" name="data" />
-                        <label for="">
-                            Không hữu ích
-                        </label>
-                    </div>
-                </div>
-            </form>
-
-            <form action="" class="form-data">
-                <div class="form-data-wrap">
-                    <label class="form-data-title">
-                        4. Mức độ hữu ích của các CSDL sách và tạp chí điện
-                        tử giúp bạn trong học tập
-                    </label>
-                    <div class="form-data-choose">
-                        <input type="radio" name="data" />
-                        <label for="">
-                            Rất hữu ích
-                        </label>
-                    </div>
-                    <div class="form-data-choose">
-                        <input type="radio" name="data" />
-                        <label for="">
-                            Hữu ích
-                        </label>
-                    </div>
-                    <div class="form-data-choose">
-                        <input type="radio" name="data" />
-                        <label for="">
-                            Không hữu ích
-                        </label>
+                        @if(abs($question->type) == 1)
+                                @foreach($question->answers as $answer)
+                                    <div class="form-data-choose">
+                                        <input type="radio" id="answer-id-{{$answer->id . "-". $question->id}}" name="answer[{{$survey->id}}][{{$question->id}}]" />
+                                        <label for="answer-id-{{$answer->id . "-". $question->id}}">{{$answer->content}}
+                                        </label>
+                                    </div>
+                                @endforeach
+                        @elseif(abs($question->type) == 2)
+                            @foreach($question->answers as $answer)
+                                <div class="form-data-choose">
+                                        <input type="checkbox" id="answer-id-{{$answer->id . "-". $question->id}}" name="answer[{{$survey->id}}][{{$question->id}}]" />
+                                        <label for="answer-id-{{$answer->id . "-". $question->id}}">{{$answer->content}}
+                                        </label>
+                                </div>
+                            @endforeach
+                        @elseif(abs($question->type) == 3)
+                            <input placeholder="Câu trả lời của bạn" class="form-data-answer">
+                        @elseif(abs($question->type) == 4)
+                            <textarea placeholder="Câu trả lời của bạn" class="form-data-answer text-area"></textarea>
+                        @endif
+                        @if($question->type < 0)
+                        <div class="form-warn">
+                            <i class="form-warn__icon fa-solid fa-circle-exclamation"></i>
+                            <p class="form-warn__title">
+                                Đây là một câu hỏi bắt buộc
+                            </p>
+                        </div>
+                        @endif
                     </div>
                 </div>
-            </form>
-
-            <form action="" class="form-data">
-                <div class="form-data-wrap">
-                    <label class="form-data-title">
-                        5. Mức độ hữu ích của các CSDL sách và tạp chí điện
-                        tử giúp bạn trong nghiên cứu
-                    </label>
-                    <div class="form-data-choose">
-                        <input type="radio" name="data" />
-                        <label for="">
-                            Rất hữu ích
-                        </label>
-                    </div>
-                    <div class="form-data-choose">
-                        <input type="radio" name="data" />
-                        <label for="">
-                            Hữu ích
-                        </label>
-                    </div>
-                    <div class="form-data-choose">
-                        <input type="radio" name="data" />
-                        <label for="">
-                            Không hữu ích
-                        </label>
-                    </div>
+                
+            @endforeach
+                <div class="handle">
+                    <input type="submit" value="Gửi" class="submit-form-btn" />
+                    <p class="delete-form">Xóa hết câu trả lời</p>
                 </div>
             </form>
-
-            <form action="" class="form-data">
-                <div class="form-data-wrap">
-                    <label class="form-data-title">
-                        6. Số bài báo quốc tế có sử dụng thông tin tham khảo
-                        từ các CSDL sách & tạp chí điện tử
-                    </label>
-                    <p class="form-data-sub">
-                        (Bạn vui lòng cung cấp số bài báo quốc tế đã sử dụng
-                        thông tin tham khảo từ các CSDL sách & tạp chí điện
-                        tử nói trên kể từ khi bắt đầu sử dụng các CSDL này
-                        đến nay)
-                    </p>
-                    <span>Cụ thể:</span>
-                    <ul class="form-data-list">
-                        <li class="form-data-item">Số bài ISI/SCOPUS Q1</li>
-                        <li class="form-data-item">Số bài ISI/SCOPUS Q2</li>
-                        <li class="form-data-item">Số bài ISI/SCOPUS Q3</li>
-                        <li class="form-data-item">Số bài ISI/SCOPUS Q4</li>
-                    </ul>
-                    <input type="text" placeholder="Câu trả lời của bạn" class="form-data-answer" />
-                </div>
-            </form>
-
-            <form action="" class="form-data">
-                <div class="form-data-wrap">
-                    <label class="form-data-title">
-                        4. Mức độ hữu ích của các CSDL sách và tạp chí điện
-                        tử giúp bạn trong học tập
-                    </label>
-                    <div class="form-data-choose">
-                        <input type="checkbox" name="data" />
-                        <label for="">
-                            Học tập
-                        </label>
-
-                    </div>
-                    <div class="form-data-choose">
-                        <input type="checkbox" name="data" />
-                        <label for="">
-                            Nghiên cứu
-                        </label>
-                    </div>
-                    <div class="form-data-choose">
-                        <input type="checkbox" name="data" />
-                        <label for="">
-                            Truy cập dữ liệu
-                        </label>
-                    </div>
-                    <div class="form-data-choose">
-                        <input type="checkbox" name="data" />
-                        <label for="">
-                            Công việc
-                        </label>
-                    </div>
-                    <div class="form-data-choose">
-                        <input type="checkbox" name="data" />
-                        <label for="">
-                            Mục đích khác
-                        </label>
-                    </div>
-                </div>
-            </form>
-
-            <form action="" class="form-data">
-                <div class="form-data-wrap">
-                    <label class="form-data-title">
-                        7. Bạn có đồng ý tiếp tục sử dụng cơ sở dữ liệu
-                        FiinPro trong các nghiên cứu của mình hay không?
-                    </label>
-                    <div class="form-data-choose">
-                        <input type="radio" name="data" />
-                        <label for="">
-                            Có
-                        </label>
-                    </div>
-                    <div class="form-data-choose">
-                        <input type="radio" name="data" />
-                        <label for="">
-                            Không
-                        </label>
-                    </div>
-                </div>
-            </form>
-
-            <form action="" class="form-data form-data-with-shadow">
-                <div class="form-data-wrap">
-                    <label class="form-data-title">
-                        9. Ưu/nhược điểm của FiinPro mà bạn nhận thấy trong quá trình sử dụng?
-                    </label>
-                    <input placeholder="Câu trả lời của bạn" class="form-data-answer">
-                </div>
-            </form>
-
-            <form action="" class="form-data form-data-with-shadow">
-                <div class="form-data-wrap">
-                    <label class="form-data-title">
-                        10. Ý kiến đóng góp khác?
-                    </label>
-                    <textarea placeholder="Câu trả lời của bạn" class="form-data-answer text-area"></textarea>
-                </div>
-            </form>
-
-            <div class="handle">
-                <input type="submit" value="Gửi" class="submit-form-btn" />
-                <p class="delete-form">Xóa hết câu trả lời</p>
-            </div>
         </div>
     </div>
 </body>
