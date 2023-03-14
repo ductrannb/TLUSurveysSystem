@@ -1,5 +1,4 @@
-const template =`
-<div class="form_option--selection">
+const template =`<div class="form_option--selection">
 <div class="row">
     <input type="text" class="col-8" placeholder="Câu hỏi">
     
@@ -16,11 +15,19 @@ const template =`
           <li><button class="dropdown-item tablinks" onclick="openTabs(event,'Multiple')" type="button">Trắc nghiệm</button></li>
         </ul>
       </div>
-    <div class="option ">
+    <div class="option">
         <div  class="content-option root">
-            <input class=" ip-option" type="radio">Tùy chọn<i class="fa-solid fa-xmark  option-icon x-icon "></i><br>
+            <input  name="option" class=" ip-option" type="radio">
+            <input type="text" placeholder="Tùy chọn">
+            <i class="fa-solid fa-xmark  option-icon"></i><br>
         </div>
     </div>
+    <div class="option--add">
+        <input class="" type="radio">
+        <span  class="option-add">Thêm tùy chọn</span>
+    </div>
+    
+   
     <div class="border">
 
     </div>
@@ -32,9 +39,12 @@ const template =`
         <input type="checkbox" name="" class="switch-toggle">
         </div>
         <div class="boder-end"></div>
-        <i onclick="deleteForm()" class="fa-regular btn-icon-trash fa-trash-can"></i>
+        
     </div>
+    <div class="col-11"></div>
+    <i class="col-1 fa-regular btn-icon-trash fa-trash-can"></i>
 </div>
+
 </div>
 `
 const shortAnswer = `<div class="form_option--selection">
@@ -68,9 +78,12 @@ const shortAnswer = `<div class="form_option--selection">
         <input type="checkbox" name="" class="switch-toggle">
         </div>
         <div class="boder-end"></div>
-        <i  class="fa-regular btn-icon-trash fa-trash-can"></i>
+        
     </div>
+    <div class="col-11"></div>
+    <i class="col-1 fa-regular btn-icon-trash fa-trash-can"></i>
 </div>
+
 </div>`
 const checkBox = `<div class="form_option--selection">
 <div class="row">
@@ -91,7 +104,9 @@ const checkBox = `<div class="form_option--selection">
       </div>
       <div class="option">
         <div  class="content-option-checkbox root">
-            <input class=" ip-option" type="checkbox">Tùy chọn<i class="fa-solid fa-xmark  option-icon"></i><br>
+            <input class=" ip-option" type="checkbox">
+            <input type="text" name="" id="" placeholder="Tùy chọn">
+            <i class="fa-solid fa-xmark  option-icon"></i><br>
         </div>
     </div>
         <div class="option--add">
@@ -110,9 +125,12 @@ const checkBox = `<div class="form_option--selection">
         <input type="checkbox" name="" class="switch-toggle">
         </div>
         <div class="boder-end"></div>
-        <i  class="fa-regular btn-icon-trash fa-trash-can"></i>
+        
     </div>
+    <div class="col-11"></div>
+<i  class="col-1 fa-regular btn-icon-trash fa-trash-can"></i>
 </div>
+
 </div>`
 const paragraph = `<div class="form_option--selection">
 <div class="row">
@@ -145,9 +163,12 @@ const paragraph = `<div class="form_option--selection">
         <input type="checkbox" name="" class="switch-toggle">
         </div>
         <div class="boder-end"></div>
-        <i  class="fa-regular btn-icon-trash fa-trash-can"></i>
+       
     </div>
+    <div class="col-11"></div>
+<i  class="col-1 fa-regular btn-icon-trash fa-trash-can"></i>
 </div>
+
 </div>` 
 const multiple =` <div class="form_option--selection">
 <div class="row">
@@ -167,9 +188,11 @@ const multiple =` <div class="form_option--selection">
         </ul>
       </div>
       <div class="option">
-        <div  class="content-option root">
-            <input class=" ip-option" type="checkbox">Tùy chọn<i class="fa-solid fa-xmark  option-icon-multiple"></i><br>
-        </div>
+      <div  class="content-option-multiple root">
+      <input name='radio' class=" ip-option" type="radio">
+      <input type="text" name="" id="" placeholder="Tùy chọn">
+      <i class="fa-solid fa-xmark  option-icon-multiple option-icon"></i><br>
+      </div>
     </div>
         <div class="option--add">
         <input class="" type="radio">
@@ -186,32 +209,44 @@ const multiple =` <div class="form_option--selection">
         <input type="checkbox" name="" class="switch-toggle">
         </div>
         <div class="boder-end"></div>
-        <i  class="fa-regular btn-icon-trash fa-trash-can"></i>
+    </div>
+    <div class="col-11"></div>
+<i  class="col-1 fa-regular btn-icon-trash fa-trash-can"></i>
 </div>
-</div>
+
 </div>`
 const option =`<div  class="content-option root">
-<input class=" ip-option" type="radio">Tùy chọn<i class="fa-solid fa-xmark  option-icon"></i><br>
+<input name="option" class=" ip-option" type="radio">
+<input  type="text" placeholder="Tùy chọn">
+<i class="fa-solid fa-xmark  option-icon"></i><br>
 </div>`
-const optionCheckbox=`<div class="content-option-checkbox">
-<input class=" ip-option" type="checkbox">Tùy chọn<i class="fa-solid fa-xmark  option-icon "></i>
+const optionCheckbox=`<div  class="content-option-checkbox root">
+<input  class=" ip-option" type="checkbox">
+<input type="text" name="" id="" placeholder="Tùy chọn">
+<i class="fa-solid fa-xmark  option-icon"></i><br>
 </div>`
-const optionmultiple=`  <div  class="content-option-multiple root">
-<input class=" ip-option" type="radio">Tùy chọn<i class="fa-solid fa-xmark  option-icon-multiple"></i><br>
+const optionmultiple=` <div  class="content-option-multiple root">
+<input name='radio' class=" ip-option" type="radio">
+<input type="text" name="" id="" placeholder="Tùy chọn">
+<i class="fa-solid fa-xmark  option-icon-multiple option-icon"></i><br>
 </div>`
+// addForm Question
  const checkboxForm=document.querySelector(".form_option-question")
  const addForm=document.querySelector(".plus-tool")
  addForm.addEventListener("click",function(e){
     checkboxForm.insertAdjacentHTML("beforeend",template);
 
-
  })
- // option 
+ option 
  const optionQuestion=document.querySelector(".option")
- const addOption=document.querySelector(".option-add ")
- addOption.addEventListener("click",function(e){
-   optionQuestion.insertAdjacentHTML("afterend",option);
-})
+ const addOptions=document.querySelectorAll(".option-add ")
+//  const addOption=document.querySelector(".option-add ")
+ for(addOption of addOptions) {
+  addOption.addEventListener("click",function(e){
+    optionQuestion.insertAdjacentHTML("afterend",option);
+ })
+ }
+ 
 // option checkbox
 const optionCheckBox=document.querySelector(".content-option-checkbox")
 const addOptionCheckBox=document.querySelector(".option-add-checkbox ")
@@ -230,21 +265,26 @@ addOptionMultiple.addEventListener("click",function(e){
  addFormShortAnswer.addEventListener("click",function(e){
   ShortAnswerForm.insertAdjacentHTML("beforeend",shortAnswer);
  })
-//  CheckBox
+//Add form  CheckBox
 const CheckBoxForm=document.querySelector(".form_option-checkbox")
  const addFormCheckBox=document.querySelector(".plus-tool-checkbox")
  addFormCheckBox.addEventListener("click",function(e){
   CheckBoxForm.insertAdjacentHTML("beforeend",checkBox);
  })
-//  Paragraph
+//Add form  Paragraph
 const ParagraphForm=document.querySelector(".form_option-paragraph")
  const addParagraph=document.querySelector(".plus-tool-paragraph ")
  addParagraph.addEventListener("click",function(e){
-  ParagraphForm.insertAdjacentHTML("beforeend",checkBox);
+  ParagraphForm.insertAdjacentHTML("beforeend",paragraph);
  })
- //  Multiple-Choice
+ //Add form  Multiple-Choice
 const MultipleForm=document.querySelector(".form_option-multiple")
 const addMultiple=document.querySelector(".plus-tool-multiple ")
 addMultiple.addEventListener("click",function(e){
  MultipleForm.insertAdjacentHTML("beforeend",multiple);
+})
+const ooption = document.querySelector('.option')
+const btnOption = document.querySelector('.option-add')
+btnOption.addEventListener("click",function(e){
+   
 })

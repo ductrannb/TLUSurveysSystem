@@ -55,7 +55,6 @@
     }
     </style>
 <body>
-    
     <div class="app">
         <div class="header">
                     <div class="logo-img">
@@ -81,139 +80,82 @@
                             </ul>
                            
                         </div>
-                        <!-- Question -->
-                        <div id="Question" class="tabcontent">
-                            <form  class="form_option-question container" action="">
-                                <div class="heading-title">
-                                    <input class="form_option--title" placeholder="Tiêu Đề">
-                                    <input class="form_option--description" type="text" placeholder="Mô tả...">
-                                </div>
-
-                                <div class="form_option--email">
-                                    <span style="color:red">*</span><input name class="form_option-input" placeholder="Email">
-                                    <input class="form_option--input" type="text" name="" id="form_option--input" placeholder="Email hợp lệ">
-                                </div>
-    
-                                <div class="form_option--selection">
-                                    <div class="row">
-                                        <input type="text" class="col-8" placeholder="Câu hỏi">
-                                        
-                                        <div class="dropdown col-4">
-                                           
-                                                <button style="margin-top:20px ;" class="btn btn-secondary col-10" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <p class="dropdown-title">Trắc nghiệm</p>
-                                                   <i  class="fa-solid fa-angle-down dropdown-icon--down "></i>
-                                                </button>
-                                            <ul class="dropdown-menu">
-                                              <li><button class="dropdown-item tablinks" onclick="openTabs(event,'Paragraph')" type="button">Đoạn</button></li>
-                                              <li><button class="dropdown-item tablinks" onclick="openTabs(event,'ShortAnswer')" type="button">Trả Lời Ngắn</button></li>
-                                              <li><button class="dropdown-item tablinks" onclick="openTabs(event,'CheckBox')" type="button">Hộp kiểm</button></li>
-                                              <li><button class="dropdown-item tablinks" onclick="openTabs(event,'Multiple')" type="button">Trắc nghiệm</button></li>
-                                            </ul>
-                                          </div>
-                                        <div class="option">
-                                            <div  class="content-option root">
-                                                <input class=" ip-option" type="radio">Tùy chọn<i class="fa-solid fa-xmark  option-icon"></i><br>
-                                            </div>
-                                        </div>
-                                        <div class="option--add">
-                                            <input class="" type="radio">
-                                            <span  class="option-add">Thêm tùy chọn</span>
-                                        </div>
-                                        
-                                       
-                                        <div class="border">
-    
-                                        </div>
-                                        <div class="col-7"> 
-                                        </div>
-                                        <div class="option-btn col-5">
-                                            <p class="form_option--require col-4">Bắt buộc</p>
-                                            <div  id="wrapper">
-                                            <input type="checkbox" name="" class="switch-toggle">
-                                            </div>
-                                            <div class="boder-end"></div>
-                                            <i onclick="deleteForm()" class="fa-regular btn-icon-trash fa-trash-can"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <div class="form-tool">
-                                <form class="form-option-tool" action="">
-                                    <i  class="plus-tool icon-tool">
-                                        <img class="" src="{{ asset('img/plus.svg') }}" alt="">
-                                    </i>
-                                    <i class="image-tool icon-tool">
-                                        <img class="" src="{{ asset('img/image.svg') }}" alt="">
-                                    </i>
-                                    
-                                </form>
-                            </div>
-                        </div>
-                        {{-- Short answer --}}
-                      <div id="ShortAnswer" class="tabcontent">
-                        <form class="form_option-shortanswer container " action="">
-                        
-                            <div class="heading-title">
-                                <input class="form_option--title" placeholder="Tiêu Đề">
+                <!-- Question -->
+                <div id="Question" class="tabcontent">
+                    <form  class="form_option-question container" action="">
+                        <div class="heading-title">
+                            <input class="form_option--title" placeholder="Tiêu Đề">
                             <input class="form_option--description" type="text" placeholder="Mô tả...">
-                            </div>
-                            <div class="form_option--email">
-                                <span style="color:red">*</span><input name class="form_option-input" placeholder="Email">
-                                <input class="form_option--input" type="text" name="" id="form_option--input" placeholder="Email hợp lệ">
-                            </div>
+                        </div>
 
-                            <div class="form_option--selection">
-                                <div class="row">
-                                    <input type="text" class="col-8" placeholder="Câu hỏi">
-                                    
-                                    <div class="dropdown col-4">
-                                       
-                                            <button style="margin-top:20px ;" class="btn btn-secondary col-10" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <p class="dropdown-title">Trả lời ngắn</p>
-                                               <i  class="fa-solid fa-angle-down dropdown-icon--down "></i>
-                                            </button>
-                                        <ul class="dropdown-menu">
-                                          <li><button class="dropdown-item tablinks" onclick="openTabs(event,'Paragraph')" type="button">Đoạn</button></li>
-                                          <li><button class="dropdown-item tablinks" onclick="openTabs(event,'ShortAnswer')" type="button">Trả Lời Ngắn</button></li>
-                                          <li><button class="dropdown-item tablinks" onclick="openTabs(event,'CheckBox')" type="button">Hộp kiểm</button></li>
-                                          <li><button class="dropdown-item tablinks" onclick="openTabs(event,'Multiple')" type="button">Trắc nghiệm</button></li>
-                                        </ul>
-                                      </div>
-                                      <div class="col-12">
-                                        <input class="text-paragraph" type="" placeholder="Văn bản trả lời ngắn">
-                                    </div>
-                                    <div style="margin-top: 100px" class="border">
-                                    
-                                    </div>
-                                    <div class="col-7"> 
-                                    </div>
-                                    <div class="option-btn col-5">
-                                        <p class="form_option--require col-4">Bắt buộc</p>
-                                        <div  id="wrapper">
-                                        <input type="checkbox" name="" class="switch-toggle">
-                                        </div>
-                                        <div class="boder-end"></div>
-                                        <i  class="fa-regular btn-icon-trash fa-trash-can"></i>
+                        <div class="form_option--email">
+                            <span style="color:red">*</span><span class="form_option-input">Email</span>
+                            <input class="form_option--input" type="text" name="" id="form_option--input" placeholder="Email hợp lệ">
+                        </div>
+
+                        <div class="form_option--selection">
+                            <div class="row">
+                                <input type="text" class="col-8" placeholder="Câu hỏi">
+                                
+                                <div class="dropdown col-4">
+                                   
+                                        <button style="margin-top:20px ;" class="btn btn-secondary col-10" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <p class="dropdown-title">Trắc nghiệm</p>
+                                           <i  class="fa-solid fa-angle-down dropdown-icon--down "></i>
+                                        </button>
+                                    <ul class="dropdown-menu">
+                                      <li><button class="dropdown-item tablinks" onclick="openTabs(event,'Paragraph')" type="button">Đoạn</button></li>
+                                      <li><button class="dropdown-item tablinks" onclick="openTabs(event,'ShortAnswer')" type="button">Trả Lời Ngắn</button></li>
+                                      <li><button class="dropdown-item tablinks" onclick="openTabs(event,'CheckBox')" type="button">Hộp kiểm</button></li>
+                                      <li><button class="dropdown-item tablinks" onclick="openTabs(event,'Multiple')" type="button">Trắc nghiệm</button></li>
+                                    </ul>
+                                  </div>
+                                <div class="option">
+                                    <div  class="content-option root">
+                                        <input  name="option" class=" ip-option" type="radio">
+                                        <input type="text" placeholder="Tùy chọn">
+                                        <i class="fa-solid fa-xmark  option-icon"></i><br>
                                     </div>
                                 </div>
+                                <div class="option--add">
+                                    <input class="" type="radio">
+                                    <span   class="option-add">Thêm tùy chọn</span>
+                                </div>
+                                
+                               
+                                <div class="border">
+
+                                </div>
+                                <div class="col-7"> 
+                                </div>
+                                <div class="option-btn col-5">
+                                    <p class="form_option--require col-4">Bắt buộc</p>
+                                    <div  id="wrapper">
+                                    <input type="checkbox" name="" class="switch-toggle">
+                                    </div>
+                                    <div class="boder-end"></div>
+                                    
+                                </div>
+                                    <div class="col-11"></div>
+                                    <i  class="col-1 fa-regular btn-icon-trash fa-trash-can"></i>
                             </div>
                             
-                        </form>
-                        <div class="form-tool">
-                            <form class="form-option-tool" action="">
-                                <i  class="plus-tool-answer icon-tool">
-                                    <img class="" src="{{ asset('img/plus.svg') }}" alt="">
-                                </i>
-                                <i class="image-tool icon-tool">
-                                    <img class="" src="{{ asset('img/image.svg') }}" alt="">
-                                </i>
-                                
-                            </form>
                         </div>
-                  </div>
-                        {{-- Setting --}}
-                     <div id="Setting" class="tabcontent">
+                    </form>
+                    <div class="form-tool">
+                        <form class="form-option-tool" action="">
+                            <i  class="plus-tool icon-tool">
+                                <img class="" src="{{ asset('img/plus.svg') }}" alt="">
+                            </i>
+                            <i class="image-tool icon-tool">
+                                <img class="" src="{{ asset('img/image.svg') }}" alt="">
+                            </i>
+                            
+                        </form>
+                    </div>
+                </div>     
+                {{-- Setting --}}
+                <div id="Setting" class="tabcontent">
                         <form class="form_option--setting container " action="">
                             <h1 style="padding: 20px;">Cài đặt</h1>
                             <div class="border-setting"></div>
@@ -231,7 +173,6 @@
                         
                       {{-- Send target --}}
                       <div id="Send" class="tabcontent">
-                        
                         <div class="form-send-target ">
                             <div class="form-submit">
                                 <h1 class="form-submit-title col-12">Gửi biểu mẫu</h1>
@@ -256,7 +197,7 @@
                                                 <input class="form_option--description" type="text" placeholder="Mô tả...">
                                                 </div>
                                                 <div class="form_option--email">
-                                                    <span style="color:red">*</span><input name class="form_option-input" placeholder="Email">
+                                                    <span style="color:red">*</span><span class="form_option-input">Email</span>
                                                     <input class="form_option--input" type="text" name="" id="form_option--input" placeholder="Email hợp lệ">
                                                 </div>
                     
@@ -297,8 +238,10 @@
                                                             <input type="checkbox" name="" class="switch-toggle">
                                                             </div>
                                                             <div class="boder-end"></div>
-                                                            <i  class="fa-regular btn-icon-trash fa-trash-can"></i>
+                                                           
                                                         </div>
+                                                        <div class="col-11"></div>
+                                                        <i  class="col-1 fa-regular btn-icon-trash fa-trash-can"></i>
                                                     </div>
                                                 </div>
                                                 
@@ -319,10 +262,10 @@
                                         <h2 class="title-list">Danh sách</h2>
                                     </div>
                                         <ul class="list-member">
-                                            <li class="list-member-name col-11">Nguyễn Văn A <div class="list-icon col-1"><img class="list-member-icon " src="./img/eye.png" alt=""><i class="icon-download fa-solid fa-download"></i></div> </li><br>
-                                            <li class="list-member-name col-11">Nguyễn Văn B <div class="list-icon col-1"><img class="list-member-icon"       src="./img/eye.png" alt=""><i class="icon-download fa-solid fa-download"></i></div></li><br>
-                                            <li class="list-member-name col-11">Nguyên Văn C <div class="list-icon col-1"><img class="list-member-icon"       src="./img/eye.png" alt=""><i class="icon-download fa-solid fa-download"></i></div></li><br>
-                                            <li class="list-member-name col-11">Nguyên Văn D <div class="list-icon col-1"><img class="list-member-icon"       src="./img/eye.png" alt=""><i class="icon-download fa-solid fa-download"></i></div></li>
+                                            <li class="list-member-name col-11">Nguyễn Văn A <div class="list-icon col-1"><img class="list-member-icon " src="{{ asset('img/eye.png') }}" alt=""><i class="icon-download fa-solid fa-download"></i></div> </li><br>
+                                            <li class="list-member-name col-11">Nguyễn Văn B <div class="list-icon col-1"><img class="list-member-icon"       src="{{ asset('img/eye.png') }}" alt=""><i class="icon-download fa-solid fa-download"></i></div></li><br>
+                                            <li class="list-member-name col-11">Nguyên Văn C <div class="list-icon col-1"><img class="list-member-icon"       src="{{ asset('img/eye.png') }}" alt=""><i class="icon-download fa-solid fa-download"></i></div></li><br>
+                                            <li class="list-member-name col-11">Nguyên Văn D <div class="list-icon col-1"><img class="list-member-icon"       src="{{ asset('img/eye.png') }}" alt=""><i class="icon-download fa-solid fa-download"></i></div></li>
                                        </ul>
                                        <div class="boder-list-member"></div>
                                        <h2 class="title-list-point">Điểm số</h2>
@@ -362,16 +305,79 @@
                                                  <script  src="{{ asset('js/chart/column.js') }}" type="text/javascript"></script>
                                                 
                                                </div>
-                                        </div>
+                                            </div>
                                         
-                                </form>
+                                    </form>
                              
                             </div>
                           
                             </div>
+                {{-- Short answer --}}
+                <div id="ShortAnswer" class="tabcontent">
+                        <form class="form_option-shortanswer container " action="">
+                    
+                        <div class="heading-title">
+                            <input class="form_option--title" placeholder="Tiêu Đề">
+                        <input class="form_option--description" type="text" placeholder="Mô tả...">
+                        </div>
+                        <div class="form_option--email">
+                            <span style="color:red">*</span><span class="form_option-input">Email</span>
+                            <input class="form_option--input" type="text" name="" id="form_option--input" placeholder="Email hợp lệ">
+                        </div>
+
+                        <div class="form_option--selection">
+                            <div class="row">
+                                <input type="text" class="col-8" placeholder="Câu hỏi">
                                 
-                  {{-- Paragraph --}}
-                  <div id="Paragraph" class="tabcontent">
+                                <div class="dropdown col-4">
+                                   
+                                        <button style="margin-top:20px ;" class="btn btn-secondary col-10" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <p class="dropdown-title">Trả lời ngắn</p>
+                                           <i  class="fa-solid fa-angle-down dropdown-icon--down "></i>
+                                        </button>
+                                    <ul class="dropdown-menu">
+                                      <li><button class="dropdown-item tablinks" onclick="openTabs(event,'Paragraph')" type="button">Đoạn</button></li>
+                                      <li><button class="dropdown-item tablinks" onclick="openTabs(event,'ShortAnswer')" type="button">Trả Lời Ngắn</button></li>
+                                      <li><button class="dropdown-item tablinks" onclick="openTabs(event,'CheckBox')" type="button">Hộp kiểm</button></li>
+                                      <li><button class="dropdown-item tablinks" onclick="openTabs(event,'Multiple')" type="button">Trắc nghiệm</button></li>
+                                    </ul>
+                                  </div>
+                                  <div class="col-12">
+                                    <input class="text-paragraph" type="" placeholder="Văn bản trả lời ngắn">
+                                </div>
+                                <div style="margin-top: 100px" class="border">
+                                
+                                </div>
+                                <div class="col-7"> 
+                                </div>
+                                <div class="option-btn col-5">
+                                    <p class="form_option--require col-4">Bắt buộc</p>
+                                    <div  id="wrapper">
+                                    <input type="checkbox" name="" class="switch-toggle">
+                                    </div>
+                                    <div class="boder-end"></div>
+                                </div>
+                                <div class="col-11"></div>
+                                <i  class="col-1 fa-regular btn-icon-trash fa-trash-can"></i>
+                            </div>
+                        </div>
+                        
+                    </form>
+                    <div class="form-tool">
+                        <form class="form-option-tool" action="">
+                            <i  class="plus-tool-answer icon-tool">
+                                <img class="" src="{{ asset('img/plus.svg') }}" alt="">
+                            </i>
+                            <i class="image-tool icon-tool">
+                                <img class="" src="{{ asset('img/image.svg') }}" alt="">
+                            </i>
+                            
+                        </form>
+                    </div>
+                    </div>
+                                
+                {{-- Paragraph --}}
+                <div id="Paragraph" class="tabcontent">
                     <form class="form_option-paragraph container " action="">
                         
                         <div class="heading-title">
@@ -379,7 +385,7 @@
                         <input class="form_option--description" type="text" placeholder="Mô tả...">
                         </div>
                         <div class="form_option--email">
-                            <span style="color:red">*</span><input name class="form_option-input" placeholder="Email">
+                            <span style="color:red">*</span><span class="form_option-input">Email</span>
                             <input class="form_option--input" type="text" name="" id="form_option--input" placeholder="Email hợp lệ">
                         </div>
 
@@ -414,8 +420,10 @@
                                     <input type="checkbox" name="" class="switch-toggle">
                                     </div>
                                     <div class="boder-end"></div>
-                                    <i  class="fa-regular btn-icon-trash fa-trash-can"></i>
+                                    
                                 </div>
+                                <div class="col-11"></div>
+                                <i  class="col-1 fa-regular btn-icon-trash fa-trash-can"></i>
                             </div>
                         </div>
                     </form>
@@ -431,8 +439,8 @@
                         </form>
                     </div>
                   </div>
-                  {{-- Multiple-Choice --}}
-                  <div id="Multiple" class="tabcontent">
+                {{-- Multiple-Choice --}}
+                <div id="Multiple" class="tabcontent">
                     <form class="form_option-multiple container " action="">
                         
                         <div class="heading-title">
@@ -440,7 +448,7 @@
                         <input class="form_option--description" type="text" placeholder="Mô tả...">
                         </div>
                         <div class="form_option--email">
-                            <span style="color:red">*</span><input name class="form_option-input" placeholder="Email">
+                            <span style="color:red">*</span><span class="form_option-input">Email</span>
                             <input class="form_option--input" type="text" name="" id="form_option--input" placeholder="Email hợp lệ">
                         </div>
 
@@ -463,7 +471,9 @@
                                   </div>
                                   <div class="option">
                                     <div  class="content-option-multiple root">
-                                        <input class=" ip-option" type="radio">Tùy chọn<i class="fa-solid fa-xmark  option-icon-multiple"></i><br>
+                                        <input name="radio" class=" ip-option" type="radio">
+                                        <input type="text" name="" id="" placeholder="Tùy chọn">
+                                        <i class="fa-solid fa-xmark  option-icon-multiple option-icon"></i><br>
                                     </div>
                                 </div>
                                     <div class="option--add">
@@ -481,8 +491,9 @@
                                     <input type="checkbox" name="" class="switch-toggle">
                                     </div>
                                     <div class="boder-end"></div>
-                                    <i  class="fa-regular btn-icon-trash fa-trash-can"></i>
-                            </div>
+                                </div>
+                                <div class="col-11"></div>
+                                <i  class="col-1 fa-regular btn-icon-trash fa-trash-can"></i>
                         </div>
                         </div>
                     </form>
@@ -498,8 +509,8 @@
                         </form>
                     </div>
                   </div>
-                    {{-- Check Box --}}
-                    <div id="CheckBox" class="tabcontent">
+                {{-- Check Box --}}
+                <div id="CheckBox" class="tabcontent">
                         <form class="form_option-checkbox container " action="">
                             
                             <div class="heading-title">
@@ -507,7 +518,7 @@
                             <input class="form_option--description" type="text" placeholder="Mô tả...">
                             </div>
                             <div class="form_option--email">
-                                <span style="color:red">*</span><input name class="form_option-input" placeholder="Email">
+                                <span style="color:red">*</span><span class="form_option-input">Email</span>
                                 <input class="form_option--input" type="text" name="" id="form_option--input" placeholder="Email hợp lệ">
                             </div>
 
@@ -530,7 +541,9 @@
                                       </div>
                                       <div class="option">
                                         <div  class="content-option-checkbox root">
-                                            <input class=" ip-option" type="checkbox">Tùy chọn<i class="fa-solid fa-xmark  option-icon"></i><br>
+                                            <input class=" ip-option" type="checkbox">
+                                            <input type="text" name="" id="" placeholder="Tùy chọn">
+                                            <i class="fa-solid fa-xmark  option-icon"></i><br>
                                         </div>
                                     </div>
                                         <div class="option--add">
@@ -549,8 +562,9 @@
                                         <input type="checkbox" name="" class="switch-toggle">
                                         </div>
                                         <div class="boder-end"></div>
-                                        <i  class="fa-regular btn-icon-trash fa-trash-can"></i>
                                     </div>
+                                    <div class="col-11"></div>
+                                    <i  class="col-1 fa-regular btn-icon-trash fa-trash-can"></i>
                                 </div>
                             </div>
                             
@@ -573,8 +587,8 @@
         </div>
     </div>
 </body>
-
 <script src="{{ asset('js/chart/close.js') }}"></script>
 <script src="{{ asset('js/chart/tabs.js') }}"></script>
 <script src="{{ asset('js/chart/addform.js') }}"></script>
 </html>
+

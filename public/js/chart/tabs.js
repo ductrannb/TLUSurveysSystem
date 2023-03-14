@@ -10,7 +10,6 @@ function openTabs(evt, tabName) {
   }
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " active";
-//cái này đúng k
 }
 
 function tool() {
