@@ -22,7 +22,7 @@ class ReportController extends Controller
 
 
     public function index(){
-        return view('form_report');
+        return view('responseform');
     }
 
     public function create(Request $request)
@@ -33,6 +33,6 @@ class ReportController extends Controller
         } catch (\Throwable $throw) {
             return $this->response->error($throw->getMessage());
         }
-      
+
     }
 }

@@ -57,13 +57,16 @@
                     </div>
                 </div>
             </div>
-            <div class="password-notify">
-				<i class="password-notify-icon fa-regular fa-circle-check"></i>
-				<p class="password-notify-title">Đổi mật khẩu thành công! Vui lòng sử dụng mật khẩu mới để đăng nhập</p>
-				<button class="password-notify-btn">Xác nhận</button>
-			</div>
         </div>
         <div class="app">
+
+            @if(session('success'))
+                <div class="password-notify">
+                    <i class="password-notify-icon fa-regular fa-circle-check"></i>
+                    <p class="password-notify-title">Đổi mật khẩu thành công! Vui lòng sử dụng mật khẩu mới để đăng nhập</p>
+                    <a href="{{route('logout')}}" class="password-notify-btn">Xác nhận</a>
+                </div>
+            @endif
             <header class="header header-with-search">
                 <img src="{{ asset('img/img-logo.jpg') }}" alt="" class="header-logo" />
                 <div class="header-title">
@@ -190,6 +193,6 @@
         btn_close_2.onclick = () => {
             modal.css('display', 'none')
         }
-        
+
     });
 </script>

@@ -28,7 +28,7 @@ Route::get('login', function () {
     return view('login');
 });
 
-Route::get('logout', [AuthController::class, 'logout']);
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 
 Route::get('/forgot-password', function () {
@@ -66,10 +66,6 @@ Route::group([
 
 Route::get('newform', function () {
     return view('new_surveys');
-});
-
-Route::get('report', function () {
-    return view('responseform');
 });
 
 Route::get('review', function () {
