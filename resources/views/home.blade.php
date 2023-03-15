@@ -122,7 +122,7 @@
                                 <p class="content-main-sub-img">{{ $survey->name }}</p>
                                 <div class="content-link-item-icon">
                                     <i class=" fa-solid fa-ellipsis"></i>
-                                    <a href="" class="content-link-item-btn">Xóa</a>
+                                    <a href="{{ route('survey.delete', ['survey_id' => $survey->id]) }}" class="content-link-item-btn">Xóa</a>
                                 </div>
                             </div>
                         @endforeach

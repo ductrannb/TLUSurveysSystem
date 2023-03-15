@@ -68,4 +68,14 @@ class SurveyController extends Controller
             return $this->response->error($throw->getMessage());
         }
     }
+
+    public function delete(Request $request){
+        
+        $survey = Survey::find($request->survey_id);
+        if($survey->user_id == auth()->id() ){
+            $survey -> delete();
+            return redirect()->route('home');
+        }
+        
+    }
 }
