@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Survey;
 use Illuminate\Http\Request;
 use App\Services\ReportService;
 use App\Services\ResponseService;
@@ -22,16 +23,17 @@ class ReportController extends Controller
 
 
     public function index(){
-        return view('responseform');
+        $survey = Survey::find(request('survey_id'));
+        return view('responseform')->with(['survey'=>$survey]);
     }
 
     public function create(Request $request)
     {
         try {
-            $this->report_service->create($request->only('user_id', 'content'));
-            return $this->response->success('create report success !');
+            $this->report_service->create($request->only('survey_id', 'content'));
+            return redirect()->back()->with('create_report_success', 'successfully !');
         } catch (\Throwable $throw) {
-            return $this->response->error($throw->getMessage());
+            return redirect()->back()->with('fail_create_report', 'Failed !');
         }
 
     }
