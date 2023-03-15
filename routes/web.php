@@ -24,6 +24,7 @@ Route::get('/', [HomeController::class, 'index'])->middleware('auth')->name('hom
 Route::post('/', [HomeController::class, 'search'])->middleware('auth')->name('home2');
 
 
+
 Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::get('login', function () {
     return view('login');
@@ -55,6 +56,8 @@ Route::group([
     Route::get('view', 'viewDetail')->name('view_survey');
     Route::post('create', 'create');
     Route::post('update', 'update');
+    Route::get('delete', 'delete')->name('survey.delete');
+
 });
 
 Route::group([
