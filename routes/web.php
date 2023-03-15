@@ -73,7 +73,11 @@ Route::get('review', function () {
     return view('reviewform');
 });
 
-Route::get('contact', [ResultController::class,'index']);
+Route::get('end', function () {
+    return view('end');
+});
+
+Route::get('contact', [ResultController::class, 'index']);
 
 Route::group([
     'prefix' => 'result',
@@ -81,5 +85,4 @@ Route::group([
 ], function () {
     Route::get('/', 'index');
     Route::post('create', 'create')->name('result.create');
-
 });

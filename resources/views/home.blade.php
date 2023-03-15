@@ -114,12 +114,16 @@
                             <p class="content-main-sub-img">Tạo mới</p>
                         </div>
                         @foreach ($surveys as $survey)
-                            <div class="content-link-item">
+                            <div class="content-link-item content-link-item--parrent-icon">
                                 <a href="{{route('view_survey', ['user_id'=>auth()->id(),'id'=>$survey->id])}}" class="content-main-element">
                                     <img class="content-main-img" src="{{ asset('img/survey_avt.png') }}" alt="">
                                 </a>
 
                                 <p class="content-main-sub-img">{{ $survey->name }}</p>
+                                <div class="content-link-item-icon">
+                                    <i class=" fa-solid fa-ellipsis"></i>
+                                    <a href="" class="content-link-item-btn">Xóa</a>
+                                </div>
                             </div>
                         @endforeach
                     </div>
@@ -171,7 +175,6 @@
 
         const quitBtn = document.getElementById('quit')
         const searchInput = document.querySelector('.search-input')
-        console.log(searchInput);
         quitBtn.onclick = () => {
             $('#search-results').css("display", "none");
             $('#quit').css("display", "none");
@@ -179,11 +182,13 @@
             searchInput.value = '';
         }
 
+        
         const modal = $('#modal-change-password')
         const btn_open = document.getElementById('btn-open-modal')
         const btn_close_1 = document.getElementById('btn-close-modal')
         const btn_close_2 = document.getElementById('btn-close-modal-2')
-
+        
+        
         btn_open.onclick = () => {
             modal.css('display', 'flex')
         }
@@ -194,5 +199,31 @@
             modal.css('display', 'none')
         }
 
+        // btn delete "..."
+        const deleteIcons = document.querySelectorAll('.content-link-item-icon')
+        const deleteItemBtns = document.querySelectorAll('.content-link-item-btn')
+        let isOpen = false;
+        deleteIcons.forEach((deleteIcon, i) => {
+            deleteIcon.onclick = function(e) {
+                e.stopPropagation();
+                if(isOpen) {
+                    isOpen = false;
+                    deleteItemBtns[i].classList.remove('active')
+                } else {
+                    isOpen = true;
+                    deleteItemBtns[i].classList.add('active')
+                }
+            }
+
+            const app = document.querySelector('.app')
+
+            app.onclick = () => {
+                for(deleteItemBtn of deleteItemBtns) {
+                    deleteItemBtn.classList.remove('active')
+                }
+            }
+        })
+
+        
     });
 </script>
