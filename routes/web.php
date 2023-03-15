@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\ResultController;
 
@@ -61,7 +62,7 @@ Route::group([
     'controller' => ReportController::class
 ], function () {
     Route::get('/', 'index');
-    Route::post('create', 'create');
+    Route::post('create', 'create')->name('report.create');
 });
 
 Route::get('newform', function () {

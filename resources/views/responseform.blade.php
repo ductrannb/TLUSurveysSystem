@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -31,27 +31,30 @@
             </header>
             <div class="content">
                 <div class="content-wrap">
-                    <h2 class="content-heading">
-                        THỐNG KÊ KẾT QUẢ SỬ DỤNG CSDL Sách & Tạp chí điện tử
-                        Ngoại văn và bộ dữ liệu Fiingroup
+                    <h2 class="content-heading">{{$survey->name}}
                     </h2>
+                    @if(!session('create_report_success'))
                     <p class="content-sub-title">
                         Hệ thống đã ghi lại câu trả lời của bạn
                     </p>
                     <p class="content-sub-title">
                         Đóng góp ý kiến cho chúng tôi
                     </p>
-                    <div class="content-field">
-                        <input
-                            type="text"
-                            placeholder="ý kiến của bạn......"
-                            class="content-input"
-                        />
-                    </div>
-                    <div class="handle">
-                        <p class="handle-link">Xóa hết câu trả lời</p>
-                        <input type="submit" value="End" class="btn" />
-                    </div>
+                    <form class="handle" method="POST" action="{{route('report.create')}}">
+                        @csrf
+                        <input type="hidden" value="{{$survey->id}}" name="survey_id">
+                        <div class="content-field">
+                            <input
+                                type="text"
+                                placeholder="ý kiến của bạn......"
+                                class="content-input" name="content"/>
+                        </div>
+                        <p class="handle-link">Xem lại bài khảo sát</p>
+                            <input type="submit" value="End" class="btn" />
+                    </form>
+                    @else
+                        <p>Thanks you !</p>
+                    @endif
                 </div>
             </div>
         </div>
