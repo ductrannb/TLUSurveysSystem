@@ -30,7 +30,7 @@
                 </div>
             </header>
             <div class="content">
-                <div class="content-wrap">
+                <form  action="{{route('report.create')}}" method="POST" class="content-wrap">
                     <h2 class="content-heading">{{$survey->name}}
                     </h2>
                     @if(!session('create_report_success'))
@@ -50,12 +50,12 @@
                                 class="content-input" name="content"/>
                         </div>
                         <p class="handle-link">Xem lại bài khảo sát</p>
-                            <input type="submit" value="End" class="btn" />
+                        <input type="submit" value="End" class="btn" />
                     </form>
                     @else
                         <p>Thanks you !</p>
                     @endif
-                </div>
+                </form>
             </div>
         </div>
     </body>
