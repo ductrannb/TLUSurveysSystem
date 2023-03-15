@@ -1,40 +1,36 @@
-.app{
-
-
-}
-.header{
-    width: 1300px;
+.header {
     padding-top: 50px;
     min-height: 100%;
 }
-.bg-img{
-    width: 100% ;
+.bg-img {
+    width: 100%;
     /*width: 100vw;*/
     /*height: 100vh;*/
 }
-.logo-img{
+.logo-img {
     width: 13%;
     position: absolute;
-    left: 0;
+    left: 20px;
     top: 0;
     z-index: 10;
     margin: 20px 0 0 50px;
     border-radius: 10px;
 }
-.title-heading{
+.title-heading {
     position: absolute;
     top: 0;
     margin-top: 14%;
     margin-left: 50px;
     z-index: 10;
+    left: 34px;
 }
 .title-heading_1,
-.title-heading_2{
+.title-heading_2 {
     font-size: 30px;
     font-weight: 400;
     color: #fff;
 }
-.form_admin{
+.form_admin {
     position: absolute;
     left: 60%;
     top: 48%;
@@ -45,106 +41,106 @@
     align-items: center;
     border: solid 1px #444;
 }
-.form_admin--title{
-    color: #007F49;
+.form_admin--title {
+    color: #007f49;
     font-size: 20px;
     font-weight: 400;
     margin-left: 20px;
     margin-top: 10px;
     line-height: 24px;
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
 }
-.form_admin--title::before{
-    content: '';
-	display: block;
-	position: absolute;
-	width: 350px;
-	height: 1px;
-	background-color: #cac5c5;
-	top: 10%;
+.form_admin--title::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 350px;
+    height: 1px;
+    background-color: #cac5c5;
+    top: 10%;
     margin-left: -7px;
-	left: 25px;
+    left: 25px;
 }
-.form_admin--title::after{
-    content: '';
-	display: block;
-	position: absolute;
-	width: 350px;
-	height: 1px;
-	background-color: #cac5c5;
-	top: 65%;
+.form_admin--title::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 350px;
+    height: 1px;
+    background-color: #cac5c5;
+    top: 65%;
     margin-left: -7px;
-	left: 25px;
+    left: 25px;
 }
-.form_admin--login{
+.form_admin--login {
     position: relative;
-    margin:50px 0 0 30px ;
+    margin: 50px 0 0 30px;
     width: 320px;
-    border-radius:5px;
+    border-radius: 5px;
     height: 35px;
     border: solid 1px #696464;
     padding: 0 0 0 20px;
 }
-.form_admin--password{
+.form_admin--password {
     position: relative;
-    margin:30px 0 0 30px ;
+    margin: 30px 0 0 30px;
     width: 320px;
-    border-radius:5px;
+    border-radius: 5px;
     height: 35px;
     border: solid 1px #696464;
     padding: 0 0 0 20px;
 }
-.form_admin--security{
+.form_admin--security {
     position: relative;
-    margin:20px 0 0 30px ;
+    margin: 20px 0 0 30px;
     width: 200px;
-    border-radius:5px;
+    border-radius: 5px;
     height: 35px;
     border: solid 1px #696464;
 }
-.form_admin--code{
+.form_admin--code {
     position: relative;
-    margin:20px 0px 0 14px ;
+    margin: 20px 0px 0 14px;
     width: 100px;
-    border-radius:5px;
+    border-radius: 5px;
     height: 35px;
     border: solid 1px #696464;
 }
-.form_admin--btn{
+.form_admin--btn {
     position: relative;
     width: 120px;
     height: 40px;
     top: 120px;
     left: 60%;
     font-size: 20px;
-    background-color: #5CB85C ;
+    background-color: #5cb85c;
     color: #fff;
-    border: solid 1px #818181 ;
+    border: solid 1px #818181;
     border-radius: 10px;
     box-shadow: 0px 15px 30px -10px rgba(30, 38, 230, 0.25);
 }
-.form_admin--btn:hover{
-    background-color: #007F49;
+.form_admin--btn:hover {
+    background-color: #007f49;
 }
-.forgot-password{
+.forgot-password {
     position: absolute;
     width: 106px;
     height: 15px;
     left: 34px;
     top: 333px;
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
     line-height: 15px;
-    color: #9747FF;
+    color: #9747ff;
     text-decoration: none;
 }
-.forgot-password:hover{
+.forgot-password:hover {
     color: red;
 }
-.form_admin--failed{
+.form_admin--failed {
     position: absolute;
     background-color: #fff;
     width: 350px;
@@ -153,60 +149,59 @@
     top: 80px;
     border-radius: 20px;
     display: none;
-
 }
-.img-close{
+.img-close {
     position: absolute;
     width: 12%;
     top: 25px;
     left: 110px;
 }
-.warning-failed{
+.warning-failed {
     position: absolute;
     width: 36px;
     height: 30px;
     left: 156px;
     top: 30px;
 
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 500;
     font-size: 25px;
     line-height: 30px;
 
-    color: #E70303;
+    color: #e70303;
 }
-.warning-pw{
+.warning-pw {
     position: absolute;
     width: 262px;
     height: 18px;
     left: 27px;
     top: 91px;
 
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 300;
     font-size: 15px;
     line-height: 18px;
 
-    color: #E70303;
+    color: #e70303;
 }
-.warning-retype{
-        position: absolute;
+.warning-retype {
+    position: absolute;
     width: 124px;
     height: 18px;
     left: 99px;
     top: 115px;
 
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 300;
     font-size: 15px;
     line-height: 18px;
 
-    color: #E92222;
+    color: #e92222;
 }
-.btn-confirm{
+.btn-confirm {
     cursor: pointer;
     position: absolute;
     width: 65px;
@@ -216,9 +211,9 @@
     background: rgba(92, 184, 92, 0.84);
     border-radius: 6px;
     font-size: 14px;
-    border:rgba(92, 184, 92, 0.84);
+    border: rgba(92, 184, 92, 0.84);
     color: #fff;
 }
-.active{
+.active {
     display: block;
 }
