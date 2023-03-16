@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('survey_id');
+            $table->unsignedBigInteger('survey_id');;
+            $table->string('fullname');
+            $table->string('student_id');
+            $table->string('email');
+            $table->unique('survey_id', 'student_id');
             $table->foreign('survey_id')->references('id')->on('surveys');
             $table->timestamps();
             $table->softDeletes();
