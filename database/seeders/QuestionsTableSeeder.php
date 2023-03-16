@@ -19,39 +19,6 @@ class QuestionsTableSeeder extends Seeder
         \DB::table('questions')->delete();
         
         \DB::table('questions')->insert(array (
-            0 => 
-            array (
-                'id' => 1,
-                'survey_id' => 1,
-                'content' => 'Họ và tên',
-                'type' => 0,
-                'essay_correct_answer' => '',
-                'created_at' => NULL,
-                'updated_at' => NULL,
-                'deleted_at' => NULL,
-            ),
-            1 => 
-            array (
-                'id' => 2,
-                'survey_id' => 1,
-                'content' => 'Mã sinh viên',
-                'type' => 0,
-                'essay_correct_answer' => '',
-                'created_at' => NULL,
-                'updated_at' => NULL,
-                'deleted_at' => NULL,
-            ),
-            2 => 
-            array (
-                'id' => 3,
-                'survey_id' => 1,
-                'content' => 'Email',
-                'type' => 0,
-                'essay_correct_answer' => '',
-                'created_at' => NULL,
-                'updated_at' => NULL,
-                'deleted_at' => NULL,
-            ),
             3 => 
             array (
                 'id' => 6,
