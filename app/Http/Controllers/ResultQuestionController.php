@@ -24,12 +24,12 @@ class ResultQuestionController extends Controller
         return 'result question';
     }
 
-    public function create(Request $request)
+    public function create(array $data)
     {
-        dd($request);
+        // dd($request);
         try {
-            $this->result_question_service->create($request->only('result_id','question_id','answer_id','essay_answer'));
-            return $this->response->success('create result_question success !');
+            $result = $this->result_question_service->create($request->all());
+            return redirect()->route('report',['survey_id'=>$result->survey_id]);
         } catch (\Throwable $throw) {
             return $this->response->error($throw->getMessage());
         }

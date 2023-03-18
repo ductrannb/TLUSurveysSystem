@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('fullname');
             $table->string('student_id');
             $table->string('email');
-            $table->unique('survey_id', 'student_id');
+            // $table->unique('survey_id', 'student_id');
             $table->foreign('survey_id')->references('id')->on('surveys');
             $table->timestamps();
             $table->softDeletes();

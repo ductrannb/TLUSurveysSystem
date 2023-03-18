@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Survey;
+use App\Models\ResultQuestion;
 use Illuminate\Http\Request;
 use App\Services\ResultService;
 use App\Services\ResponseService;
@@ -28,12 +29,11 @@ class ResultController extends Controller
 
     public function create(Request $request)
     {
-        dd($request);
-        try {
-            $this->result_service->create($request->only('survey_id'));
-            return $this->response->success('create result success !');
-        } catch (\Throwable $throw) {
-            return $this->response->error($throw->getMessage());
-        }
+        // try {
+            $result = $this->result_service->create($request->all());
+            return redirect()->route('report',['survey_id'=>$result->survey_id]);
+        // } catch (\Throwable $throw) {
+        //     return $this->response->error($throw->getMessage());
+        // }
     }
 }
