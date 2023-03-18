@@ -30,25 +30,47 @@
             <h2 class="form-name">I. THÔNG TIN CHUNG</h2>
             <form action="{{route('result.create')}}" method='POST'>
             @csrf
-            @foreach($survey->questions as $question)
-                @if($question->type == 0)
-                <div class="form-insert">
-                    <div class="form-insert-wrap">
-                        <span>*</span>
-                        <label for="{{"anser-text-box-" . $question->id}}" class="form-insert-label">{{$question->content}}</label>
-                        <input type="text" class="form-input" id="{{"anser-text-box-" . $question->id}}" />
-                        <div class="form-warn">
-                            <i class="form-warn__icon fa-solid fa-circle-exclamation"></i>
-                            <p class="form-warn__title">
-                                Đây là một câu hỏi bắt buộc
-                            </p>
-                        </div>
+            <input name = "survey_id" value="{{ $survey->id }}" type="hidden">
+
+            <div class="form-insert">
+                <div class="form-insert-wrap">
+                    <span>*</span>
+                    <label for="{{"anser-text-box-0"}}" class="form-insert-label">Họ và tên</label>
+                    <input type="text" class="form-input" id="{{"anser-text-box-0"}}" name="fullname" />
+                    <div class="form-warn">
+                        <i class="form-warn__icon fa-solid fa-circle-exclamation"></i>
+                        <p class="form-warn__title">
+                            Đây là một câu hỏi bắt buộc
+                        </p>
                     </div>
-
-
                 </div>
-                @endif
-            @endforeach
+            </div>
+            <div class="form-insert">
+                <div class="form-insert-wrap">
+                    <span>*</span>
+                    <label for="{{"anser-text-box-0"}}" class="form-insert-label">Mã sinh viên</label>
+                    <input type="text" class="form-input" id="{{"anser-text-box-0"}}" name="student_id" />
+                    <div class="form-warn">
+                        <i class="form-warn__icon fa-solid fa-circle-exclamation"></i>
+                        <p class="form-warn__title">
+                            Đây là một câu hỏi bắt buộc
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-insert">
+                <div class="form-insert-wrap">
+                    <span>*</span>
+                    <label for="{{"anser-text-box-0"}}" class="form-insert-label">Email</label>
+                    <input type="text" class="form-input" id="{{"anser-text-box-0"}}" name="email" />
+                    <div class="form-warn">
+                        <i class="form-warn__icon fa-solid fa-circle-exclamation"></i>
+                        <p class="form-warn__title">
+                            Đây là một câu hỏi bắt buộc
+                        </p>
+                    </div>
+                </div>
+            </div>
 
             <h2 class="form-name">II. ĐÁNH GIÁ CỦA SINH VIÊN</h2>
 
@@ -67,7 +89,7 @@
                         @if(abs($question->type) == 1)
                                 @foreach($question->answers as $answer)
                                     <div class="form-data-choose">
-                                        <input type="radio" id="answer-id-{{$answer->id . "-". $question->id}}" name="answer[{{$survey->id}}][{{$question->id}}]" />
+                                        <input type="radio" id="answer-id-{{$answer->id . "-". $question->id}}" name="choice_answer[{{$question->id}}]" value="{{$answer->id}}" />
                                         <label for="answer-id-{{$answer->id . "-". $question->id}}">{{$answer->content}}
                                         </label>
                                     </div>
@@ -75,15 +97,15 @@
                         @elseif(abs($question->type) == 2)
                             @foreach($question->answers as $answer)
                                 <div class="form-data-choose">
-                                        <input type="checkbox" id="answer-id-{{$answer->id . "-". $question->id}}" name="answer[{{$survey->id}}][{{$question->id}}]" />
+                                        <input type="checkbox" id="answer-id-{{$answer->id . "-". $question->id}}" name="multi_answer[{{$question->id}}][{{$answer->id}}]" />
                                         <label for="answer-id-{{$answer->id . "-". $question->id}}">{{$answer->content}}
                                         </label>
                                 </div>
                             @endforeach
                         @elseif(abs($question->type) == 3)
-                            <input placeholder="Câu trả lời của bạn" class="form-data-answer">
+                            <input placeholder="Câu trả lời của bạn" class="form-data-answer" name="essay_answer[{{ $question->id }}]">
                         @elseif(abs($question->type) == 4)
-                            <textarea placeholder="Câu trả lời của bạn" class="form-data-answer text-area"></textarea>
+                            <textarea placeholder="Câu trả lời của bạn" class="form-data-answer text-area" name="essay_answer[{{ $question->id }}]></textarea>
                         @endif
                         @if($question->type < 0)
                         <div class="form-warn">

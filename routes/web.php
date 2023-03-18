@@ -64,7 +64,7 @@ Route::group([
     'prefix' => 'report',
     'controller' => ReportController::class
 ], function () {
-    Route::get('/', 'index');
+    Route::get('/', 'index')->name('report');
     Route::post('create', 'create')->name('report.create');
 });
 
