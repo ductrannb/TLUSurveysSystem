@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('student_id');
             $table->string('email');
             // $table->unique('survey_id', 'student_id');
-            $table->unsignedDouble('score');
+            $table->unsignedDouble('score')->nullable();
             $table->foreign('survey_id')->references('id')->on('surveys');
             $table->timestamps();
             $table->softDeletes();

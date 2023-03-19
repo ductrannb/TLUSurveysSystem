@@ -31,6 +31,8 @@
             <form action="{{route('result.create')}}" method='POST'>
             @csrf
             <input name = "survey_id" value="{{ $survey->id }}" type="hidden">
+            <input name = "total_question" value="{{ $survey->questions->count() }}" type="hidden">
+            <input name = "survey_type" value="{{ $survey->type }}" type="hidden">
 
             <div class="form-insert">
                 <div class="form-insert-wrap">

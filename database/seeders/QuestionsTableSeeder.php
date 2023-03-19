@@ -19,7 +19,7 @@ class QuestionsTableSeeder extends Seeder
         \DB::table('questions')->delete();
         
         \DB::table('questions')->insert(array (
-            3 => 
+            0 => 
             array (
                 'id' => 6,
                 'survey_id' => 1,
@@ -30,7 +30,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            4 => 
+            1 => 
             array (
                 'id' => 7,
                 'survey_id' => 1,
@@ -41,7 +41,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            5 => 
+            2 => 
             array (
                 'id' => 8,
                 'survey_id' => 1,
@@ -52,7 +52,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            6 => 
+            3 => 
             array (
                 'id' => 9,
                 'survey_id' => 1,
@@ -63,7 +63,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            7 => 
+            4 => 
             array (
                 'id' => 10,
                 'survey_id' => 1,
@@ -74,7 +74,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            8 => 
+            5 => 
             array (
                 'id' => 11,
                 'survey_id' => 1,
@@ -85,7 +85,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            9 => 
+            6 => 
             array (
                 'id' => 12,
                 'survey_id' => 1,
@@ -96,7 +96,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            10 => 
+            7 => 
             array (
                 'id' => 13,
                 'survey_id' => 1,
@@ -107,7 +107,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            11 => 
+            8 => 
             array (
                 'id' => 14,
                 'survey_id' => 1,
@@ -118,7 +118,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            12 => 
+            9 => 
             array (
                 'id' => 15,
                 'survey_id' => 3,
@@ -129,7 +129,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            13 => 
+            10 => 
             array (
                 'id' => 16,
                 'survey_id' => 3,
@@ -140,7 +140,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            14 => 
+            11 => 
             array (
                 'id' => 17,
                 'survey_id' => 3,
@@ -151,7 +151,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            15 => 
+            12 => 
             array (
                 'id' => 18,
                 'survey_id' => 3,
@@ -162,7 +162,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            16 => 
+            13 => 
             array (
                 'id' => 19,
                 'survey_id' => 3,
@@ -173,7 +173,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            17 => 
+            14 => 
             array (
                 'id' => 20,
                 'survey_id' => 3,
@@ -184,7 +184,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            18 => 
+            15 => 
             array (
                 'id' => 21,
                 'survey_id' => 3,
@@ -195,7 +195,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            19 => 
+            16 => 
             array (
                 'id' => 22,
                 'survey_id' => 3,
@@ -206,7 +206,7 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            20 => 
+            17 => 
             array (
                 'id' => 23,
                 'survey_id' => 3,
@@ -217,13 +217,24 @@ class QuestionsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            21 => 
+            18 => 
             array (
                 'id' => 24,
                 'survey_id' => 3,
                 'content' => '4 + 2 = ?',
                 'type' => 1,
                 'essay_correct_answer' => '',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            19 => 
+            array (
+                'id' => 25,
+                'survey_id' => 9,
+                'content' => 'Bạn nên nhập okela để được 10 điểm',
+                'type' => 3,
+                'essay_correct_answer' => 'okela',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,

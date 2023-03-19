@@ -119,10 +119,10 @@ class SurveysTableSeeder extends Seeder
             array (
                 'id' => 9,
                 'user_id' => 1,
-                'name' => 'Khảo sát 1',
+                'name' => 'Kiểm tra tự luận',
                 'start_at' => '2022-12-12 00:00:00',
                 'end_at' => '2023-12-12 00:00:00',
-                'type' => 0,
+                'type' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
