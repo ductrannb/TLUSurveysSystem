@@ -43,6 +43,8 @@
                     <form class="handle" method="POST" action="{{route('report.create')}}">
                         @csrf
                         <input type="hidden" value="{{$survey->id}}" name="survey_id">
+                        <input type="hidden" value="{{$result_id}}" name="result_id">
+
                         <div class="content-field">
                             <input
                                 type="text"
