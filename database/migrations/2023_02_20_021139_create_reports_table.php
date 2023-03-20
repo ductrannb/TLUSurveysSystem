@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('survey_id');
+            $table->unsignedBigInteger('result_id');
             $table->longText('content');
             $table->foreign('survey_id')->references('id')->on('surveys');
             $table->timestamps();
