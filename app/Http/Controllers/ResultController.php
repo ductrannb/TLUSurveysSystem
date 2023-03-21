@@ -31,7 +31,7 @@ class ResultController extends Controller
     {
         // try {
             $result = $this->result_service->create($request->all());
-            return redirect()->route('report',['survey_id'=>$result->survey_id]);
+            return redirect()->route('report',['survey_id'=>$result->survey_id,'result_id'=>$result->id]);
         // } catch (\Throwable $throw) {
         //     return $this->response->error($throw->getMessage());
         // }
