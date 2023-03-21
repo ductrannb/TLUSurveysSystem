@@ -6,7 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\ResultController;
-use App\Http\Controllers\UsersController;
+
 
 
 use Illuminate\Support\Facades\Route;
@@ -94,4 +94,3 @@ Route::group([
 });
 
 
-Route::get('users/export', [UsersController::class, 'export']);
