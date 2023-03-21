@@ -7,6 +7,8 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\ResultController;
 
+
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -88,4 +90,7 @@ Route::group([
 ], function () {
     Route::get('/', 'index');
     Route::post('create', 'create')->name('result.create');
+    Route::get('export/{id}','export');
 });
+
+

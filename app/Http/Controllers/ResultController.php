@@ -7,7 +7,8 @@ use App\Models\ResultQuestion;
 use Illuminate\Http\Request;
 use App\Services\ResultService;
 use App\Services\ResponseService;
-
+use App\Exports\ResultExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Result;
 
 class ResultController extends Controller
@@ -35,5 +36,12 @@ class ResultController extends Controller
         // } catch (\Throwable $throw) {
         //     return $this->response->error($throw->getMessage());
         // }
+    }
+
+    public function export(int $id) 
+    {
+        $survey_id = $id;
+        $file_name = Survey::find($id)->name;
+        return (new ResultExport)->get_by_survey_id($survey_id)->download( $file_name . '.xlsx');
     }
 }
