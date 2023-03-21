@@ -19,9 +19,9 @@ class SurveyController extends Controller
         $this->response= $response;
     }
 
-    public function index() 
+    public function index()
     {
-        return view('new_surveys');    
+        return view('new_surveys');
     }
 
     public function viewDetail(Request $request)
@@ -31,7 +31,8 @@ class SurveyController extends Controller
 
     public function create(Request $request)
     {
-        try {
+//        dd($request);
+//        try {
             $request->validate([
                 'user_id' => 'required',
                 'name' => 'required',
@@ -40,12 +41,12 @@ class SurveyController extends Controller
                 'type' => 'integer',
             ]);
 
-            $this->survey_service->create($request->only('user_id', 'name', 'start_at', 'end_at', 'type'));
+            $this->survey_service->create($request->all());
 
             return $this->response->success('create survey success !');
-        } catch (\Throwable $throw) {
-            return $this->response->error($throw->getMessage());
-        }
+//        } catch (\Throwable $throw) {
+//            return $this->response->error($throw->getMessage());
+//        }
     }
 
     public function update(Request $request)
@@ -70,12 +71,12 @@ class SurveyController extends Controller
     }
 
     public function delete(Request $request){
-        
+
         $survey = Survey::find($request->survey_id);
         if($survey->user_id == auth()->id() ){
             $survey -> delete();
             return redirect()->route('home');
         }
-        
+
     }
 }

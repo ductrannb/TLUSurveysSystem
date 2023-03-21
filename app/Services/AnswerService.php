@@ -8,9 +8,9 @@ class AnswerService
 {
     private $answer_repo;
 
-    public function __construct(AnswerRepository $answer_repo)
+    public function __construct()
     {
-        $this->answer_repo = $answer_repo;
+        $this->answer_repo = new AnswerRepository();
     }
 
     public function create(array $data)
@@ -22,7 +22,7 @@ class AnswerService
     {
         return $this->answer_repo->update($data);
     }
-    
+
     public function delete(int $data)
     {
         return $this->answer_repo->delete($data);
