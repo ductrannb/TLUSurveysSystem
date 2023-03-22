@@ -18,7 +18,7 @@ class SurveyController extends Controller
     {
         $this->middleware('auth');
         $this->survey_service = $survey_service;
-        $this->response= $response;
+        $this->response = $response;
     }
 
     public function index()
@@ -33,8 +33,8 @@ class SurveyController extends Controller
 
     public function create(Request $request)
     {
-//        dd($request);
-//        try {
+        // dd($request);
+        try {
             $request->validate([
                 'user_id' => 'required',
                 'name' => 'required',
@@ -46,9 +46,9 @@ class SurveyController extends Controller
             $this->survey_service->create($request->all());
 
             return $this->response->success('create survey success !');
-//        } catch (\Throwable $throw) {
-//            return $this->response->error($throw->getMessage());
-//        }
+        } catch (\Throwable $throw) {
+            return $this->response->error($throw->getMessage());
+        }
     }
 
     public function update(Request $request)
@@ -64,7 +64,7 @@ class SurveyController extends Controller
             ]);
             $survey = Survey::findOrFail($request->id);
 
-            $this->survey_service->update($request->only('id' ,'name', 'start_at', 'end_at', 'type'));
+            $this->survey_service->update($request->only('id', 'name', 'start_at', 'end_at', 'type'));
 
             return $this->response->success('updated survey success !');
         } catch (\Throwable $throw) {
@@ -72,18 +72,18 @@ class SurveyController extends Controller
         }
     }
 
-    public function delete(Request $request){
+    public function delete(Request $request)
+    {
         $survey = Survey::find($request->survey_id);
-        if($survey->user_id == auth()->id() ){
-            $survey -> delete();
+        if ($survey->user_id == auth()->id()) {
+            $survey->delete();
             return redirect()->route('home');
         }
-
     }
 
     public function viewReport(Request $request)
     {
         $survey = Survey::find($request->survey_id);
-        return view('view_report')->with(['survey'=>$survey]);
+        return view('view_report')->with(['survey' => $survey]);
     }
 }

@@ -18,8 +18,9 @@ class SurveyService
 
     public function create(array $data)
     {
+        // dd($data);
         $survey = $this->survey_repo->create(Arr::only($data, array('user_id', 'name', 'start_at', 'end_at', 'type')));
-        $questions = $data['question'];
+        $questions = $data['questions'];
         $types = $data['types'];
         $answers = $data['answers'];
         $correct_answers = $data['correct_answers'];
@@ -28,10 +29,10 @@ class SurveyService
             $type_question = $types[$question_id];
             $essay_correct_answer = ($type_question == 1 || $type_question == 2 || $survey->type == 0) ? '' : $correct_answers[$question_id][0];
             $data_create_question = array(
-                'survey_id'=>$survey->id,
-                'content'=>$questions[$question_id],
-                'type'=>$types[$question_id],
-                'essay_correct_answer'=>$essay_correct_answer
+                'survey_id' => $survey->id,
+                'content' => $questions[$question_id],
+                'type' => $types[$question_id],
+                'essay_correct_answer' => $essay_correct_answer
             );
             $answers_data = [];
             $correct_answers_data = [];

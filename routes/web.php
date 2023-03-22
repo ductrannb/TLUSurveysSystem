@@ -56,10 +56,10 @@ Route::group([
 ], function () {
     Route::get('create', 'index');
     Route::get('view', 'viewDetail')->name('view_survey');
-    Route::post('create', 'create');
+    Route::post('create', 'create')->name('survey.create');
     Route::post('update', 'update');
     Route::get('delete', 'delete')->name('survey.delete');
-    Route::get('view_report','viewReport')->name('view_report');
+    Route::get('view_report', 'viewReport')->name('view_report');
 });
 
 Route::group([
@@ -90,7 +90,5 @@ Route::group([
 ], function () {
     Route::get('/', 'index');
     Route::post('create', 'create')->name('result.create');
-    Route::get('export/{id}','export');
+    Route::get('export/{id}', 'export');
 });
-
-

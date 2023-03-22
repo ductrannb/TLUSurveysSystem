@@ -29,7 +29,7 @@
             <p class="survey-code-title">Mã phiếu khảo sát: </p>
             <input value="PKSK62CNTT" type="text" class="survey-code">
             <input placeholder="Links:" type="text" class="form-send-target-link">
-            <input class="form-send-target-submit" value="Kết thúc" type="submit">
+            <a href="/" class="form-send-target-submit">Kết thúc</a>
         </form>
     </div>
     <div class="app">
@@ -54,13 +54,16 @@
 
         <div class="survey active">
             <div class="survey-head">
-                <h1 class="survey-heading">Tiêu đề</h1>
-                <p class="survey-sub-heading">Mô tả...</p>
+                <input class="survey-heading" value="Tiêu đề" type="text">
+                <input class="survey-sub-heading" value="Mô tả" type="text">
             </div>
             
-            <form action="" class="survey-main">
+            <form action="{{route('survey.create')}}" method='POST' class="survey-main">
                 {{-- click cai dat thi set vlue = 1 va ngc lai--}}
-                <input type="hidden" name="is_survey" value="0" >
+                @csrf
+                <input class="input-hidden-1" type="hidden" name="type" value="0" >
+                <input class="input-hidden-2" type="hidden" name="start_at">
+                <input class="input-hidden-3" type="hidden" name="end_at">
                 <div id="add-question">
                     <div class="survey-main-wrap" id="survey-main-wrap">
                         {{-- cau hoi --}}
@@ -100,8 +103,8 @@
                         </div>
                     </div>
                 </div>
-                <div action="" class="survey-footer">
-                    <a href="" class="survey-footer-btn">Lưu</a>
+                <div class="survey-footer">
+                    <button type='submit' class="survey-footer-btn">Lưu</button>
                 </div>
             </form>
         </div>
@@ -247,23 +250,22 @@
                     <p class="setting-sub-title">Chỉ định các giá trị điểm, đặt câu trả lời và tự động cung cấp ý kiến phản hồi</p>
                 </div>
                 <div id="wrapper" class="setting-form-wrapper">
-                    <input type="checkbox" name="" class="switch-toggle">
+                    <input type="checkbox" name="" class="switch-toggle switch-toggle-setting">
                 </div>
                 <div class="setting-time">
                     <h3 class="setting-time-title">Đặt thời gian</h3>
                     <div class="setting-time-item">
                         <p>Thời gian bắt đầu </p>
-                        <input type="date" name="dateofbirth" id="dateofbirth">
+                        <input class="dateofbirth-1" type="datetime-local" name="dateofbirth" id="dateofbirth">
                     </div>
 
                     <div class="setting-time-item">
                         <p>Thời gian kết thúc</p>
-                        <input type="date" name="dateofbirth" id="dateofbirth">
+                        <input class="dateofbirth-2" type="datetime-local" name="dateofbirth" id="dateofbirth">
                     </div>
                 </div>
             </div>
-            
-
+            2
         </form>
         <div class="add-survey active">
             <div class="plus-cirkle-icon">
@@ -284,6 +286,8 @@
         deleteChooseInput()
         columnChart()
         formSendTarget()
+        deleteForm()
+        getDataSetting()
     }
 
     app()
@@ -380,7 +384,7 @@
     // Plus btn click
     const plusBtn = document.querySelector('.plus-cirkle-icon');
     const addQuestion = document.getElementById('add-question');
-    const surveyMains = document.querySelectorAll('.survey-main-wrap')
+    var surveyMains = document.getElementsByClassName('survey-main-wrap')
     function resource(numberId, answerId) {
         let htmls = `
         <div class="survey-main-wrap" id="survey-main-wrap">
@@ -423,10 +427,13 @@
     var j = 0;
     plusBtn.addEventListener('click', function addSurvey() {
         i++;
+        j = 0;
+        console.log(i,j)
         addQuestion.insertAdjacentHTML("beforeend", resource(i,j));
         handleGetValueSelected()
         addInput()
         deleteChooseInput()
+        deleteForm()
     })
     // ------------------------------------
     
@@ -478,11 +485,11 @@
         var surveyChoose = document.getElementsByClassName('survey-choose')
         var surveyChooseNew = document.getElementsByClassName('survey-choose-new')
         
-        function duplicate(type) {
+        function duplicate(type, numberId, answerId) {
             let html = `
                 <div class="survey-choose">
-                    <input name="correct_answers[0][0]" class="survey-choose-input" type="${type}" />
-                    <input name="answers[0][0]" class="survey-choose-input-init" value="Tùy chọn" type="text" />
+                    <input name="correct_answers[${numberId}][${answerId}]" class="survey-choose-input" type="${type}" />
+                    <input name="answers[${numberId}][${answerId}]" class="survey-choose-input-init" value="Tùy chọn" type="text" />
                     <i class="survey-choose-input-icon choose-delete-js fa-solid fa-x"></i>
                 </div>
             `
@@ -490,10 +497,11 @@
         }
         surveyAddTexts.forEach((surveyAddText, index) => {
             surveyAddText.onclick = () => {
+                j++; 
                 if(surveyChooseInputs[index].type == "radio") {
-                    surveyChooseNew[index].insertAdjacentHTML("afterend", duplicate('radio'));
+                    surveyChooseNew[index].insertAdjacentHTML("beforeend", duplicate('radio', i, j));
                 } else if (surveyChooseInputs[index].type == "checkbox") {
-                    surveyChooseNew[index].insertAdjacentHTML("afterend", duplicate('checkbox'));
+                    surveyChooseNew[index].insertAdjacentHTML("beforeend", duplicate('checkbox', i, j));
                 }
             }
         })
@@ -514,7 +522,6 @@
         const overlaySendTarget = document.querySelector('.overlay-send-target')
         const formSendTarget = document.querySelector('.form-send-target')
         const btn = document.querySelector('.survey-navbar-btn')
-        console.log(btn);
         btn.onclick = () => {
             overlaySendTarget.style.display = 'flex';
         }
@@ -527,5 +534,45 @@
             e.stopPropagation()
         }
     }
+    // delete Form
+    function deleteForm() {
+        const trashIcons = document.querySelectorAll('.survey-trash-icon')
+        trashIcons.forEach((trashIcon, index) => {
+            trashIcon.onclick = () => {
+                surveyMains[index].style.display = 'none';
+            }
+        })
+    }
+
+    // get data of setting form
+    function getDataSetting() {
+        const inputHidden1 = document.querySelector('.input-hidden-1')
+        const inputHidden2 = document.querySelector('.input-hidden-2')
+        const inputHidden3 = document.querySelector('.input-hidden-3')
+        const switchBtn = document.querySelector('.switch-toggle-setting')
+        const time1 = document.querySelector('.dateofbirth-1')
+        const time2 = document.querySelector('.dateofbirth-1')
+        // click switchBtn
+        let isOpen = false
+        switchBtn.onclick = () => {
+            console.log(time1.value);
+            if(isOpen) {
+                isOpen = false;
+                inputHidden1.value = '0';
+            } else {
+                isOpen = true;
+                inputHidden1.value = '1';
+            }
+        }
+        // send data date and time
+        time1.onchange = (e) => {
+            console.log(inputHidden2.value = e.target.value);
+        }
+
+        time2.onchange = (e) => {
+            console.log(inputHidden3.value = e.target.value);
+        }
+    }
+    
 </script>
 </html>
