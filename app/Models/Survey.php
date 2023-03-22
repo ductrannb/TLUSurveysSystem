@@ -27,4 +27,8 @@ class Survey extends Model
     {
         return $this->hasMany(Result::class);
     }
+
+    public function reports(){
+        return $this->hasMany(Report::class);
+    }
 }

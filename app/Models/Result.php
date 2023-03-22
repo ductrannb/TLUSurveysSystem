@@ -18,6 +18,11 @@ class Result extends Model
         return $this->hasOne(Survey::class);
     }
 
+    public function reports()
+    {
+        return $this->hasMany(Report::class);
+    }
+
     public function resultQuestions()
     {
         return $this->hasMany(ResultQuestions::class);
