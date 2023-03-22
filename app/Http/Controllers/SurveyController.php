@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\SurveyService;
 use App\Services\ResponseService;
+
 use App\Models\Survey;
+
 
 class SurveyController extends Controller
 {
@@ -71,12 +73,17 @@ class SurveyController extends Controller
     }
 
     public function delete(Request $request){
-
         $survey = Survey::find($request->survey_id);
         if($survey->user_id == auth()->id() ){
             $survey -> delete();
             return redirect()->route('home');
         }
 
+    }
+
+    public function viewReport(Request $request)
+    {
+        $survey = Survey::find($request->survey_id);
+        return view('view_report')->with(['survey'=>$survey]);
     }
 }

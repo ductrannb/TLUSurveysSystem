@@ -17,4 +17,14 @@ class Report extends Model
     {
         return $this->hasOne(User::class);
     }
+
+    public function results()
+    {
+        return $this->hasOne(Result::class);
+    }
+
+    public function survey()
+    {
+        return $this->hasOne(Survey::class);
+    }
 }
