@@ -91,4 +91,5 @@ Route::group([
     Route::get('/', 'index');
     Route::post('create', 'create')->name('result.create');
     Route::get('export/{id}', 'export');
+    Route::get('download', 'download');
 });
