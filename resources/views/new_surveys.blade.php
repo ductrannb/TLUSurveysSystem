@@ -1,594 +1,531 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://kit.fontawesome.com/a0c051604d.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DashBoard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('css/formmain.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/abcd.css') }}" />
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ asset('css/newform.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/formsendtarget.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/formsetting.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/statisticalformtest.css') }}">
-    
 </head>
-<style>
-    body {font-family: Arial;}
-    .tabcontent{
-        display: none;
-    }
-    #Question {
-        display: block
-    }
-    #wrapper{
-        margin-bottom: 30px;
-        margin-left: -50px;
-    }
-    .switch-toggle{
-        cursor: pointer;
-        width: 40px;
-        height: 20px;
-        appearance: none;
-        background-color: #333;
-        border-radius:26px ;
-        position: relative;
-    }
-    .switch-toggle::before{
-        content: '';
-        width: 14px;
-        height: 14px;
-        top: 3px;
-        left: 3px;
-        position: absolute;
-        background-color: #fff;
-        border-radius: 50%;
-    }
-    .switch-toggle:checked{
-        background-color: #61FC18;
-       
-    }
-    .switch-toggle:checked::before{
-        left: 22px;
-    }
-    </style>
 <body>
+    <div class="overlay-send-target">
+        <form action="" class="form-send-target">
+            <h2 class="form-send-target-header">Gửi biểu mẫu</h2>
+            <p class="survey-code-title">Mã phiếu khảo sát: </p>
+            <input value="PKSK62CNTT" type="text" class="survey-code">
+            <input placeholder="Links:" type="text" class="form-send-target-link">
+            <input class="form-send-target-submit" value="Kết thúc" type="submit">
+        </form>
+    </div>
     <div class="app">
-        <div class="header">
-                    <div class="logo-img">
-                        <img  src="{{ asset('img/img-logo.jpg') }}" alt="Logo">
-                    </div>
-                   
-                    <div>
-                        <h1 class="title-heading_1">TRƯỜNG ĐẠI HỌC THỦY LỢI</h1>
-                        <h2 class="title-heading_2">THUY LOI UNIVERSITY</h2>
-                    </div>
-                    
+        <header class="header header-with-search">
+            <img src="{{ asset('img/img-logo.jpg') }}" alt="" class="header-logo" />
+            <div class="header-title">
+                <h1 class="header-main-title">TRƯỜNG ĐẠI HỌC THỦY LỢI</h1>
+                <p class="header-sub-title">THUYLOI UNIVERSITY</p>
             </div>
-         
-            <div class="content">
-                <div class="row">
-                    <div class="col">
-                        <div class="nav">
-                            <ul class="menu"> 
-                                <button type="button" onclick="openTabs(event,'Question')"class="menu-item tablinks col-2 active">Câu hỏi</button>
-                                <button type="button" onclick="openTabs(event,'Reply')"   class="menu-item tablinks col-2">Câu trả lời</button>
-                                <button type="button" onclick="openTabs(event,'Setting')" class="menu-item tablinks col-2">Cài đặt</button> 
-                                <button type="button" onclick="openTabs(event,'Send')"    class="btn-submit tablinks col-6">Gửi</button>
-                            </ul>
-                           
-                        </div>
-                <!-- Question -->
-                <div id="Question" class="tabcontent">
-                    <form  class="form_option-question container" action="">
-                        <div class="heading-title">
-                            <input class="form_option--title" placeholder="Tiêu Đề">
-                            <input class="form_option--description" type="text" placeholder="Mô tả...">
-                        </div>
+        </header>
 
-                        <div class="form_option--email">
-                            <span style="color:red">*</span><span class="form_option-input">Email</span>
-                            <input class="form_option--input" type="text" name="" id="form_option--input" placeholder="Email hợp lệ">
-                        </div>
-
-                        <div class="form_option--selection">
-                            <div class="row">
-                                <input type="text" class="col-8" placeholder="Câu hỏi">
-                                
-                                <div class="dropdown col-4">
-                                   
-                                        <button style="margin-top:20px ;" class="btn btn-secondary col-10" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <p class="dropdown-title">Trắc nghiệm</p>
-                                           <i  class="fa-solid fa-angle-down dropdown-icon--down "></i>
-                                        </button>
-                                    <ul class="dropdown-menu">
-                                      <li><button class="dropdown-item tablinks" onclick="openTabs(event,'Paragraph')" type="button">Đoạn</button></li>
-                                      <li><button class="dropdown-item tablinks" onclick="openTabs(event,'ShortAnswer')" type="button">Trả Lời Ngắn</button></li>
-                                      <li><button class="dropdown-item tablinks" onclick="openTabs(event,'CheckBox')" type="button">Hộp kiểm</button></li>
-                                      <li><button class="dropdown-item tablinks" onclick="openTabs(event,'Multiple')" type="button">Trắc nghiệm</button></li>
-                                    </ul>
-                                  </div>
-                                <div class="option">
-                                    <div  class="content-option root">
-                                        <input  name="option" class=" ip-option" type="radio">
-                                        <input type="text" placeholder="Tùy chọn">
-                                        <i class="fa-solid fa-xmark  option-icon"></i><br>
-                                    </div>
-                                </div>
-                                <div class="option--add">
-                                    <input class="" type="radio">
-                                    <span   class="option-add">Thêm tùy chọn</span>
-                                </div>
-                                
-                               
-                                <div class="border">
-
-                                </div>
-                                <div class="col-7"> 
-                                </div>
-                                <div class="option-btn col-5">
-                                    <p class="form_option--require col-4">Bắt buộc</p>
-                                    <div  id="wrapper">
-                                    <input type="checkbox" name="" class="switch-toggle">
-                                    </div>
-                                    <div class="boder-end"></div>
-                                    
-                                </div>
-                                    <div class="col-11"></div>
-                                    <i  class="col-1 fa-regular btn-icon-trash fa-trash-can"></i>
-                            </div>
-                            
-                        </div>
-                    </form>
-                    <div class="form-tool">
-                        <form class="form-option-tool" action="">
-                            <i  class="plus-tool icon-tool">
-                                <img class="" src="{{ asset('img/plus.svg') }}" alt="">
-                            </i>
-                            <i class="image-tool icon-tool">
-                                <img class="" src="{{ asset('img/image.svg') }}" alt="">
-                            </i>
-                            
-                        </form>
-                    </div>
-                </div>     
-                {{-- Setting --}}
-                <div id="Setting" class="tabcontent">
-                        <form class="form_option--setting container " action="">
-                            <h1 style="padding: 20px;">Cài đặt</h1>
-                            <div class="border-setting"></div>
-                            <div class="setting-exam">
-                             <span class="oder-exam col-4">Đặt làm bài kiểm tra</span>
-                             <span class="points-title col-8">Chỉ định các giá trị điểm, đặt câu trả lời và tự động cung cấp ý kiến phản hồi</span>
-                            </div>
-                            <div  id="wrapper" class="col-12">
-                             <input  type="checkbox" name="" class="switch-toggle">
-                         </div>
-                            
-                         </form>
-                       
-                      </div>
-                        
-                      {{-- Send target --}}
-                      <div id="Send" class="tabcontent">
-                        <div class="form-send-target ">
-                            <div class="form-submit">
-                                <h1 class="form-submit-title col-12">Gửi biểu mẫu</h1>
-                                <div class="border-submit"></div>
-                                <span class="form-submit-code">Mã phiếu khảo sát:</span>
-                                <input class="form-submit-link col-12" type="text" placeholder="links:">
-                                <i class="fa-regular fa-copy icon-copy"></i>
-                                <div class="col-11 btn-end">
-                                    <button class="btn--end col-1" >Kết thúc</button>
-                                </div>
-                                
-                            </div>
-                            <div class="send-blur"></div>
-                        </div>
-                                <div class="content">
-                                    <div class="row">
-                                        <div class="col">
-                                            <form  class="form_option-question container " action="">
-                                               
-                                                <div class="heading-title">
-                                                    <input class="form_option--title" placeholder="Tiêu Đề">
-                                                <input class="form_option--description" type="text" placeholder="Mô tả...">
-                                                </div>
-                                                <div class="form_option--email">
-                                                    <span style="color:red">*</span><span class="form_option-input">Email</span>
-                                                    <input class="form_option--input" type="text" name="" id="form_option--input" placeholder="Email hợp lệ">
-                                                </div>
-                    
-                                                <div class="form_option--selection">
-                                                    <div class="row">
-                                                        <input type="text" class="col-8" placeholder="Câu hỏi">
-                                                        
-                                                        <div class="dropdown col-4">
-                                                           
-                                                                <button style="margin-top:20px ;" class="btn btn-secondary col-10" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                    <p class="dropdown-title">Trắc nghiệm</p>
-                                                                   <i  class="fa-solid fa-angle-down dropdown-icon--down "></i>
-                                                                </button>
-                                                            <ul class="dropdown-menu">
-                                                              <li><button class="dropdown-item tablinks" onclick="openTabs(event,'Paragraph')" type="button">Đoạn</button></li>
-                                                              <li><button class="dropdown-item tablinks" onclick="openTabs(event,'ShortAnswer')" type="button">Trả Lời Ngắn</button></li>
-                                                              <li><button class="dropdown-item tablinks" onclick="openTabs(event,'CheckBox')" type="button">Hộp kiểm</button></li>
-                                                              <li><button class="dropdown-item tablinks" onclick="openTabs(event,'Multiple')" type="button">Trắc nghiệm</button></li>
-                                                            </ul>
-                                                          </div>
-                                                          <div class="option ">
-                                                            <div class="content-option">
-                                                                <input class=" ip-option" type="radio">Tùy chọn<i class="fa-solid fa-xmark  option-icon "></i><br>
-                                                            </div>
-                                                            <input class="" type="radio">
-                                                            <span class="option-add "> Thêm tùy chọn </span>
-                                                            <span class="">hoặc</span> 
-                                                            <a href="" class="option-add-or"> thêm"Câu trả lời khác"</a>
-                                                        </div>
-                                                        <div class="border">
-                    
-                                                        </div>
-                                                        <div class="col-7"> 
-                                                        </div>
-                                                        <div class="option-btn col-5">
-                                                            <p class="form_option--require col-4">Bắt buộc</p>
-                                                            <div  id="wrapper">
-                                                            <input type="checkbox" name="" class="switch-toggle">
-                                                            </div>
-                                                            <div class="boder-end"></div>
-                                                           
-                                                        </div>
-                                                        <div class="col-11"></div>
-                                                        <i  class="col-1 fa-regular btn-icon-trash fa-trash-can"></i>
-                                                    </div>
-                                                </div>
-                                                
-                                            </form>
-                                            
-                                        </div>
-                                    </div>
-                                    
-                                </div>       
-                           
-                        </div>
-                        <!-- Reply -->
-                        <div id="Reply"  class="tabcontent">
-                            <div class="appp">
-                                <form class="form_option--reply container " action="">
-                                    <div class="heading--title">
-                                        <h1 class="form_option-title">20 Câu trả lời</h1>
-                                        <h2 class="title-list">Danh sách</h2>
-                                    </div>
-                                        <ul class="list-member">
-                                            <li class="list-member-name col-11">Nguyễn Văn A <div class="list-icon col-1"><img class="list-member-icon " src="{{ asset('img/eye.png') }}" alt=""><i class="icon-download fa-solid fa-download"></i></div> </li><br>
-                                            <li class="list-member-name col-11">Nguyễn Văn B <div class="list-icon col-1"><img class="list-member-icon"       src="{{ asset('img/eye.png') }}" alt=""><i class="icon-download fa-solid fa-download"></i></div></li><br>
-                                            <li class="list-member-name col-11">Nguyên Văn C <div class="list-icon col-1"><img class="list-member-icon"       src="{{ asset('img/eye.png') }}" alt=""><i class="icon-download fa-solid fa-download"></i></div></li><br>
-                                            <li class="list-member-name col-11">Nguyên Văn D <div class="list-icon col-1"><img class="list-member-icon"       src="{{ asset('img/eye.png') }}" alt=""><i class="icon-download fa-solid fa-download"></i></div></li>
-                                       </ul>
-                                       <div class="boder-list-member"></div>
-                                       <h2 class="title-list-point">Điểm số</h2>
-                                       <div class="title--list-point">
-                                        <p class="list-point col-10">Danh sách</p>
-                                        <p class="point-title col-2">Điểm <br>/10</p>
-                                       </div>
-                                      
-                                       <ul class="list--point">
-                                        <li class="list-point-member col-11">Nguyễn Văn A <span class="list-point-number col-1">1</span> </li>
-                                        <li class="list-point-member  col-11">Nguyễn Văn B <span class="list-point-number col-1">1</span> </li>
-                                        <li class="list-point-member  col-11">Nguyễn Văn C <span class="list-point-number col-1">1</span> </li>
-                                        <li class="list-point-member  col-11">Nguyễn Văn D <span class="list-point-number col-1">1</span> </li>
-                                        <li class="list-point-member  col-11">Nguyễn Văn E <span class="list-point-number col-1">1</span> </li>
-                                        <li class="list-point-member  col-11">Nguyễn Văn F <span class="list-point-number col-1">1</span> </li>
-                                        <li class="list-point-member  col-11">Nguyễn Văn G <span class="list-point-number col-1">1</span> </li>
-                                        </ul>
-                                        <div class="border-list-point"></div>
-                                        <div class="chart-pie">
-                                            <p class="question-chart-pie">Câu hỏi <br> <span class="reply-chart-pie">x câu trả lời</span> </p>
-                                        </div>
-                                        <canvas id="myChart" style="width:100%;max-width:600px;margin-left:200px;"></canvas>
-                                        <script src="{{ asset('js/chart/chartpice.js') }}"></script>
-                                        <div class="boder-chart-pie"></div>
-                                        <p class="question-chart-horizontal">Câu hỏi <br> <span class="reply-chart-horizontal">x câu trả lời</span> </p>
-                                        <div class="horizontal-chart">
-                                            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
-                                            <canvas id="horizontal" style="width:100%;max-width:600px;height: 250px;"></canvas>
-                                            <script  src="{{ asset('js/chart/horizontal.js') }}" type="text/javascript"></script>
-                                            <div class="boder-chart-horizontal"></div>
-                                            <div class="chart-column">
-                                                <p style="padding: 20px;">Điểm số </p>
-                                                <p class="chart-point">Biểu đồ điểm số</p>
-                                                <p class="chart-quantity">Số lượng</p>
-                                                <canvas id="columnChart"  style="width:100%;max-width:800px;height: 300px;"></canvas> 
-                                                    <span class="chart-poin-end ">Điểm số</span>    
-                                                 <script  src="{{ asset('js/chart/column.js') }}" type="text/javascript"></script>
-                                                
-                                               </div>
-                                            </div>
-                                        
-                                    </form>
-                             
-                            </div>
-                          
-                            </div>
-                {{-- Short answer --}}
-                <div id="ShortAnswer" class="tabcontent">
-                        <form class="form_option-shortanswer container " action="">
-                    
-                        <div class="heading-title">
-                            <input class="form_option--title" placeholder="Tiêu Đề">
-                        <input class="form_option--description" type="text" placeholder="Mô tả...">
-                        </div>
-                        <div class="form_option--email">
-                            <span style="color:red">*</span><span class="form_option-input">Email</span>
-                            <input class="form_option--input" type="text" name="" id="form_option--input" placeholder="Email hợp lệ">
-                        </div>
-
-                        <div class="form_option--selection">
-                            <div class="row">
-                                <input type="text" class="col-8" placeholder="Câu hỏi">
-                                
-                                <div class="dropdown col-4">
-                                   
-                                        <button style="margin-top:20px ;" class="btn btn-secondary col-10" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <p class="dropdown-title">Trả lời ngắn</p>
-                                           <i  class="fa-solid fa-angle-down dropdown-icon--down "></i>
-                                        </button>
-                                    <ul class="dropdown-menu">
-                                      <li><button class="dropdown-item tablinks" onclick="openTabs(event,'Paragraph')" type="button">Đoạn</button></li>
-                                      <li><button class="dropdown-item tablinks" onclick="openTabs(event,'ShortAnswer')" type="button">Trả Lời Ngắn</button></li>
-                                      <li><button class="dropdown-item tablinks" onclick="openTabs(event,'CheckBox')" type="button">Hộp kiểm</button></li>
-                                      <li><button class="dropdown-item tablinks" onclick="openTabs(event,'Multiple')" type="button">Trắc nghiệm</button></li>
-                                    </ul>
-                                  </div>
-                                  <div class="col-12">
-                                    <input class="text-paragraph" type="" placeholder="Văn bản trả lời ngắn">
-                                </div>
-                                <div style="margin-top: 100px" class="border">
-                                
-                                </div>
-                                <div class="col-7"> 
-                                </div>
-                                <div class="option-btn col-5">
-                                    <p class="form_option--require col-4">Bắt buộc</p>
-                                    <div  id="wrapper">
-                                    <input type="checkbox" name="" class="switch-toggle">
-                                    </div>
-                                    <div class="boder-end"></div>
-                                </div>
-                                <div class="col-11"></div>
-                                <i  class="col-1 fa-regular btn-icon-trash fa-trash-can"></i>
-                            </div>
-                        </div>
-                        
-                    </form>
-                    <div class="form-tool">
-                        <form class="form-option-tool" action="">
-                            <i  class="plus-tool-answer icon-tool">
-                                <img class="" src="{{ asset('img/plus.svg') }}" alt="">
-                            </i>
-                            <i class="image-tool icon-tool">
-                                <img class="" src="{{ asset('img/image.svg') }}" alt="">
-                            </i>
-                            
-                        </form>
-                    </div>
-                    </div>
-                                
-                {{-- Paragraph --}}
-                <div id="Paragraph" class="tabcontent">
-                    <form class="form_option-paragraph container " action="">
-                        
-                        <div class="heading-title">
-                            <input class="form_option--title" placeholder="Tiêu Đề">
-                        <input class="form_option--description" type="text" placeholder="Mô tả...">
-                        </div>
-                        <div class="form_option--email">
-                            <span style="color:red">*</span><span class="form_option-input">Email</span>
-                            <input class="form_option--input" type="text" name="" id="form_option--input" placeholder="Email hợp lệ">
-                        </div>
-
-                        <div class="form_option--selection">
-                            <div class="row">
-                                <input type="text" class="col-8" placeholder="Câu hỏi">
-                                
-                                <div class="dropdown col-4">
-                                   
-                                        <button style="margin-top:20px ;" class="btn btn-secondary col-10" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <p class="dropdown-title">Đoạn</p>
-                                           <i  class="fa-solid fa-angle-down dropdown-icon--down "></i>
-                                        </button>
-                                    <ul class="dropdown-menu">
-                                      <li><button class="dropdown-item tablinks" onclick="openTabs(event,'Paragraph')" type="button">Đoạn</button></li>
-                                      <li><button class="dropdown-item tablinks" onclick="openTabs(event,'ShortAnswer')" type="button">Trả Lời Ngắn</button></li>
-                                      <li><button class="dropdown-item tablinks" onclick="openTabs(event,'CheckBox')" type="button">Hộp kiểm</button></li>
-                                      <li><button class="dropdown-item tablinks" onclick="openTabs(event,'Multiple')" type="button">Trắc nghiệm</button></li>
-                                    </ul>
-                                  </div>
-                                  <div class="col-12">
-                                    <input class="text-paragraph" type="" placeholder="Văn bản trả lời dài">
-                                </div>
-                                <div style="margin-top: 100px" class="border">
-                                
-                                </div>
-                                <div class="col-7"> 
-                                </div>
-                                <div class="option-btn col-5">
-                                    <p class="form_option--require col-4">Bắt buộc</p>
-                                    <div  id="wrapper">
-                                    <input type="checkbox" name="" class="switch-toggle">
-                                    </div>
-                                    <div class="boder-end"></div>
-                                    
-                                </div>
-                                <div class="col-11"></div>
-                                <i  class="col-1 fa-regular btn-icon-trash fa-trash-can"></i>
-                            </div>
-                        </div>
-                    </form>
-                    <div class="form-tool">
-                        <form class="form-option-tool" action="">
-                            <i class="plus-tool-paragraph icon-tool">
-                                <img class="" src="{{ asset('img/plus.svg') }}" alt="">
-                            </i>
-                            <i class="image-tool icon-tool">
-                                <img class="" src="{{ asset('img/image.svg') }}" alt="">
-                            </i>
-                            
-                        </form>
-                    </div>
-                  </div>
-                {{-- Multiple-Choice --}}
-                <div id="Multiple" class="tabcontent">
-                    <form class="form_option-multiple container " action="">
-                        
-                        <div class="heading-title">
-                            <input class="form_option--title" placeholder="Tiêu Đề">
-                        <input class="form_option--description" type="text" placeholder="Mô tả...">
-                        </div>
-                        <div class="form_option--email">
-                            <span style="color:red">*</span><span class="form_option-input">Email</span>
-                            <input class="form_option--input" type="text" name="" id="form_option--input" placeholder="Email hợp lệ">
-                        </div>
-
-                        <div class="form_option--selection">
-                            <div class="row">
-                                <input type="text" class="col-8" placeholder="Câu hỏi">
-                                
-                                <div class="dropdown col-4">
-                                   
-                                        <button style="margin-top:20px ;" class="btn btn-secondary col-10" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <p class="dropdown-title">Trắc nghiệm</p>
-                                           <i  class="fa-solid fa-angle-down dropdown-icon--down "></i>
-                                        </button>
-                                    <ul class="dropdown-menu">
-                                      <li><button class="dropdown-item tablinks" onclick="openTabs(event,'Paragraph')" type="button">Đoạn</button></li>
-                                      <li><button class="dropdown-item tablinks" onclick="openTabs(event,'ShortAnswer')" type="button">Trả Lời Ngắn</button></li>
-                                      <li><button class="dropdown-item tablinks" onclick="openTabs(event,'CheckBox')" type="button">Hộp kiểm</button></li>
-                                      <li><button class="dropdown-item tablinks" onclick="openTabs(event,'Multiple')" type="button">Trắc nghiệm</button></li>
-                                    </ul>
-                                  </div>
-                                  <div class="option">
-                                    <div  class="content-option-multiple root">
-                                        <input name="radio" class=" ip-option" type="radio">
-                                        <input type="text" name="" id="" placeholder="Tùy chọn">
-                                        <i class="fa-solid fa-xmark  option-icon-multiple option-icon"></i><br>
-                                    </div>
-                                </div>
-                                    <div class="option--add">
-                                    <input class="" type="radio">
-                                    <span  class="option-add option-add-multiple">Thêm tùy chọn</span>
-                                </div>
-                                <div class="border">
-
-                                </div>
-                                <div class="col-7"> 
-                                </div>
-                                <div class="option-btn col-5">
-                                    <p class="form_option--require col-4">Bắt buộc</p>
-                                    <div  id="wrapper">
-                                    <input type="checkbox" name="" class="switch-toggle">
-                                    </div>
-                                    <div class="boder-end"></div>
-                                </div>
-                                <div class="col-11"></div>
-                                <i  class="col-1 fa-regular btn-icon-trash fa-trash-can"></i>
-                        </div>
-                        </div>
-                    </form>
-                    <div class="form-tool">
-                        <form class="form-option-tool" action="">
-                            <i class="plus-tool-multiple icon-tool">
-                                <img class="" src="{{ asset('img/plus.svg') }}" alt="">
-                            </i>
-                            <i class="image-tool icon-tool">
-                                <img class="" src="{{ asset('img/image.svg') }}" alt="">
-                            </i>
-                            
-                        </form>
-                    </div>
-                  </div>
-                {{-- Check Box --}}
-                <div id="CheckBox" class="tabcontent">
-                        <form class="form_option-checkbox container " action="">
-                            
-                            <div class="heading-title">
-                                <input class="form_option--title" placeholder="Tiêu Đề">
-                            <input class="form_option--description" type="text" placeholder="Mô tả...">
-                            </div>
-                            <div class="form_option--email">
-                                <span style="color:red">*</span><span class="form_option-input">Email</span>
-                                <input class="form_option--input" type="text" name="" id="form_option--input" placeholder="Email hợp lệ">
-                            </div>
-
-                            <div class="form_option--selection">
-                                <div class="row">
-                                    <input type="text" class="col-8" placeholder="Câu hỏi">
-                                    
-                                    <div class="dropdown col-4">
-                                       
-                                            <button style="margin-top:20px ;" class="btn btn-secondary col-10" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <p class="dropdown-title">Hộp kiểm</p>
-                                               <i  class="fa-solid fa-angle-down dropdown-icon--down "></i>
-                                            </button>
-                                        <ul class="dropdown-menu">
-                                          <li><button class="dropdown-item tablinks" onclick="openTabs(event,'Paragraph')" type="button">Đoạn</button></li>
-                                          <li><button class="dropdown-item tablinks" onclick="openTabs(event,'ShortAnswer')" type="button">Trả Lời Ngắn</button></li>
-                                          <li><button class="dropdown-item tablinks" onclick="openTabs(event,'CheckBox')" type="button">Hộp kiểm</button></li>
-                                          <li><button class="dropdown-item tablinks" onclick="openTabs(event,'Multiple')" type="button">Trắc nghiệm</button></li>
-                                        </ul>
-                                      </div>
-                                      <div class="option">
-                                        <div  class="content-option-checkbox root">
-                                            <input class=" ip-option" type="checkbox">
-                                            <input type="text" name="" id="" placeholder="Tùy chọn">
-                                            <i class="fa-solid fa-xmark  option-icon"></i><br>
-                                        </div>
-                                    </div>
-                                        <div class="option--add">
-                                        <input class="" type="checkbox">
-                                        <span  class="option-add option-add-checkbox">Thêm tùy chọn</span>
-                                    </div>
-                                    
-                                    <div class="border">
-
-                                    </div>
-                                    <div class="col-7"> 
-                                    </div>
-                                    <div class="option-btn col-5">
-                                        <p class="form_option--require col-4">Bắt buộc</p>
-                                        <div  id="wrapper">
-                                        <input type="checkbox" name="" class="switch-toggle">
-                                        </div>
-                                        <div class="boder-end"></div>
-                                    </div>
-                                    <div class="col-11"></div>
-                                    <i  class="col-1 fa-regular btn-icon-trash fa-trash-can"></i>
-                                </div>
-                            </div>
-                            
-                        </form>
-                        <div class="form-tool">
-                            <form class="form-option-tool" action="">
-                                <i class="plus-tool-checkbox icon-tool">
-                                    <img class="" src="{{ asset('img/plus.svg') }}" alt="">
-                                </i>
-                                <i class="image-tool icon-tool">
-                                    <img class="" src="{{ asset('img/image.svg') }}" alt="">
-                                </i>
-                                
-                            </form>
-                        </div>
-                      </div>
-                </div>
-                
+        <div class="survey-navbar">
+            <div class="survey-navbar-wrap">
+                <ul class="survey-navbar-list">
+                    <li class="survey-navbar-item active">Câu hỏi</li>
+                    <li class="survey-navbar-item">Câu trả lời</li>
+                    <li class="survey-navbar-item">Cài đặt</li>
+                </ul>
+                <a href="#" class="survey-navbar-btn">Gửi</a>
             </div>
         </div>
+
+        <div class="survey active">
+            <div class="survey-head">
+                <h1 class="survey-heading">Tiêu đề</h1>
+                <p class="survey-sub-heading">Mô tả...</p>
+            </div>
+            
+            <form action="" class="survey-main">
+                {{-- click cai dat thi set vlue = 1 va ngc lai--}}
+                <input type="hidden" name="is_survey" value="0" >
+                <div id="add-question">
+                    <div class="survey-main-wrap" id="survey-main-wrap">
+                        {{-- cau hoi --}}
+                        <input name="questions[0]" placeholder="Câu hỏi" class="survey-main-title" type="text">
+                        {{-- select --}}
+                        <select name="types[0]" class="form-select" aria-label="Default select example">
+                            <option value="3">Trả lời ngắn</option>
+                            <option value="4">Đoạn</option>
+                            <option selected value="1">Trắc Nghiệm</option>
+                            <option value="2">Hộp kiểm</option>
+                        </select>
+
+                        <div class="survey-data">
+                            <div class="survey-choose-new">
+                                <div class="survey-choose">
+                                    {{-- dap an dung --}}
+                                    <input name="correct_answers[0][0]" class="survey-choose-input" type="radio">
+                                    {{-- dap an --}}
+                                    <input name="answers[0][0]" class="survey-choose-input-init" value="Tùy chọn" type="text">
+                                    <i class="survey-choose-input-icon choose-delete-js fa-solid fa-x"></i>
+                                </div>
+                            </div>
+                            <div class="survey-add-ques">
+                                <input class="survey-add-input" type="radio">
+                                <input placeholder="Thêm tùy chọn" type="text" class="survey-add-text">
+                            </div>
+                        </div>
+                        
+                        <div class="survey-main-bottom">
+                            <div class="survey-constraint">
+                                <label for="">Bắt buộc</label>
+                                <div id="wrapper">
+                                    <input type="checkbox" name="" class="switch-toggle">
+                                </div>
+                            </div>
+                            <i class="survey-trash-icon fa-solid fa-trash"></i>
+                        </div>
+                    </div>
+                </div>
+                <div action="" class="survey-footer">
+                    <a href="" class="survey-footer-btn">Lưu</a>
+                </div>
+            </form>
+        </div>
+        
+        <form action="" class="statisticals">
+            <div class="statistical-section">
+                <input value="20 Câu trả lời" type="text" class="statistical-heading">
+                <p class="statistical-title">Danh sách</p>
+                <div class="statistical-section-list">
+                    <div class="statistical-section-item">
+                        <input value="Nguyễn Văn A" type="text" class="statistical-item-name">
+                        <div class="statistical-item-icons">
+                            <i class="statistical-item-icon fa-regular fa-eye"></i>
+                            <i class="statistical-item-icon fa-solid fa-download"></i>
+                        </div>
+                    </div>
+
+                    <div class="statistical-section-item">
+                        <input value="Nguyễn Văn A" type="text" class="statistical-item-name">
+                        <div class="statistical-item-icons">
+                            <i class="statistical-item-icon fa-regular fa-eye"></i>
+                            <i class="statistical-item-icon fa-solid fa-download"></i>
+                        </div>
+                    </div>
+
+                    <div class="statistical-section-item">
+                        <input value="Nguyễn Văn A" type="text" class="statistical-item-name">
+                        <div class="statistical-item-icons">
+                            <i class="statistical-item-icon fa-regular fa-eye"></i>
+                            <i class="statistical-item-icon fa-solid fa-download"></i>
+                        </div>
+                    </div>
+
+                    <div class="statistical-section-item">
+                        <input value="Nguyễn Văn A" type="text" class="statistical-item-name">
+                        <div class="statistical-item-icons">
+                            <i class="statistical-item-icon fa-regular fa-eye"></i>
+                            <i class="statistical-item-icon fa-solid fa-download"></i>
+                        </div>
+                    </div>
+
+                    <div class="statistical-section-item">
+                        <input value="Nguyễn Văn A" type="text" class="statistical-item-name">
+                        <div class="statistical-item-icons">
+                            <i class="statistical-item-icon fa-regular fa-eye"></i>
+                            <i class="statistical-item-icon fa-solid fa-download"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="statistical-section">
+                <input value="20 Câu trả lời" type="text" class="statistical-heading">
+                <p class="statistical-title">Danh sách</p>
+                <div class="statistical-section-list">
+                    <div class="statistical-section-item">
+                        <input value="Nguyễn Văn A" type="text" class="statistical-item-name">
+                        <input value="8" type="text" class="statistical-item-number">
+                    </div>
+
+                    <div class="statistical-section-item">
+                        <input value="Nguyễn Văn A" type="text" class="statistical-item-name">
+                        <input value="8" type="text" class="statistical-item-number">
+                    </div>
+
+                    <div class="statistical-section-item">
+                        <input value="Nguyễn Văn A" type="text" class="statistical-item-name">
+                        <input value="8" type="text" class="statistical-item-number">
+                    </div>
+
+                    <div class="statistical-section-item">
+                        <input value="Nguyễn Văn A" type="text" class="statistical-item-name">
+                        <input value="8" type="text" class="statistical-item-number">
+                    </div>
+
+                    <div class="statistical-section-item">
+                        <input value="Nguyễn Văn A" type="text" class="statistical-item-name">
+                        <input value="8" type="text" class="statistical-item-number">
+                    </div>
+                </div>
+            </div>
+
+            <div class="statistical-section">
+                <input value="20 Câu trả lời" type="text" class="statistical-heading">
+                <p class="statistical-title">Danh sách</p>
+                <div class="wrapper">
+                    <div class="pie-wrap">
+
+                        <div class="light-yellow entry">
+                            <p>25%</p>
+                            <p class="entry-value">Rice</p>
+                        </div>
+                        
+                        <div class="sky-blue entry">
+                            <p>25%</p>
+                            <p class="entry-value">Pasta</p>
+                        </div>
+                        
+                        <div class="pink entry">
+                            <p>12.5%</p>
+                            <p class="entry-value">Beans </p>
+                        </div>
+                        
+                        <div class="purple entry">
+                            <p> 12.5%</p>
+                            <p class="entry-value">Plantain</p>
+                        </div>
+                        
+                        <div class="green entry">
+                            <p> 12.5%</p>
+                            <p class="entry-value">Potato</p>
+                        </div>
+                        
+                        <div class="wheat entry">
+                            <p> 12.5%</p>
+                            <p class="entry-value">Yam</p>
+                        </div>
+                        
+                        </div>
+
+                        
+                </div>
+            </div>
+
+            <div class="statistical-section">
+                <input value="20 Câu trả lời" type="text" class="statistical-heading">
+                <p class="statistical-title">Danh sách</p>
+                <div id="container"></div>
+            </div>
+
+            <div class="statistical-section">
+                <input value="20 Câu trả lời" type="text" class="statistical-heading">
+                <p class="statistical-title">Danh sách</p>
+                <div class="container"></div>
+            </div>
+        </form>
+
+        <form action="" class="setting">
+            <div class="setting-wrap">
+                <h2 class="setting-heading">Cài đặt</h2>
+                <div class="setting-box">
+                    <h3 class="setting-title">Đặt làm bài kiểm tra</h3>
+                    <p class="setting-sub-title">Chỉ định các giá trị điểm, đặt câu trả lời và tự động cung cấp ý kiến phản hồi</p>
+                </div>
+                <div id="wrapper" class="setting-form-wrapper">
+                    <input type="checkbox" name="" class="switch-toggle">
+                </div>
+                <div class="setting-time">
+                    <h3 class="setting-time-title">Đặt thời gian</h3>
+                    <div class="setting-time-item">
+                        <p>Thời gian bắt đầu </p>
+                        <input type="date" name="dateofbirth" id="dateofbirth">
+                    </div>
+
+                    <div class="setting-time-item">
+                        <p>Thời gian kết thúc</p>
+                        <input type="date" name="dateofbirth" id="dateofbirth">
+                    </div>
+                </div>
+            </div>
+            
+
+        </form>
+        <div class="add-survey active">
+            <div class="plus-cirkle-icon">
+                <i class="fa-solid fa-plus"></i>
+            </div>
+
+            <i class="add-survey-img-icon fa-regular fa-image"></i>
+        </div>
+
+        
     </div>
 </body>
-<script src="{{ asset('js/chart/close.js') }}"></script>
-<script src="{{ asset('js/chart/tabs.js') }}"></script>
-<script src="{{ asset('js/chart/addform.js') }}"></script>
-</html>
+<script>
+    function app() {
+        horizonChart()
+        handleGetValueSelected()
+        addInput()
+        deleteChooseInput()
+        columnChart()
+        formSendTarget()
+    }
 
+    app()
+    // horizon chart
+    function horizonChart() {
+        var chart = new ej.charts.Chart({
+        primaryXAxis: {
+            valueType: 'Category',
+            title: 'Months',
+        },
+        
+        primaryYAxis: {
+            title: 'Number of Visitors',
+        },
+        
+        series: [
+            {
+                type: 'Bar',
+                dataSource: [
+                    { month: 'Jan', visitors: 50 },
+                    { month: 'Feb', visitors: 57 },
+                    { month: 'Mar', visitors: 48 },
+                    { month: 'Apr', visitors: 60 },
+                    { month: 'May', visitors: 70 },
+                    { month: 'Jun', visitors: 40 },
+                ],
+                xName: 'month',
+                yName: 'visitors',
+            },
+        ],
+        });
+        chart.appendTo('#container');
+    }
+    
+    // column chart
+    function columnChart() {
+        var chart = new ej.charts.Chart({
+        //Initializing Primary X Axis
+        primaryXAxis: {
+            valueType: 'Category',
+            title: 'Countries',
+        },
+        //Initializing Primary Y Axis
+        primaryYAxis: {
+            title: 'Medals in number',
+        },
+
+        //Initializing Chart Series
+        series: [
+            {
+                type: 'Column',
+                dataSource: [
+                    { country: 'USA', medal: 50 },
+                    { country: 'China', medal: 40 },
+                    { country: 'Japan', medal: 70 },
+                    { country: 'Australia', medal: 60 },
+                    { country: 'France', medal: 30 },
+                ],
+                xName: 'country',
+                yName: 'medal',
+            },
+        ],
+        });
+        chart.appendTo('.container');
+    }
+    
+    // Tab item
+
+    const tabs = document.querySelectorAll('.survey-navbar-item')
+    const surveyForm = document.querySelector('.survey')
+    const statisticalsForm = document.querySelector('.statisticals')
+    const settingForm = document.querySelector('.setting')
+
+    tabs.forEach((tab, index) => {
+        tab.onclick = function() {
+            document.querySelector('.survey-navbar-item.active').classList.remove('active')
+            this.classList.add('active')
+
+            if(index == 0) {
+                statisticalsForm.classList.remove('active');
+                settingForm.classList.remove('active');
+                surveyForm.classList.add('active');
+            } else if(index == 1) {
+                surveyForm.classList.remove('active');
+                settingForm.classList.remove('active');
+                statisticalsForm.classList.add('active');
+            } else if(index == 2) {
+                surveyForm.classList.remove('active');
+                statisticalsForm.classList.remove('active');
+                settingForm.classList.add('active');
+            }
+        }
+    })
+    // Plus btn click
+    const plusBtn = document.querySelector('.plus-cirkle-icon');
+    const addQuestion = document.getElementById('add-question');
+    const surveyMains = document.querySelectorAll('.survey-main-wrap')
+    function resource(numberId, answerId) {
+        let htmls = `
+        <div class="survey-main-wrap" id="survey-main-wrap">
+            <input name="questions[${numberId}]" placeholder="Câu hỏi" class="survey-main-title" type="text">
+            <select name="types[${numberId}]" class="form-select" aria-label="Default select example">
+                <option value="3">Trả lời ngắn</option>
+                <option value="4">Đoạn</option>
+                <option selected value="1">Trắc Nghiệm</option>
+                <option value="2">Hộp kiểm</option>
+            </select>
+
+            <div class="survey-data">
+                <div class="survey-choose-new">
+                    <div class="survey-choose">
+                        <input name="correct_answers[${numberId}][${answerId}]" class="survey-choose-input" type="radio">
+                        <input name="answers[${numberId}][${answerId}]" class="survey-choose-input-init" value="Tùy chọn" type="text">
+                        <i class="survey-choose-input-icon choose-delete-js fa-solid fa-x"></i>
+                    </div>
+                </div>
+                <div class="survey-add-ques">
+                    <input class="survey-add-input" type="radio">
+                    <input placeholder="Thêm tùy chọn" type="text" class="survey-add-text">
+                </div>
+            </div>
+            
+            <div class="survey-main-bottom">
+                <div class="survey-constraint">
+                    <label for="">Bắt buộc</label>
+                    <div id="wrapper">
+                        <input type="checkbox" name="" class="switch-toggle">
+                    </div>
+                </div>
+                <i class="survey-trash-icon fa-solid fa-trash"></i>
+            </div>
+        </div>
+    `
+        return htmls;
+    }
+    var i = 0;
+    var j = 0;
+    plusBtn.addEventListener('click', function addSurvey() {
+        i++;
+        addQuestion.insertAdjacentHTML("beforeend", resource(i,j));
+        handleGetValueSelected()
+        addInput()
+        deleteChooseInput()
+    })
+    // ------------------------------------
+    
+
+    var surveyChooseInputs = document.getElementsByClassName('survey-choose-input')
+    var surveyaddInputs = document.getElementsByClassName('survey-add-input')
+    var surveyChooseInputInits = document.getElementsByClassName('survey-choose-input-init')
+    var surveyChooseInputIcons = document.getElementsByClassName('survey-choose-input-icon')
+
+    function handleGetValueSelected() {
+        const formSelects = document.querySelectorAll('.form-select')
+        formSelects.forEach((formSelect, index) => (
+            formSelect.onchange = (e) => {
+                let valueSelect = e.target.value;
+                // console.log(surveyaddInputs[2])
+                if(valueSelect == 1) {
+                    surveyaddInputs[index].style.display = 'block';
+                    surveyChooseInputs[index].style.display = 'block';
+                    
+                    surveyaddInputs[index].type = 'radio';
+                    surveyChooseInputs[index].type = 'radio';
+
+                    surveyChooseInputInits[index].style.display = 'block';
+                    surveyChooseInputIcons[index].style.display = 'block';
+                } else if (valueSelect == 2) {
+                    surveyaddInputs[index].style.display = 'block';
+                    surveyChooseInputs[index].style.display = 'block';
+
+                    surveyaddInputs[index].type = 'checkbox';
+                    surveyChooseInputs[index].type = 'checkbox';
+
+                    surveyChooseInputInits[index].style.display = 'block';
+                    surveyChooseInputIcons[index].style.display = 'block';
+                } else if (valueSelect == 3 || valueSelect == 4){
+                    surveyaddInputs[index].style.display = 'none';
+                    surveyChooseInputs[index].style.display = 'none';
+
+                    surveyChooseInputInits[index].style.display = 'none';
+                    surveyChooseInputIcons[index].style.display = 'none';
+                }
+
+                
+            }  
+        ))
+    }
+    // add input
+    function addInput() {
+        var surveyAddTexts = document.querySelectorAll('.survey-add-text')
+        var surveyChoose = document.getElementsByClassName('survey-choose')
+        var surveyChooseNew = document.getElementsByClassName('survey-choose-new')
+        
+        function duplicate(type) {
+            let html = `
+                <div class="survey-choose">
+                    <input name="correct_answers[0][0]" class="survey-choose-input" type="${type}" />
+                    <input name="answers[0][0]" class="survey-choose-input-init" value="Tùy chọn" type="text" />
+                    <i class="survey-choose-input-icon choose-delete-js fa-solid fa-x"></i>
+                </div>
+            `
+            return html;
+        }
+        surveyAddTexts.forEach((surveyAddText, index) => {
+            surveyAddText.onclick = () => {
+                if(surveyChooseInputs[index].type == "radio") {
+                    surveyChooseNew[index].insertAdjacentHTML("afterend", duplicate('radio'));
+                } else if (surveyChooseInputs[index].type == "checkbox") {
+                    surveyChooseNew[index].insertAdjacentHTML("afterend", duplicate('checkbox'));
+                }
+            }
+        })
+    }
+
+    //delete input
+    function deleteChooseInput() {
+        var surveyChoose = document.getElementsByClassName('survey-choose')
+        const deleteChooseBtns = document.querySelectorAll('.choose-delete-js')
+        deleteChooseBtns.forEach((deleteChooseBtn, index) => {
+            deleteChooseBtn.onclick = () => {
+                surveyChoose[index].style.display = 'none';
+            }
+        })
+    }
+    // active form send target
+    function formSendTarget() {
+        const overlaySendTarget = document.querySelector('.overlay-send-target')
+        const formSendTarget = document.querySelector('.form-send-target')
+        const btn = document.querySelector('.survey-navbar-btn')
+        console.log(btn);
+        btn.onclick = () => {
+            overlaySendTarget.style.display = 'flex';
+        }
+
+        overlaySendTarget.onclick = () => {
+            overlaySendTarget.style.display = 'none';
+        }
+
+        formSendTarget.onclick = (e) => {
+            e.stopPropagation()
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,625 @@
+html {
+    background-color: #f0ebf8;
+    padding-bottom: 200px;
+}
+
+.app {
+    position: relative;
+}
+
+.header {
+    height: 126px;
+}
+
+.survey-navbar {
+    margin-top: 126px;
+    height: 60px;
+    background-color: #673ab7;
+    position: relative;
+}
+
+.survey-navbar-wrap {
+    position: absolute;
+    width: 942px;
+    height: 45px;
+    left: 220px;
+    top: 23%;
+    background: #ffffff;
+    border-radius: 6px 6px 0 0;
+}
+
+.survey-navbar-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.survey-navbar-item {
+    padding: 0 42px;
+    font-size: 23px;
+    line-height: 40px;
+    cursor: pointer;
+    border-bottom: none;
+}
+
+.survey-navbar-item.active {
+    border-bottom: 6px solid #673ab7;
+    transform: rotate(0.01deg);
+}
+
+.survey-navbar-btn {
+    position: absolute;
+    right: 34px;
+    top: 6px;
+    width: 56px;
+    height: 34px;
+    background: #673ab7;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 34px;
+    color: #fff;
+}
+
+.survey,
+.statisticals,
+.setting {
+    padding: 0 220px;
+    background-color: #f0ebf8;
+    display: none;
+}
+
+.survey.active {
+    display: block;
+}
+
+.statisticals.active {
+    display: block;
+}
+
+.add-survey.active {
+    display: flex;
+}
+
+.survey-head {
+    height: 186px;
+    background-color: #fff;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 60px;
+    /* border: 1px solid rgba(0, 0, 0, 0.1); */
+}
+
+.survey-main-wrap {
+    background-color: #fff;
+    border: 1px solid #e8e7e4;
+    position: relative;
+}
+
+.survey-main-title {
+    margin: 26px 0 0 40px;
+    width: 61%;
+    display: inline-block;
+    border: none;
+    outline: none;
+    font-size: 26px;
+    border-bottom: 2px solid #a588d5;
+    line-height: 58px;
+}
+
+.form-select {
+    display: inline-block;
+    width: 20%;
+    margin-left: 20px;
+    width: 245px;
+    height: 53px;
+    background: rgba(178, 170, 170, 0.2);
+    border-radius: 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.survey-choose {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 64px 16px 40px;
+}
+
+.survey-choose-input {
+    width: 22px;
+    height: 22px;
+}
+
+.survey-choose-input-init {
+    width: 91%;
+    font-size: 20px;
+    line-height: 30px;
+    border: none;
+    outline: none;
+    user-select: all;
+}
+
+.survey-choose i {
+    font-size: 20px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.survey-add-text {
+    cursor: pointer;
+}
+
+.survey-add-ques {
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+}
+
+.survey-add-ques input[type="radio"] {
+    width: 22px;
+    height: 22px;
+}
+
+.survey-add-ques input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+}
+
+.survey-add-ques input[type="text"] {
+    border: none;
+    outline: none;
+    font-size: 20px;
+    border-bottom: 1px solid rgba(189, 184, 184, 0.75);
+    width: 94%;
+    line-height: 40px;
+    margin-left: 14px;
+}
+
+.survey-data {
+    margin-top: 20px;
+}
+
+.survey-main-bottom {
+    margin-top: 40px;
+}
+
+.survey-main-bottom {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.survey-constraint {
+    width: 150px;
+    position: relative;
+}
+
+.survey-constraint::after {
+    content: "";
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background-color: #ccc;
+    width: 1px;
+    height: 90%;
+}
+
+.survey-trash-icon {
+    font-size: 23px;
+    margin-right: 55px;
+}
+
+.survey-footer {
+    width: 100%;
+    padding: 100px 0px 70px 0;
+    background-color: #fff;
+}
+
+.survey-footer-btn {
+    padding: 6px 50px;
+    background: #673ab7;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 20px;
+    float: right;
+    margin-right: 100px;
+}
+
+/* Add survey */
+.add-survey {
+    position: absolute;
+    top: 246px;
+    right: 10%;
+    width: 53px;
+    height: 297px;
+    background-color: #ffffff;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.plus-cirkle-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 20px 0;
+}
+
+.add-survey-img-icon {
+    font-size: 24px;
+}
+
+/* switch btn */
+#wrapper {
+    margin-bottom: 30px;
+    margin-left: 2px;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+}
+
+#wrapper.setting-form-wrapper {
+    margin-left: 100px;
+    top: -6px;
+}
+
+.switch-toggle {
+    cursor: pointer;
+    width: 40px;
+    height: 20px;
+    appearance: none;
+    background-color: #818181;
+    border-radius: 26px;
+    position: relative;
+    transition: 0.4s linear;
+}
+
+.switch-toggle::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    top: 3px;
+    left: 3px;
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: 0.3s ease;
+}
+
+.switch-toggle:checked {
+    background-color: #61fc18;
+}
+
+.switch-toggle:checked::before {
+    left: 22px;
+}
+/* Statistical */
+
+.statistical-section {
+    padding-bottom: 60px;
+    border-bottom: 1px solid #cecaca;
+    background-color: #fff;
+}
+
+.statistical-heading,
+.statistical-item-name,
+.statistical-item-number {
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+.statistical-heading {
+    font-size: 35px;
+    padding: 40px 0px 40px 30px;
+}
+
+.statistical-title {
+    font-size: 25px;
+    padding-left: 30px;
+    display: block;
+}
+
+.statistical-section-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 308px;
+    overflow-y: scroll;
+    padding-top: 124px;
+}
+
+.statistical-item-name {
+    font-size: 20px;
+}
+
+.statistical-section-item {
+    width: 780px;
+    height: 53px;
+    background: #ecedef;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin: 20px 0;
+}
+
+.statistical-item-icon {
+    font-size: 20px;
+    margin: 6px;
+}
+
+.statistical-item-number {
+    width: 50px;
+}
+
+/* pie chart */
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pie-wrap {
+    border: 2px solid lightgrey;
+    width: 400px;
+    height: 400px;
+    margin: 10% 50px;
+    position: relative;
+    border-radius: 50%;
+    color: black;
+    overflow: hidden;
+}
+
+.pie-wrap .entry {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* *the individual entries* */
+
+.sky-blue {
+    background-color: lightskyblue;
+    height: 50%;
+    width: 50%;
+    display: block;
+}
+
+.light-yellow {
+    background-color: lightyellow;
+    height: 50%;
+    width: 50%;
+}
+
+/*  */
+.pink {
+    background-color: pink;
+    height: 50%;
+    position: absolute;
+    top: 0px;
+    right: 0;
+    width: 50%;
+    clip-path: polygon(0 0, 100% 0%, 0% 100%);
+}
+
+.purple {
+    background-color: purple;
+    height: 50%;
+    width: 50%;
+    right: 0;
+    top: 0;
+    position: absolute;
+    clip-path: polygon(0% 100%, 100% 0%, 100% 100%);
+}
+
+.green {
+    background-color: limegreen;
+    height: 50%;
+    width: 50%;
+    right: 0;
+    top: 50%;
+    position: absolute;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+}
+
+.wheat {
+    background-color: wheat;
+    height: 50%;
+    width: 50%;
+    right: 0;
+    top: 50%;
+    position: absolute;
+    clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+}
+
+.pie-wrap .purple p {
+    position: absolute;
+    top: 140px;
+    color: white;
+}
+.pie-wrap .purple p:first-child {
+    top: 120px;
+}
+
+.pie-wrap .green p {
+    position: absolute;
+    top: 20px;
+}
+
+.pie-wrap .green p:first-child {
+    top: 0px;
+}
+
+.pie-wrap .pink p,
+.pie-wrap .wheat p {
+    position: absolute;
+    left: 20px;
+    top: 80px;
+}
+
+.pie-wrap .pink,
+.pie-wrap .wheat {
+    justify-content: flex-start;
+}
+
+.pie-wrap .pink p:first-child,
+.pie-wrap .wheat p:first-child {
+    top: 100px;
+}
+
+.entry .entry-value {
+    display: none;
+    transition: all 500ms linear;
+}
+
+.entry:hover .entry-value {
+    display: block;
+}
+
+.entry {
+    transition: all 500ms linear;
+}
+.entry:hover {
+    filter: invert();
+}
+/* setting */
+.setting.active {
+    display: block;
+}
+
+[type="date"] {
+    background: #fff
+        url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)
+        97% 50% no-repeat;
+}
+[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+}
+
+#dateofbirth {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 3px 5px;
+    width: 190px;
+    color: #919191;
+}
+
+.setting-wrap {
+    padding-bottom: 200px;
+    background-color: #fff;
+}
+
+.setting-heading {
+    font-size: 30px;
+    margin: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #afafaf;
+}
+
+.setting-box {
+    padding: 0 80px;
+    display: inline-block;
+}
+
+.setting-time {
+    padding: 0 80px;
+}
+
+.setting-time-title {
+    font-size: 20px;
+}
+
+.setting-time-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.setting-time-item p {
+    margin: 0;
+    padding: 10px 0;
+}
+
+/* overlay */
+.overlay-send-target {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* màu đen với độ trong suốt là 50% */
+    backdrop-filter: blur(5px);
+    z-index: 100;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-send-target {
+    position: absolute;
+    width: 748px;
+    height: 451px;
+    background: #ffffff;
+    border: 1px solid #000000;
+    backdrop-filter: blur(3px);
+    border-radius: 10px;
+    padding: 20px 40px;
+}
+
+.form-send-target-header {
+    font-size: 30px;
+    border-bottom: 1px solid #000000;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.survey-code-title {
+    font-weight: 400;
+    display: inline-block;
+}
+
+.survey-code {
+    color: #818181;
+    outline: none;
+    border: none;
+    padding-left: 30px;
+}
+
+.form-send-target-link {
+    display: block;
+    color: #cecaca;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #cecaca;
+    width: 100%;
+}
+
+.form-send-target-submit {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    font-size: 25px;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    padding: 10px;
+}
