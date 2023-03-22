@@ -10,7 +10,7 @@ class Result extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    
+
     protected $guarded = [];
 
     public function survey()
@@ -23,8 +23,21 @@ class Result extends Model
         return $this->hasMany(Report::class);
     }
 
-    public function resultQuestions()
+    public function questions()
     {
-        return $this->hasMany(ResultQuestions::class);
+        return $this->hasMany(ResultQuestion::class);
     }
+
+    public function answersOfQuestion(int $qid)
+    {
+//        dd($this->id);
+        $answer_ids = ResultQuestion::where('result_id',$this->id)->where('question_id', $qid)->pluck('answer_id');
+        return $answer_ids;
+    }
+    public function contentEssay(int $qid)
+    {
+//        dd($this->id);
+        return ResultQuestion::where('result_id',$this->id)->where('question_id', $qid)->pluck('essay_answer')[0];
+    }
+
 }

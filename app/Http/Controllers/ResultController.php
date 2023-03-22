@@ -10,6 +10,7 @@ use App\Services\ResponseService;
 use App\Exports\ResultExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Result;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ResultController extends Controller
 {
@@ -38,7 +39,33 @@ class ResultController extends Controller
         // }
     }
 
-    public function export(int $id) 
+    public function download(Request $request) {
+        $result = Result::find($request->id);
+//        dd($result);
+        $survey = Survey::find($result->survey_id);
+//        dd($result->answersOfQuestion(14));
+//        foreach ($result->questions as $questiont) {
+//            dd($questiont);
+//        }
+        $pdf = Pdf::loadView('view_result', ['result'=>$result, 'survey'=>$survey]);
+        return $pdf->download('invoice.pdf');
+//        return view('view_result', ['result'=>$result, 'survey'=>$survey]);
+
+//        $view = view('view_result', ['result'=>$result, 'survey'=>$survey]);
+//        $html = mb_convert_encoding($view, 'HTML-ENTITIES', 'UTF-8');
+//        $html_decode = html_entity_decode($html);
+//        $pdf = Pdf::loadHTML($view)
+//            ->setPaper('a4', 'landscape')
+//            ->setWarnings(false)
+//            ->setOptions(['isFontSubsettingEnabled' => true]);
+//
+//        // Store pdf file in the server
+//        return $pdf->download('element_list.pdf');
+    }
+
+
+
+    public function export(int $id)
     {
         $survey_id = $id;
         $file_name = Survey::find($id)->name;
