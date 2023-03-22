@@ -23,8 +23,10 @@ class ResultQuestion extends Model
         return $this->hasOne(Question::class);
     }
 
-    public function answer()
+
+
+    public function answers()
     {
-        return $this->hasOne(Answer::class);
+        return $this->hasMany(Answer::class);
     }
 }
