@@ -53,17 +53,18 @@
         </div>
 
         <div class="survey active">
-            <div class="survey-head">
-                <input class="survey-heading" value="Tiêu đề" type="text">
-                <input class="survey-sub-heading" value="Mô tả" type="text">
-            </div>
-            
             <form action="{{route('survey.create')}}" method='POST' class="survey-main">
+                <div class="survey-head">
+                    <input class="survey-heading" name="name" value="Tiêu đề" type="text">
+                                    <input class="survey-sub-heading" value="Mô tả" type="text">
+                </div>
+
                 {{-- click cai dat thi set vlue = 1 va ngc lai--}}
                 @csrf
                 <input class="input-hidden-1" type="hidden" name="type" value="0" >
-                <input class="input-hidden-2" type="hidden" name="start_at">
-                <input class="input-hidden-3" type="hidden" name="end_at">
+                <input class="input-hidden-2" id="start_at" type="hidden" name="start_at">
+                <input class="input-hidden-3" id="end_at" type="hidden" name="end_at">
+                <input type="hidden" name="user_id" value="{{$user_id}}">
                 <div id="add-question">
                     <div class="survey-main-wrap" id="survey-main-wrap">
                         {{-- cau hoi --}}
@@ -91,7 +92,7 @@
                                 <input placeholder="Thêm tùy chọn" type="text" class="survey-add-text">
                             </div>
                         </div>
-                        
+
                         <div class="survey-main-bottom">
                             <div class="survey-constraint">
                                 <label for="">Bắt buộc</label>
@@ -108,7 +109,7 @@
                 </div>
             </form>
         </div>
-        
+
         <form action="" class="statisticals">
             <div class="statistical-section">
                 <input value="20 Câu trả lời" type="text" class="statistical-heading">
@@ -197,35 +198,35 @@
                             <p>25%</p>
                             <p class="entry-value">Rice</p>
                         </div>
-                        
+
                         <div class="sky-blue entry">
                             <p>25%</p>
                             <p class="entry-value">Pasta</p>
                         </div>
-                        
+
                         <div class="pink entry">
                             <p>12.5%</p>
                             <p class="entry-value">Beans </p>
                         </div>
-                        
+
                         <div class="purple entry">
                             <p> 12.5%</p>
                             <p class="entry-value">Plantain</p>
                         </div>
-                        
+
                         <div class="green entry">
                             <p> 12.5%</p>
                             <p class="entry-value">Potato</p>
                         </div>
-                        
+
                         <div class="wheat entry">
                             <p> 12.5%</p>
                             <p class="entry-value">Yam</p>
                         </div>
-                        
+
                         </div>
 
-                        
+
                 </div>
             </div>
 
@@ -275,7 +276,7 @@
             <i class="add-survey-img-icon fa-regular fa-image"></i>
         </div>
 
-        
+
     </div>
 </body>
 <script>
@@ -298,11 +299,11 @@
             valueType: 'Category',
             title: 'Months',
         },
-        
+
         primaryYAxis: {
             title: 'Number of Visitors',
         },
-        
+
         series: [
             {
                 type: 'Bar',
@@ -321,7 +322,7 @@
         });
         chart.appendTo('#container');
     }
-    
+
     // column chart
     function columnChart() {
         var chart = new ej.charts.Chart({
@@ -353,7 +354,7 @@
         });
         chart.appendTo('.container');
     }
-    
+
     // Tab item
 
     const tabs = document.querySelectorAll('.survey-navbar-item')
@@ -409,7 +410,7 @@
                     <input placeholder="Thêm tùy chọn" type="text" class="survey-add-text">
                 </div>
             </div>
-            
+
             <div class="survey-main-bottom">
                 <div class="survey-constraint">
                     <label for="">Bắt buộc</label>
@@ -436,7 +437,7 @@
         deleteForm()
     })
     // ------------------------------------
-    
+
 
     var surveyChooseInputs = document.getElementsByClassName('survey-choose-input')
     var surveyaddInputs = document.getElementsByClassName('survey-add-input')
@@ -452,7 +453,7 @@
                 if(valueSelect == 1) {
                     surveyaddInputs[index].style.display = 'block';
                     surveyChooseInputs[index].style.display = 'block';
-                    
+
                     surveyaddInputs[index].type = 'radio';
                     surveyChooseInputs[index].type = 'radio';
 
@@ -475,8 +476,8 @@
                     surveyChooseInputIcons[index].style.display = 'none';
                 }
 
-                
-            }  
+
+            }
         ))
     }
     // add input
@@ -484,7 +485,7 @@
         var surveyAddTexts = document.querySelectorAll('.survey-add-text')
         var surveyChoose = document.getElementsByClassName('survey-choose')
         var surveyChooseNew = document.getElementsByClassName('survey-choose-new')
-        
+
         function duplicate(type, numberId, answerId) {
             let html = `
                 <div class="survey-choose">
@@ -497,7 +498,7 @@
         }
         surveyAddTexts.forEach((surveyAddText, index) => {
             surveyAddText.onclick = () => {
-                j++; 
+                j++;
                 if(surveyChooseInputs[index].type == "radio") {
                     surveyChooseNew[index].insertAdjacentHTML("beforeend", duplicate('radio', i, j));
                 } else if (surveyChooseInputs[index].type == "checkbox") {
@@ -547,11 +548,11 @@
     // get data of setting form
     function getDataSetting() {
         const inputHidden1 = document.querySelector('.input-hidden-1')
-        const inputHidden2 = document.querySelector('.input-hidden-2')
-        const inputHidden3 = document.querySelector('.input-hidden-3')
+        const inputHidden2 = document.getElementById('start_at')
+        const inputHidden3 = document.getElementById('end_at')
         const switchBtn = document.querySelector('.switch-toggle-setting')
         const time1 = document.querySelector('.dateofbirth-1')
-        const time2 = document.querySelector('.dateofbirth-1')
+        const time2 = document.querySelector('.dateofbirth-2')
         // click switchBtn
         let isOpen = false
         switchBtn.onclick = () => {
@@ -573,6 +574,6 @@
             console.log(inputHidden3.value = e.target.value);
         }
     }
-    
+
 </script>
 </html>
