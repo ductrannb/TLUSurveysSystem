@@ -20,7 +20,7 @@ html {
 
 .survey-navbar-wrap {
     position: absolute;
-    width: 942px;
+    padding: 0 271px;
     height: 45px;
     left: 220px;
     top: 23%;
@@ -90,6 +90,22 @@ html {
     flex-direction: column;
     padding-left: 60px;
     /* border: 1px solid rgba(0, 0, 0, 0.1); */
+}
+
+.survey-heading,
+.survey-sub-heading {
+    outline: none;
+    border: none;
+    color: #000;
+    background-color: transparent;
+}
+
+.survey-heading {
+    font-size: 40px;
+}
+
+.survey-sub-heading {
+    font-size: 20px;
 }
 
 .survey-main-wrap {
@@ -210,6 +226,7 @@ html {
 .survey-trash-icon {
     font-size: 23px;
     margin-right: 55px;
+    cursor: pointer;
 }
 
 .survey-footer {
