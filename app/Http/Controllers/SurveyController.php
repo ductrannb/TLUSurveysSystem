@@ -23,7 +23,7 @@ class SurveyController extends Controller
 
     public function index()
     {
-        return view('new_surveys',['user_id'=>auth()->id()]);
+        return view('new_surveys', ['user_id' => auth()->id()]);
     }
 
     public function viewDetail(Request $request)
