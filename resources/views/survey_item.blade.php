@@ -53,24 +53,20 @@
         </div>
 
         <div class="survey active">
-            <form action="{{route('survey.create')}}" method='POST' class="survey-main">
+            <form action="" method='POST' class="survey-main">
                 <div class="survey-head">
                     <input class="survey-heading" name="name" value="Tiêu đề" type="text">
                     <input class="survey-sub-heading" value="Mô tả" type="text">
                 </div>
-
-                {{-- click cai dat thi set vlue = 1 va ngc lai--}}
                 @csrf
                 <input class="input-hidden-1" type="hidden" name="type" value="0" >
-                <input class="input-hidden-2" id="start_at" type="hidden" name="start_at">
-                <input class="input-hidden-3" id="end_at" type="hidden" name="end_at">
+                <input class="input-hidden-2" id="start_at" type="hidden" name="start_at" value="{{$survey->start_at}}">
+                <input class="input-hidden-3" id="end_at" type="hidden" name="end_at" value="{{$survey->end_at}}">
                 <input type="hidden" name="user_id" value="{{$survey->user_id}}">
                 <div id="add-question">
                     @foreach($survey->questions as $question)
                     <div class="survey-main-wrap" id="survey-main-wrap">
-                        {{-- cau hoi --}}
                         <input name="questions[{{$question->id}}]" value="{{$question->content}}" placeholder="Câu hỏi" class="survey-main-title" type="text">
-                        {{-- select --}}
                         <select name="types[{{$question->id}}]" class="form-select" aria-label="Default select example">
                             <option value="3" @if(abs($question->type) == 3) selected @endif>Trả lời ngắn</option>
                             <option value="4" @if(abs($question->type) == 4) selected @endif>Đoạn</option>
@@ -79,8 +75,8 @@
                         </select>
 
                         <div class="survey-data">
-                            @foreach($question->answers as $answer)
                             <div class="survey-choose-new">
+                                @foreach($question->answers as $answer)
                                 <div class="survey-choose">
                                     {{-- dap an dung --}}
                                     <input name="correct_answers[{{$question->id}}][{{$answer->id}}]" class="survey-choose-input"
@@ -93,8 +89,8 @@
                                     <input name="answers[{{$question->id}}][{{$answer->id}}]" class="survey-choose-input-init" value="{{$answer->content}}" type="text">
                                     <i class="survey-choose-input-icon choose-delete-js fa-solid fa-x"></i>
                                 </div>
+                                @endforeach
                             </div>
-                            @endforeach
                             @if(abs($question->type) == 1 || abs($question->type) == 2)
                             <div class="survey-add-ques">
                                 <input class="survey-add-input" type=
@@ -105,9 +101,9 @@
                                 <input placeholder="Thêm tùy chọn" type="text" class="survey-add-text">
                             </div>
                                 @else
-                                    <div class="survey-add-ques">
+                                    <div class="dat-ten-cho-no">
                                         <input class="survey-add-input" type="radio" style="display: none;">
-                                        <input placeholder="Thêm tùy chọn" type="text" class="survey-add-text">
+                                        <input name="essay_correct_answer[{{$question->id}}]" value="{{$question->essay_correct_answer}}" placeholder="Thêm tùy chọn" type="text" class="survey-add-text">
                                     </div>
                                 @endif
                         </div>
@@ -187,7 +183,7 @@
             </div>
         </form>
         @else
-            <div>0 Câu trả lời</div>
+            <div class="statisticals">0 Câu trả lời</div>
         @endif
         <form action="" class="setting">
             <div class="setting-wrap">
