@@ -102,9 +102,9 @@
                                 <input placeholder="Thêm tùy chọn" type="text" class="survey-add-text">
                             </div>
                                 @else
-                                    <div class="dat-ten-cho-no">
+                                    <div class="insert-box">
                                         <input class="survey-add-input" type="radio" style="display: none;">
-                                        <input name="essay_correct_answer[{{$question->id}}]" value="{{$question->essay_correct_answer}}" placeholder="Thêm tùy chọn" type="text" class="dat-ten-cho-no">
+                                        <input name="essay_correct_answer[{{$question->id}}]" value="{{$question->essay_correct_answer}}" placeholder="Thêm tùy chọn" type="text" class="insert-input">
                                     </div>
                                 @endif
                         </div>
@@ -184,7 +184,11 @@
             </div>
         </form>
         @else
-            <div class="statisticals">0 Câu trả lời</div>
+            <div class="statisticals">
+                <div class="empty-answer">
+                    <p>0 Câu trả lời</p>
+                </div>
+            </div>
         @endif
         <form action="" class="setting">
             <div class="setting-wrap">
@@ -242,21 +246,22 @@
             series: [
                 {
                     dataSource: [
-                        { x: 'Tùy chọn 1', y: 13 },
-                        { x: 'Tùy chọn 2', y: 42.9 },
-                        { x: 'Tùy chọn 3', y: 28.6 },
-                        { x: 'Tùy chọn 4', y: 15.5 },
+                        { name: 'Tùy chọn 1', number: 13 },
+                        { name: 'Tùy 2', number: 42.9 },
+                        { name: 'Tùy chọn 3', number: 28.6 },
+                        { name: 'Tùy chọn 4', number: 15.5 },
                     ],
                     dataLabel: {
                         visible: true,
                         position: 'Inside',
                     },
-                    xName: 'x',
-                    yName: 'y',
+                    xName: 'name',
+                    yName: 'number',
                 },
             ],
         });
-        pie.appendTo('#container-pie-chart');
+        element_id = 'container-pie-chart'
+        pie.appendTo('#' + element_id)
     }
 
     // horizon chart
