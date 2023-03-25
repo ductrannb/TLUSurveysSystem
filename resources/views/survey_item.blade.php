@@ -102,9 +102,9 @@
                                 <input placeholder="Thêm tùy chọn" type="text" class="survey-add-text">
                             </div>
                                 @else
-                                    <div class="dat-ten-cho-no">
+                                    <div class="insert-box">
                                         <input class="survey-add-input" type="radio" style="display: none;">
-                                        <input name="essay_correct_answer[{{$question->id}}]" value="{{$question->essay_correct_answer}}" placeholder="Thêm tùy chọn" type="text" class="dat-ten-cho-no">
+                                        <input name="essay_correct_answer[{{$question->id}}]" value="{{$question->essay_correct_answer}}" placeholder="Thêm tùy chọn" type="text" class="insert-input">
                                     </div>
                                 @endif
                         </div>
@@ -184,7 +184,11 @@
             </div>
         </form>
         @else
-            <div class="statisticals">0 Câu trả lời</div>
+            <div class="statisticals">
+                <div class="empty-answer">
+                    <p>0 Câu trả lời</p>
+                </div>
+            </div>
         @endif
         <form action="" class="setting">
             <div class="setting-wrap">

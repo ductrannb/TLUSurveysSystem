@@ -69,6 +69,16 @@ html {
     display: none;
 }
 
+.empty-answer {
+    background-color: #fff;
+    height: 500px;
+}
+
+.empty-answer p {
+    padding: 50px;
+    font-size: 35px;
+}
+
 .survey.active {
     display: block;
 }
@@ -186,6 +196,20 @@ html {
 }
 
 .survey-add-ques input[type="text"] {
+    border: none;
+    outline: none;
+    font-size: 20px;
+    border-bottom: 1px solid rgba(189, 184, 184, 0.75);
+    width: 94%;
+    line-height: 40px;
+    margin-left: 14px;
+}
+
+.insert-box {
+    margin-left: 26px;
+}
+
+.insert-input {
     border: none;
     outline: none;
     font-size: 20px;
