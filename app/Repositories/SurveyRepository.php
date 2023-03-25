@@ -16,4 +16,8 @@ class SurveyRepository
     {
         return Survey::where('id', $data['id'])->update($data);
     }
+
+    public function find($id) {
+        return Survey::find($id);
+    }
 }

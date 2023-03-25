@@ -111,7 +111,7 @@
                         </div>
                         @foreach ($surveys as $survey)
                             <div class="content-link-item content-link-item--parrent-icon">
-                                <a href="{{route('view_survey', ['user_id'=>auth()->id(),'id'=>$survey->id])}}" class="content-main-element">
+                                <a href="{{route('survey.view', ['id'=>$survey->id])}}" class="content-main-element">
                                     <img class="content-main-img" src="{{ asset('img/survey_avt.png') }}" alt="">
                                 </a>
 
@@ -178,13 +178,13 @@
             searchInput.value = '';
         }
 
-        
+
         const modal = $('#modal-change-password')
         const btn_open = document.getElementById('btn-open-modal')
         const btn_close_1 = document.getElementById('btn-close-modal')
         const btn_close_2 = document.getElementById('btn-close-modal-2')
-        
-        
+
+
         btn_open.onclick = () => {
             modal.css('display', 'flex')
         }
@@ -220,6 +220,6 @@
             }
         })
 
-        
+
     });
 </script>

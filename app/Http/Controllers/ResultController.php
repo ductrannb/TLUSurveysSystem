@@ -47,8 +47,9 @@ class ResultController extends Controller
 //        foreach ($result->questions as $questiont) {
 //            dd($questiont);
 //        }
+        $filename = $result->fullname . '.pdf';
         $pdf = Pdf::loadView('view_result', ['result'=>$result, 'survey'=>$survey]);
-        return $pdf->download('invoice.pdf');
+        return $pdf->download($filename);
 //        return view('view_result', ['result'=>$result, 'survey'=>$survey]);
 
 //        $view = view('view_result', ['result'=>$result, 'survey'=>$survey]);

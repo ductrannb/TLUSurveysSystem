@@ -49,4 +49,8 @@ class SurveyService
     {
         return $this->survey_repo->update($data);
     }
+
+    public function find($id) {
+        return $this->survey_repo->find($id);
+    }
 }

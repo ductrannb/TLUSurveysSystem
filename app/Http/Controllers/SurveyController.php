@@ -28,7 +28,8 @@ class SurveyController extends Controller
 
     public function viewDetail(Request $request)
     {
-        return view('view_survey');
+        $survey = $this->survey_service->find($request->id);
+        return view('survey_item', ['survey'=>$survey]);
     }
 
     public function create(Request $request)
@@ -64,7 +65,7 @@ class SurveyController extends Controller
             ]);
             $survey = Survey::findOrFail($request->id);
 
-            $this->survey_service->update($request->only('id', 'name', 'start_at', 'end_at', 'type'));
+            $this->survey_service->update($request->only('name', 'start_at', 'end_at', 'type'));
 
             return $this->response->success('updated survey success !');
         } catch (\Throwable $throw) {
@@ -85,5 +86,10 @@ class SurveyController extends Controller
     {
         $survey = Survey::find($request->survey_id);
         return view('view_report')->with(['survey' => $survey]);
+    }
+
+    public function viewSurvey(Request $request) {
+        $survey = $this->survey_service->find($request->id);
+
     }
 }
