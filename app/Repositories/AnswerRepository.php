@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Answer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class AnswerRepository
 {
@@ -14,8 +15,9 @@ class AnswerRepository
 
     public function updateOrCreate(array $data)
     {
-//        dd($data);
-        return Answer::updateOrCreate(['id' => $data['id'], 'question_id' => $data['question_id']], $data);
+//        dd(Arr::except($data,'content'));
+
+        return Answer::where(['id' => $data['id'], 'question_id' => $data['question_id']])->update($data);
     }
 
     public function delete(int $data)
