@@ -10,6 +10,8 @@ use App\Services\ResponseService;
 use App\Exports\ResultExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Result;
+use App\Models\User;
+
 use Barryvdh\DomPDF\Facade\Pdf;
 
 class ResultController extends Controller
@@ -71,5 +73,16 @@ class ResultController extends Controller
         $survey_id = $id;
         $file_name = Survey::find($id)->name;
         return (new ResultExport)->get_by_survey_id($survey_id)->download( $file_name . '.xlsx');
+    }
+
+    public function checkResult(Request $request)
+    {
+        $result = Result::find($request->id);
+        $survey = Survey::find($result->survey_id);
+        if(User::find($request->user_id) == null)
+            $is_user = 0;
+        else
+            $is_user = 1;
+        return view('check_result',['result'=>$result, 'survey'=>$survey,'is_user'=>$is_user]);
     }
 }
