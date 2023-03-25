@@ -12,11 +12,11 @@ class CorrectAnswerRepository
         return CorrectAnswer::create($data);
     }
 
-    public function update(array $data)
+    public function updateOrCreate(array $data)
     {
-        return CorrectAnswer::where('id', $data['id'])->update($data);
+        return CorrectAnswer::updateOrCreate(['id' => $data['id'], 'question_id' => $data['question_id']], $data);
     }
-    
+
     public function delete(int $data)
     {
         return CorrectAnswer::where('id', $data)->delete();

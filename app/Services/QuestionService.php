@@ -34,9 +34,20 @@ class QuestionService
         return $question;
     }
 
-    public function update(array $data)
+    public function updateOrCreate(array $data, array $answers, array $correct_answers)
     {
-        return $this->question_repo->update($data);
+        $question = $this->question_repo->updateOrCreate($data);
+        $answer_ids = array_keys($answers);
+        $correct_answer_ids = array_keys($correct_answers);
+        foreach ($answer_ids as $answer_id) {
+            $data_answer = array('id'=>$answer_id, 'question_id'=>$question->id, 'content'=>$answers[$answer_id]);
+            $this->answer_service->updateOrCreate($data_answer);
+        }
+
+        foreach ($correct_answer_ids as $correct_answer_id) {
+            $this->correct_answer_service->updateOrCreate(['question_id'=>$question->id, 'answer_id'=>$correct_answer_id]);
+        }
+        return $question;
     }
     public function delete(int $data)
     {
