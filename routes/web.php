@@ -55,7 +55,7 @@ Route::group([
     'controller' => SurveyController::class
 ], function () {
     Route::get('create', 'index');
-    Route::get('view', 'viewDetail')->name('view_survey');
+    Route::get('view', 'viewDetail')->name('survey.view');
     Route::post('create', 'create')->name('survey.create');
     Route::post('update', 'update');
     Route::get('delete', 'delete')->name('survey.delete');
@@ -78,15 +78,7 @@ Route::get('review', function () {
     return view('reviewform');
 });
 
-Route::get('end', function () {
-    return view('end');
-});
-
-Route::get('viewsurvey', function () {
-    return view('survey_item');
-});
-
-Route::get('contact', [ResultController::class, 'index']);
+Route::get('contact', [ResultController::class, 'index'])->name('result.make');
 
 Route::group([
     'prefix' => 'result',
@@ -95,5 +87,5 @@ Route::group([
     Route::get('/', 'index');
     Route::post('create', 'create')->name('result.create');
     Route::get('export/{id}', 'export');
-    Route::get('download', 'download');
+    Route::get('download', 'download')->name('result.download');
 });

@@ -24,13 +24,13 @@
 </head>
 <body>
     <div class="overlay-send-target">
-        <form action="" class="form-send-target">
+        <div class="form-send-target">
             <h2 class="form-send-target-header">Gửi biểu mẫu</h2>
             <p class="survey-code-title">Mã phiếu khảo sát: </p>
-            <input value="PKSK62CNTT" type="text" class="survey-code">
-            <input placeholder="Links:" type="text" class="form-send-target-link">
-            <a href="/" class="form-send-target-submit">Kết thúc</a>
-        </form>
+            <input value="{{$survey->id}}" type="text" class="survey-code" readonly>
+            <input class="form-send-target-link" readonly value="Links: {{route('result.make', ['survey_id'=>$survey->id])}}">
+            <button class="form-send-target-submit">Kết thúc</button>
+        </div>
     </div>
     <div class="app">
         <header class="header header-with-search">
@@ -56,7 +56,7 @@
             <form action="{{route('survey.create')}}" method='POST' class="survey-main">
                 <div class="survey-head">
                     <input class="survey-heading" name="name" value="Tiêu đề" type="text">
-                                    <input class="survey-sub-heading" value="Mô tả" type="text">
+                    <input class="survey-sub-heading" value="Mô tả" type="text">
                 </div>
 
                 {{-- click cai dat thi set vlue = 1 va ngc lai--}}
@@ -64,33 +64,52 @@
                 <input class="input-hidden-1" type="hidden" name="type" value="0" >
                 <input class="input-hidden-2" id="start_at" type="hidden" name="start_at">
                 <input class="input-hidden-3" id="end_at" type="hidden" name="end_at">
-                <input type="hidden" name="user_id" value="{{$user_id}}">
+                <input type="hidden" name="user_id" value="{{$survey->user_id}}">
                 <div id="add-question">
+                    @foreach($survey->questions as $question)
                     <div class="survey-main-wrap" id="survey-main-wrap">
                         {{-- cau hoi --}}
-                        <input name="questions[0]" placeholder="Câu hỏi" class="survey-main-title" type="text">
+                        <input name="questions[{{$question->id}}]" value="{{$question->content}}" placeholder="Câu hỏi" class="survey-main-title" type="text">
                         {{-- select --}}
-                        <select name="types[0]" class="form-select" aria-label="Default select example">
-                            <option value="3">Trả lời ngắn</option>
-                            <option value="4">Đoạn</option>
-                            <option selected value="1">Trắc Nghiệm</option>
-                            <option value="2">Hộp kiểm</option>
+                        <select name="types[{{$question->id}}]" class="form-select" aria-label="Default select example">
+                            <option value="3" @if(abs($question->type) == 3) selected @endif>Trả lời ngắn</option>
+                            <option value="4" @if(abs($question->type) == 4) selected @endif>Đoạn</option>
+                            <option value="1" @if(abs($question->type) == 1) selected @endif>Trắc Nghiệm</option>
+                            <option value="2" @if(abs($question->type) == 2) selected @endif>Hộp kiểm</option>
                         </select>
 
                         <div class="survey-data">
+                            @foreach($question->answers as $answer)
                             <div class="survey-choose-new">
                                 <div class="survey-choose">
                                     {{-- dap an dung --}}
-                                    <input name="correct_answers[0][0]" class="survey-choose-input" type="radio">
+                                    <input name="correct_answers[{{$question->id}}][{{$answer->id}}]" class="survey-choose-input"
+                                           type=
+                                                @if(abs($question->type) == 1) 'radio'
+                                                @elseif(abs($question->type) == 2) 'checkbox'
+                                                @endif
+                                    >
                                     {{-- dap an --}}
-                                    <input name="answers[0][0]" class="survey-choose-input-init" value="Tùy chọn" type="text">
+                                    <input name="answers[{{$question->id}}][{{$answer->id}}]" class="survey-choose-input-init" value="{{$answer->content}}" type="text">
                                     <i class="survey-choose-input-icon choose-delete-js fa-solid fa-x"></i>
                                 </div>
                             </div>
+                            @endforeach
+                            @if(abs($question->type) == 1 || abs($question->type) == 2)
                             <div class="survey-add-ques">
-                                <input class="survey-add-input" type="radio">
+                                <input class="survey-add-input" type=
+                                    @if(abs($question->type) == 1) 'radio'
+                                    @elseif(abs($question->type) == 2) 'checkbox'
+                                   @endif
+                                >
                                 <input placeholder="Thêm tùy chọn" type="text" class="survey-add-text">
                             </div>
+                                @else
+                                    <div class="survey-add-ques">
+                                        <input class="survey-add-input" type="radio" style="display: none;">
+                                        <input placeholder="Thêm tùy chọn" type="text" class="survey-add-text">
+                                    </div>
+                                @endif
                         </div>
 
                         <div class="survey-main-bottom">
@@ -103,112 +122,50 @@
                             <i class="survey-trash-icon fa-solid fa-trash"></i>
                         </div>
                     </div>
+                    @endforeach
                 </div>
                 <div class="survey-footer">
                     <button type='submit' class="survey-footer-btn">Lưu</button>
                 </div>
             </form>
         </div>
-
+        @if($survey->results->count() > 0)
         <form action="" class="statisticals">
             <div class="statistical-section">
                 <input value="20 Câu trả lời" type="text" class="statistical-heading">
                 <p class="statistical-title">Danh sách</p>
                 <div class="statistical-section-list">
+                    @foreach($survey->results as $result)
                     <div class="statistical-section-item">
-                        <input value="Nguyễn Văn A" type="text" class="statistical-item-name">
+                        <input value="{{$result->fullname}}" type="text" class="statistical-item-name" readonly>
                         <div class="statistical-item-icons">
                             <a class="statistical-item-icon" href="">
                                 <i class="fa-regular fa-eye"></i>
                             </a>
-                            <a class="statistical-item-icon" href="">
+                            <a class="statistical-item-icon" href="{{route('result.download', ['id'=>$result->id])}}">
                                 <i class="fa-solid fa-download"></i>
                             </a>
                         </div>
                     </div>
-
-                    <div class="statistical-section-item">
-                        <input value="Nguyễn Văn A" type="text" class="statistical-item-name">
-                        <div class="statistical-item-icons">
-                            <a class="statistical-item-icon" href="">
-                                <i class="fa-regular fa-eye"></i>
-                            </a>
-                            <a class="statistical-item-icon" href="">
-                                <i class="fa-solid fa-download"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="statistical-section-item">
-                        <input value="Nguyễn Văn A" type="text" class="statistical-item-name">
-                        <div class="statistical-item-icons">
-                            <a class="statistical-item-icon" href="">
-                                <i class="fa-regular fa-eye"></i>
-                            </a>
-                            <a class="statistical-item-icon" href="">
-                                <i class="fa-solid fa-download"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="statistical-section-item">
-                        <input value="Nguyễn Văn A" type="text" class="statistical-item-name">
-                        <div class="statistical-item-icons">
-                            <a class="statistical-item-icon" href="">
-                                <i class="fa-regular fa-eye"></i>
-                            </a>
-                            <a class="statistical-item-icon" href="">
-                                <i class="fa-solid fa-download"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="statistical-section-item">
-                        <input value="Nguyễn Văn A" type="text" class="statistical-item-name">
-                        <div class="statistical-item-icons">
-                            <a class="statistical-item-icon" href="">
-                                <i class="fa-regular fa-eye"></i>
-                            </a>
-                            <a class="statistical-item-icon" href="">
-                                <i class="fa-solid fa-download"></i>
-                            </a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
 
+            @if($survey->type == 1)
             <div class="statistical-section statistical-section-positon">
                 <input value="20 Câu trả lời" type="text" class="statistical-heading">
                 <p class="statistical-title">Danh sách</p>
                 <p class="point">Điểm/10</p>
                 <div class="statistical-section-list">
+                    @foreach($survey->results as $result)
                     <div class="statistical-section-item">
-                        <input value="Nguyễn Văn A" type="text" class="statistical-item-name">
-                        <input value="8" type="text" class="statistical-item-number">
+                        <input value="{{$result->fullname}}" type="text" class="statistical-item-name" readonly>
+                        <input value="{{$result->score}}" type="text" class="statistical-item-number" readonly>
                     </div>
-
-                    <div class="statistical-section-item">
-                        <input value="Nguyễn Văn A" type="text" class="statistical-item-name">
-                        <input value="8" type="text" class="statistical-item-number">
-                    </div>
-
-                    <div class="statistical-section-item">
-                        <input value="Nguyễn Văn A" type="text" class="statistical-item-name">
-                        <input value="8" type="text" class="statistical-item-number">
-                    </div>
-
-                    <div class="statistical-section-item">
-                        <input value="Nguyễn Văn A" type="text" class="statistical-item-name">
-                        <input value="8" type="text" class="statistical-item-number">
-                    </div>
-
-                    <div class="statistical-section-item">
-                        <input value="Nguyễn Văn A" type="text" class="statistical-item-name">
-                        <input value="8" type="text" class="statistical-item-number">
-                    </div>
+                    @endforeach
                 </div>
             </div>
-
+            @endif
             <div class="statistical-section">
                 <input value="Câu hỏi" type="text" class="statistical-heading">
                 <input value="x câu trả lời" type="text" class="statistical-title">
@@ -229,7 +186,9 @@
                 <span class="row-name">Điểm số</span>
             </div>
         </form>
-
+        @else
+            <div>0 Câu trả lời</div>
+        @endif
         <form action="" class="setting">
             <div class="setting-wrap">
                 <h2 class="setting-heading">Cài đặt</h2>
