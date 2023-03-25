@@ -12,11 +12,12 @@ class AnswerRepository
         return Answer::create($data);
     }
 
-    public function update(array $data)
+    public function updateOrCreate(array $data)
     {
-        return Answer::where('id', $data['id'])->update($data);
+//        dd($data);
+        return Answer::updateOrCreate(['id' => $data['id'], 'question_id' => $data['question_id']], $data);
     }
-    
+
     public function delete(int $data)
     {
         return Answer::where('id', $data)->delete();

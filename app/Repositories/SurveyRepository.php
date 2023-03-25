@@ -12,10 +12,12 @@ class SurveyRepository
         return Survey::create($data);
     }
 
-    public function update(array $data)
+    public function updateOrCreate(array $data)
     {
-        return Survey::where('id', $data['id'])->update($data);
+        return Survey::updateOrCreate(['id' => $data['id']], $data);
     }
+
+
 
     public function find($id) {
         return Survey::find($id);

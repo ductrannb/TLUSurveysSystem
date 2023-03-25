@@ -18,9 +18,9 @@ class CorrectAnswerService
         return $this->correct_answer_repo->create($data);
     }
 
-    public function update(array $data)
+    public function updateOrCreate(array $data)
     {
-        return $this->correct_answer_repo->update($data);
+        return $this->correct_answer_repo->updateOrCreate($data);
     }
 
     public function delete(int $data)

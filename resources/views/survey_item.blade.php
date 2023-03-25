@@ -53,12 +53,13 @@
         </div>
 
         <div class="survey active">
-            <form action="" method='POST' class="survey-main">
+            <form action="{{route('survey.update')}}" method='POST' class="survey-main">
                 <div class="survey-head">
-                    <input class="survey-heading" name="name" value="Tiêu đề" type="text">
+                    <input class="survey-heading" name="name" value="{{$survey->name}}" type="text">
                     <input class="survey-sub-heading" value="Mô tả" type="text">
                 </div>
                 @csrf
+                <input type="hidden" name="id" value="{{$survey->id}}">
                 <input class="input-hidden-1" type="hidden" name="type" value="0" >
                 <input class="input-hidden-2" id="start_at" type="hidden" name="start_at" value="{{$survey->start_at}}">
                 <input class="input-hidden-3" id="end_at" type="hidden" name="end_at" value="{{$survey->end_at}}">
@@ -238,7 +239,6 @@
     // pie chart
     function pieChart() {
         var pie = new ej.charts.AccumulationChart({
-        //Initializing Series
             series: [
                 {
                     dataSource: [
@@ -246,8 +246,6 @@
                         { x: 'Tùy chọn 2', y: 42.9 },
                         { x: 'Tùy chọn 3', y: 28.6 },
                         { x: 'Tùy chọn 4', y: 15.5 },
-                        // { x: 'Opera', y: 11 },
-                        // { x: 'Android', y: 12 },
                     ],
                     dataLabel: {
                         visible: true,

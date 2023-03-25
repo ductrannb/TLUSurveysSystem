@@ -18,9 +18,9 @@ class AnswerService
         return $this->answer_repo->create($data);
     }
 
-    public function update(array $data)
+    public function updateOrCreate(array $data)
     {
-        return $this->answer_repo->update($data);
+        return $this->answer_repo->updateOrCreate($data);
     }
 
     public function delete(int $data)

@@ -52,9 +52,9 @@ class SurveyController extends Controller
         }
     }
 
-    public function update(Request $request)
+    public function updateOrCreate(Request $request)
     {
-        try {
+//        try {
             $request->validate([
                 'id' => 'required',
                 'user_id' => 'required',
@@ -63,14 +63,13 @@ class SurveyController extends Controller
                 'end_at' => 'date|after:start_at',
                 'type' => 'integer',
             ]);
-            $survey = Survey::findOrFail($request->id);
 
-            $this->survey_service->update($request->only('name', 'start_at', 'end_at', 'type'));
+            $survey = $this->survey_service->updateOrCreate($request->all());
 
-            return $this->response->success('updated survey success !');
-        } catch (\Throwable $throw) {
-            return $this->response->error($throw->getMessage());
-        }
+            return $survey;
+//        } catch (\Throwable $throw) {
+//            return $this->response->error($throw->getMessage());
+//        }
     }
 
     public function delete(Request $request)

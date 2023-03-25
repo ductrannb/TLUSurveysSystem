@@ -57,7 +57,7 @@ Route::group([
     Route::get('create', 'index');
     Route::get('view', 'viewDetail')->name('survey.view');
     Route::post('create', 'create')->name('survey.create');
-    Route::post('update', 'update');
+    Route::post('update', 'updateOrCreate')->name('survey.update');
     Route::get('delete', 'delete')->name('survey.delete');
     Route::get('view_report', 'viewReport')->name('view_report');
 });
