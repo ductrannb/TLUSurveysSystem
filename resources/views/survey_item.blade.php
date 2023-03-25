@@ -24,13 +24,13 @@
 </head>
 <body>
     <div class="overlay-send-target">
-        <form action="" class="form-send-target">
+        <div class="form-send-target">
             <h2 class="form-send-target-header">Gửi biểu mẫu</h2>
             <p class="survey-code-title">Mã phiếu khảo sát: </p>
-            <input value="PKSK62CNTT" type="text" class="survey-code">
-            <input placeholder="Links:" type="text" class="form-send-target-link">
-            <a href="/" class="form-send-target-submit">Kết thúc</a>
-        </form>
+            <input value="{{$survey->id}}" type="text" class="survey-code" readonly>
+            <input class="form-send-target-link" readonly value="Links: {{route('result.make', ['survey_id'=>$survey->id])}}">
+            <button class="form-send-target-submit">Kết thúc</button>
+        </div>
     </div>
     <div class="app">
         <header class="header header-with-search">

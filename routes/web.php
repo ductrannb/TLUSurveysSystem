@@ -78,7 +78,7 @@ Route::get('review', function () {
     return view('reviewform');
 });
 
-Route::get('contact', [ResultController::class, 'index']);
+Route::get('contact', [ResultController::class, 'index'])->name('result.make');
 
 Route::group([
     'prefix' => 'result',

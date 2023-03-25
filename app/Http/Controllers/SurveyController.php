@@ -44,9 +44,9 @@ class SurveyController extends Controller
                 'type' => 'integer',
             ]);
 
-            $this->survey_service->create($request->all());
+            $survey = $this->survey_service->create($request->all());
 
-            return $this->response->success('create survey success !');
+            return redirect()->route('survey.view', ['id'=>$survey->id]);
         } catch (\Throwable $throw) {
             return $this->response->error($throw->getMessage());
         }
