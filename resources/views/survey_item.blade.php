@@ -103,7 +103,7 @@
                                 @else
                                     <div class="dat-ten-cho-no">
                                         <input class="survey-add-input" type="radio" style="display: none;">
-                                        <input name="essay_correct_answer[{{$question->id}}]" value="{{$question->essay_correct_answer}}" placeholder="Thêm tùy chọn" type="text" class="survey-add-text">
+                                        <input name="essay_correct_answer[{{$question->id}}]" value="{{$question->essay_correct_answer}}" placeholder="Thêm tùy chọn" type="text" class="dat-ten-cho-no">
                                     </div>
                                 @endif
                         </div>
