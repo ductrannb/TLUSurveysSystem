@@ -51,6 +51,9 @@
                 </div>
             </div>
 
+            @if ($is_user == 1)
+                <p>Tổng điểm: {{ $result->score }} /10</p>
+            @endif
             <h2 class="form-name">II. ĐÁNH GIÁ CỦA SINH VIÊN</h2>
 
             @foreach($survey->questions as $question)
@@ -72,9 +75,17 @@
                                     @endif
                                     <label for="answer-id-{{$answer->id . "-". $question->id}}">{{ $answer->content}}
                                     </label>
+                                    @if ($question->correctAnswer->answer_id == $answer->id )
+                                     <?php 
+                                        $correct = $answer->content;
+                                     ?>
+                                    @endif   
                                 </div>
-
                             @endforeach
+                            @if ($is_user == 1)
+                                    <p>Câu trả lời đúng:</p>
+                                    <p>{{ $correct }}</p>
+                            @endif
                         @elseif(abs($question->type) == 2)
                             @foreach($question->answers as $answer)
                                 <div class="form-data-choose">
@@ -83,15 +94,27 @@
                                     @else
                                     <input type="checkbox" id="answer-id-{{$answer->id . "-". $question->id}}" name="multi_answer[{{$question->id}}][{{$answer->id}}]" @disabled(true)/>
                                     @endif
-
                                         <label for="answer-id-{{$answer->id . "-". $question->id}}">{{ $answer->content}}
                                         </label>
+
                                 </div>
                             @endforeach
+                            @if ($is_user == 1)
+                                <p>Câu trả lời đúng:</p>
+                
+                            @endif
                         @elseif(abs($question->type) == 3)
                             <input class="form-data-answer" name="essay_answer[{{ $question->id }}]" value='{{$result->contentEssay($question->id)}}' readonly>
+                            @if ($is_user == 1)
+                                    <p>Câu trả lời đúng:</p>
+                                    <p>{{ $question->essay_correct_answer }}</p>
+                            @endif
                         @elseif(abs($question->type) == 4)
                             <textarea class="form-data-answer text-area"  name="essay_answer[{{ $question->id }}]" value='{{$result->contentEssay($question->id)}}' readonly ></textarea>
+                            @if ($is_user == 1)
+                                    <p>Câu trả lời đúng:</p>
+                                    <p>{{ $question->essay_correct_answer }}</p>
+                            @endif
                         @endif
                     </div>
                 </div>

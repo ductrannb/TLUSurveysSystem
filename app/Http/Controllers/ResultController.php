@@ -77,7 +77,7 @@ class ResultController extends Controller
 
     public function checkResult(Request $request)
     {
-        $result = Result::find($request->id);
+        $result = Result::find($request->result_id);
         $survey = Survey::find($result->survey_id);
         if(User::find($request->user_id) == null)
             $is_user = 0;
