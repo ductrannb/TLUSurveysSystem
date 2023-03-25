@@ -82,6 +82,10 @@ Route::get('end', function () {
     return view('end');
 });
 
+Route::get('viewsurvey', function () {
+    return view('survey_item');
+});
+
 Route::get('contact', [ResultController::class, 'index']);
 
 Route::group([

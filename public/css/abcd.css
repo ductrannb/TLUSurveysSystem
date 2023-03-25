@@ -328,7 +328,12 @@ html {
     background-color: #fff;
 }
 
+.statistical-section-positon {
+    position: relative;
+}
+
 .statistical-heading,
+.statistical-title,
 .statistical-item-name,
 .statistical-item-number {
     outline: none;
@@ -338,13 +343,20 @@ html {
 
 .statistical-heading {
     font-size: 35px;
-    padding: 40px 0px 40px 30px;
+    padding: 40px 0px 40px 70px;
 }
 
 .statistical-title {
     font-size: 25px;
-    padding-left: 30px;
+    padding-left: 70px;
     display: block;
+}
+
+.point {
+    font-size: 25px;
+    position: absolute;
+    right: 180px;
+    top: 134px;
 }
 
 .statistical-section-list {
@@ -422,7 +434,6 @@ html {
     width: 50%;
 }
 
-/*  */
 .pink {
     background-color: pink;
     height: 50%;
@@ -513,6 +524,34 @@ html {
 .entry:hover {
     filter: invert();
 }
+
+#container {
+    margin-left: 190px;
+}
+
+.e-control {
+    margin-left: 190px;
+}
+
+.chart-name {
+    text-transform: uppercase;
+    position: absolute;
+    top: 14%;
+    right: 46%;
+}
+
+.colum-name {
+    position: absolute;
+    top: 15%;
+    left: 17%;
+}
+
+.row-name {
+    position: absolute;
+    top: 86%;
+    right: 20%;
+}
+
 /* setting */
 .setting.active {
     display: block;
