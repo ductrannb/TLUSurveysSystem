@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Result;
 use Illuminate\Http\Request;
 use App\Services\SurveyService;
 use App\Services\ResponseService;
@@ -29,7 +30,47 @@ class SurveyController extends Controller
     public function viewDetail(Request $request)
     {
         $survey = $this->survey_service->find($request->id);
-        return view('survey_item', ['survey'=>$survey]);
+//        dd($survey->scores());
+        $questions = $survey->questions;
+        $arr = [];
+        foreach ($questions as $question) {
+            $results = $question->results;
+            $data = [];
+            $type = abs($question->type);
+            if ($type == 1 || $type == 2) {
+                foreach ($question->answers as $answer) {
+                    $value =  $answer->id;
+                    $count = $this->counter($results, $value, $type);
+                    if ($count > 0) {
+                        $data[] = ['content' => $answer->content, 'number' => $count];
+                    }
+                }
+            } else {
+
+                $data = $question->essay_answers();
+//                dd($data);
+            }
+            $arr[] = ['question_id' => $question->id, 'type' => $type, 'data' => $data];
+        }
+//        dd(json_encode($arr));
+        return view('survey_item',
+            ['survey' => $survey, 'arr_data' => json_encode($arr), 'scores' => $survey->scores()]);
+    }
+
+    private function counter($results, $answer_id, $type)
+    {
+        //type 0: trac nghiem, 1: tu luan
+        $count = 0;
+        foreach ($results as $result) {
+            if ($result->answer_id == $answer_id && ($type == 1 || $type == 2)) {
+                $count++;
+            } else {
+                if ($result->essay_answer == $answer_id && ($type == 3 || $type == 4)) {
+                    $count++;
+                }
+            }
+        }
+        return $count;
     }
 
     public function create(Request $request)
@@ -46,7 +87,7 @@ class SurveyController extends Controller
 
             $survey = $this->survey_service->create($request->all());
 
-            return redirect()->route('survey.view', ['id'=>$survey->id]);
+            return redirect()->route('survey.view', ['id' => $survey->id]);
         } catch (\Throwable $throw) {
             return $this->response->error($throw->getMessage());
         }
@@ -55,18 +96,18 @@ class SurveyController extends Controller
     public function updateOrCreate(Request $request)
     {
 //        try {
-            $request->validate([
-                'id' => 'required',
-                'user_id' => 'required',
-                'name' => 'required',
-                'start_at' => 'date',
-                'end_at' => 'date|after:start_at',
-                'type' => 'integer',
-            ]);
+        $request->validate([
+            'id' => 'required',
+            'user_id' => 'required',
+            'name' => 'required',
+            'start_at' => 'date',
+            'end_at' => 'date|after:start_at',
+            'type' => 'integer',
+        ]);
 
-            $survey = $this->survey_service->updateOrCreate($request->all());
+        $survey = $this->survey_service->updateOrCreate($request->all());
 
-            return $survey;
+        return $survey;
 //        } catch (\Throwable $throw) {
 //            return $this->response->error($throw->getMessage());
 //        }
@@ -87,7 +128,8 @@ class SurveyController extends Controller
         return view('view_report')->with(['survey' => $survey]);
     }
 
-    public function viewSurvey(Request $request) {
+    public function viewSurvey(Request $request)
+    {
         $survey = $this->survey_service->find($request->id);
 
     }
