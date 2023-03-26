@@ -224,7 +224,7 @@ html {
 }
 
 .survey-main-bottom {
-    margin-top: 40px;
+    padding: 40px 0;
 }
 
 .survey-main-bottom {
@@ -249,7 +249,7 @@ html {
 
 .survey-trash-icon {
     font-size: 23px;
-    margin-right: 55px;
+    margin-right: 64px;
     cursor: pointer;
 }
 
@@ -262,6 +262,7 @@ html {
 .survey-footer-btn {
     padding: 6px 50px;
     background: #673ab7;
+    border: none;
     border-radius: 10px;
     color: #fff;
     font-size: 20px;
