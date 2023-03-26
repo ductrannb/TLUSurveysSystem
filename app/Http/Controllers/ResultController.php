@@ -79,7 +79,7 @@ class ResultController extends Controller
     {
         $result = Result::find($request->result_id);
         $survey = Survey::find($result->survey_id);
-        if(User::find($request->user_id) == null)
+        if(User::find($request->user_id) == null || $survey->type == 0)
             $is_user = 0;
         else
             $is_user = 1;
