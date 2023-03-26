@@ -51,7 +51,7 @@
                 <div class="form-insert-wrap">
                     <span>*</span>
                     <label for="{{"anser-text-box-0"}}" class="form-insert-label">Mã sinh viên</label>
-                    <input type="text" class="form-input" id="{{"anser-text-box-0"}}" name="student_id" />
+                    <input type="number" class="form-input" id="{{"anser-text-box-0"}}" name="student_id" />
                     <div class="form-warn">
                         <i class="form-warn__icon fa-solid fa-circle-exclamation"></i>
                         <p class="form-warn__title">
@@ -64,7 +64,7 @@
                 <div class="form-insert-wrap">
                     <span>*</span>
                     <label for="{{"anser-text-box-0"}}" class="form-insert-label">Email</label>
-                    <input type="text" class="form-input" id="{{"anser-text-box-0"}}" name="email" />
+                    <input type="email" class="form-input" id="{{"anser-text-box-0"}}" name="email" />
                     <div class="form-warn">
                         <i class="form-warn__icon fa-solid fa-circle-exclamation"></i>
                         <p class="form-warn__title">
@@ -123,7 +123,8 @@
             @endforeach
                 <div class="handle">
                     <input type="submit" value="Gửi" class="submit-form-btn" />
-                    <p class="delete-form">Xóa hết câu trả lời</p>
+                    <input value='Xóa hết câu trả lời' type="reset"/>
+                 </p>
                 </div>
             </form>
         </div>
