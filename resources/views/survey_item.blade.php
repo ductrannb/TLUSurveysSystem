@@ -156,7 +156,7 @@
                     </div>
                     @endforeach
                 </div>
-                <a href="{{ route('export_excel',['id'=>$survey->id]) }}">Xuất file Excel</a>
+                <a class="statistical-render-exel" href="{{ route('export_excel',['id'=>$survey->id]) }}">Xuất file Excel</a>
             </div>
             @endif
             @foreach($survey->questions as $question)
@@ -184,7 +184,7 @@
                 <span class="colum-name">Số lượng</span>
                 <span class="row-name">Điểm số</span>
             </div>
-            <a href="{{ route('view_report',['survey_id'=>$survey->id]) }}">Xem đóng góp ý kiến</a>
+            <a class="statistical-section-review" href="{{ route('view_report',['survey_id'=>$survey->id]) }}">Xem đóng góp ý kiến</a>
             @endif
         </form>
         @else

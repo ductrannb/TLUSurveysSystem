@@ -293,4 +293,5 @@ input[type="radio"] {
     font-size: 24px;
     color: #007bff;
     cursor: pointer;
+    background-color: transparent;
 }

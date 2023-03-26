@@ -36,41 +36,20 @@
 
             <div class="form-insert">
                 <div class="form-insert-wrap">
-                    <span>*</span>
                     <label for="{{"anser-text-box-0"}}" class="form-insert-label">Họ và tên</label>
                     <input type="text" class="form-input" id="{{"anser-text-box-0"}}" name="fullname" />
-                    <div class="form-warn">
-                        <i class="form-warn__icon fa-solid fa-circle-exclamation"></i>
-                        <p class="form-warn__title">
-                            Đây là một câu hỏi bắt buộc
-                        </p>
-                    </div>
                 </div>
             </div>
             <div class="form-insert">
                 <div class="form-insert-wrap">
-                    <span>*</span>
                     <label for="{{"anser-text-box-0"}}" class="form-insert-label">Mã sinh viên</label>
                     <input type="number" class="form-input" id="{{"anser-text-box-0"}}" name="student_id" />
-                    <div class="form-warn">
-                        <i class="form-warn__icon fa-solid fa-circle-exclamation"></i>
-                        <p class="form-warn__title">
-                            Đây là một câu hỏi bắt buộc
-                        </p>
-                    </div>
                 </div>
             </div>
             <div class="form-insert">
                 <div class="form-insert-wrap">
-                    <span>*</span>
                     <label for="{{"anser-text-box-0"}}" class="form-insert-label">Email</label>
                     <input type="email" class="form-input" id="{{"anser-text-box-0"}}" name="email" />
-                    <div class="form-warn">
-                        <i class="form-warn__icon fa-solid fa-circle-exclamation"></i>
-                        <p class="form-warn__title">
-                            Đây là một câu hỏi bắt buộc
-                        </p>
-                    </div>
                 </div>
             </div>
 
