@@ -37,19 +37,19 @@
             <div class="form-insert">
                 <div class="form-insert-wrap">
                     <label for="{{"anser-text-box-0"}}" class="form-insert-label">Họ và tên</label>
-                    <input type="text" class="form-input" id="{{"anser-text-box-0"}}" name="fullname" />
+                    <input type="text" class="form-input" id="{{"anser-text-box-0"}}" name="fullname" required/>
                 </div>
             </div>
             <div class="form-insert">
                 <div class="form-insert-wrap">
                     <label for="{{"anser-text-box-0"}}" class="form-insert-label">Mã sinh viên</label>
-                    <input type="number" class="form-input" id="{{"anser-text-box-0"}}" name="student_id" />
+                    <input type="number" class="form-input" id="{{"anser-text-box-0"}}" name="student_id" required/>
                 </div>
             </div>
             <div class="form-insert">
                 <div class="form-insert-wrap">
                     <label for="{{"anser-text-box-0"}}" class="form-insert-label">Email</label>
-                    <input type="email" class="form-input" id="{{"anser-text-box-0"}}" name="email" />
+                    <input type="email" class="form-input" id="{{"anser-text-box-0"}}" name="email" required/>
                 </div>
             </div>
 
@@ -70,7 +70,7 @@
                         @if(abs($question->type) == 1)
                                 @foreach($question->answers as $answer)
                                     <div class="form-data-choose">
-                                        <input type="radio" id="answer-id-{{$answer->id . "-". $question->id}}" name="choice_answer[{{$question->id}}]" value="{{$answer->id}}" />
+                                        <input required type="radio"  id="answer-id-{{$answer->id . "-". $question->id}}" name="choice_answer[{{$question->id}}]" value="{{$answer->id}}" />
                                         <label for="answer-id-{{$answer->id . "-". $question->id}}">{{$answer->content}}
                                         </label>
                                     </div>
@@ -78,15 +78,15 @@
                         @elseif(abs($question->type) == 2)
                             @foreach($question->answers as $answer)
                                 <div class="form-data-choose">
-                                        <input type="checkbox" id="answer-id-{{$answer->id . "-". $question->id}}" name="multi_answer[{{$question->id}}][{{$answer->id}}]" />
+                                        <input required type="checkbox" id="answer-id-{{$answer->id . "-". $question->id}}" name="multi_answer[{{$question->id}}][{{$answer->id}}]" />
                                         <label for="answer-id-{{$answer->id . "-". $question->id}}">{{$answer->content}}
                                         </label>
                                 </div>
                             @endforeach
                         @elseif(abs($question->type) == 3)
-                            <input placeholder="Câu trả lời của bạn" class="form-data-answer" name="essay_answer[{{ $question->id }}]">
+                            <input required placeholder="Câu trả lời của bạn" class="form-data-answer" name="essay_answer[{{ $question->id }}]">
                         @elseif(abs($question->type) == 4)
-                            <textarea placeholder="Câu trả lời của bạn" class="form-data-answer text-area" name="essay_answer[{{ $question->id }}]"></textarea>
+                            <textarea required placeholder="Câu trả lời của bạn" class="form-data-answer text-area" name="essay_answer[{{ $question->id }}]"></textarea>
                         @endif
                         @if($question->type < 0)
                         <div class="form-warn">
