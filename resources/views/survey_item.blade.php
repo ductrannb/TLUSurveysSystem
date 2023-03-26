@@ -127,9 +127,10 @@
             </form>
         </div>
         @if($survey->results->count() > 0)
+        <div id="data-charts" data-json='{{ json_encode($arr_data) }}'></div>
         <form action="" class="statisticals">
             <div class="statistical-section">
-                <input value="20 Câu trả lời" type="text" class="statistical-heading">
+                <input value="{{$survey->results->count()}} Câu trả lời" type="text" class="statistical-heading" readonly>
                 <p class="statistical-title">Danh sách</p>
                 <div class="statistical-section-list">
                     @foreach($survey->results as $result)
@@ -150,7 +151,7 @@
 
             @if($survey->type == 1)
             <div class="statistical-section statistical-section-positon">
-                <input value="20 Câu trả lời" type="text" class="statistical-heading">
+                <input value="Điểm số" type="text" class="statistical-heading">
                 <p class="statistical-title">Danh sách</p>
                 <p class="point">Điểm/10</p>
                 <div class="statistical-section-list">
@@ -163,18 +164,24 @@
                 </div>
             </div>
             @endif
+            @foreach($survey->questions as $question)
+                @if(abs($question->type) == 1 || abs($question->type) == 2)
             <div class="statistical-section">
-                <input value="Câu hỏi" type="text" class="statistical-heading">
-                <input value="x câu trả lời" type="text" class="statistical-title">
-                <div id="container-pie-chart"></div>
+                <label type="text" class="statistical-heading">{{$question->content}}</label>
+{{--                <input value="{{$survey->results->count()}} câu trả lời" type="text" class="statistical-title" readonly>--}}
+                <div id="container-pie-chart-{{$question->id}}"></div>
             </div>
-
+                @else
             <div class="statistical-section">
-                <input value="Câu hỏi" type="text" class="statistical-heading">
-                <input value="x câu trả lời" type="text" class="statistical-title">
-                <div id="container"></div>
+                <label type="text" class="statistical-heading">{{$question->content}}</label>
+{{--                <input value="{{$survey->results->count()}} câu trả lời" type="text" class="statistical-title" readonly>--}}
+                <div id="container-column-chart-{{$question->id}}"></div>
             </div>
+                @endif
+            @endforeach
 
+            @if($survey->type == 1)
+            <div id="data-scores" data-json='{{ json_encode($scores) }}'></div>
             <div class="statistical-section statistical-section-positon">
                 <input value="Điểm số" type="text" class="statistical-heading">
                 <div class="container"></div>
@@ -182,6 +189,7 @@
                 <span class="colum-name">Số lượng</span>
                 <span class="row-name">Điểm số</span>
             </div>
+            @endif
         </form>
         @else
             <div class="statisticals">
@@ -228,9 +236,20 @@
 </body>
 <script>
     function app() {
-        pieChart()
-        horizonChart()
-        columnChart()
+        var jsonData = JSON.parse(JSON.parse($('#data-charts').data('json')));
+        // console.log(jsonData)
+        // console.log(typeof JSON.parse(JSON.parse($('#data-charts').data('json'))))
+        jsonData.forEach(function(element) {
+            if(element.type == 1 || element.type == 2) {
+                pieChart(element.question_id, element.data)
+            } else {
+                horizonChart(element.question_id, element.data)
+                // console.log(element.question_id, element.data)
+            }
+        });
+        try {
+            columnChart()
+        } catch {}
         handleGetValueSelected()
         addInput()
         deleteChooseInput()
@@ -241,31 +260,28 @@
 
     app()
     // pie chart
-    function pieChart() {
+    function pieChart(question_id, data) {
+        // console.log(Array.isArray(data))
         var pie = new ej.charts.AccumulationChart({
             series: [
                 {
-                    dataSource: [
-                        { name: 'Tùy chọn 1', number: 13 },
-                        { name: 'Tùy 2', number: 42.9 },
-                        { name: 'Tùy chọn 3', number: 28.6 },
-                        { name: 'Tùy chọn 4', number: 15.5 },
-                    ],
+                    dataSource: data,
                     dataLabel: {
                         visible: true,
                         position: 'Inside',
                     },
-                    xName: 'name',
+                    xName: 'essay_answer',
                     yName: 'number',
                 },
             ],
         });
-        element_id = 'container-pie-chart'
-        pie.appendTo('#' + element_id)
+        pie.appendTo('#container-pie-chart-' + question_id)
     }
 
     // horizon chart
-    function horizonChart() {
+    function horizonChart(question_id, data) {
+        // return
+        // console.log(data)
         var chart = new ej.charts.Chart({
         primaryXAxis: {
             valueType: 'Category',
@@ -279,51 +295,30 @@
         series: [
             {
                 type: 'Bar',
-                dataSource: [
-                    { month: 'Tùy chọn 1', visitors: 0 },
-                    { month: 'Tùy chọn 2', visitors: 3 },
-                    { month: 'Tùy chọn 3', visitors: 2 },
-                    { month: 'Tùy chọn 4', visitors: 5 }
-                ],
-                xName: 'month',
-                yName: 'visitors',
+                dataSource: data,
+                xName: 'essay_answer',
+                yName: 'count',
             },
         ],
         });
-        chart.appendTo('#container');
+        chart.appendTo('#container-column-chart-' + question_id);
     }
 
     // column chart
     function columnChart() {
+        var jsonData = JSON.parse(JSON.parse($('#data-scores').data('json')));
         var chart = new ej.charts.Chart({
-        //Initializing Primary X Axis
         primaryXAxis: {
-            valueType: 'Category',
-            // title: 'Countries',
+            valueType: 'Category'
         },
-        //Initializing Primary Y Axis
         primaryYAxis: {
-            // title: 'Medals in number',
         },
-
-        //Initializing Chart Series
         series: [
             {
                 type: 'Column',
-                dataSource: [
-                    { country: '1', medal: 0 },
-                    { country: '2', medal: 2 },
-                    { country: '3', medal: 2 },
-                    { country: '4', medal: 4 },
-                    { country: '5', medal: 5 },
-                    { country: '6', medal: 5 },
-                    { country: '7', medal: 6 },
-                    { country: '8', medal: 3 },
-                    { country: '9', medal: 3 },
-                    { country: '10', medal: 2 },
-                ],
-                xName: 'country',
-                yName: 'medal',
+                dataSource: jsonData,
+                xName: 'score',
+                yName: 'count',
             },
         ],
         });
