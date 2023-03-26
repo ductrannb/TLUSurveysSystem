@@ -1,9 +1,10 @@
 html {
-    background-color: #ccc;
+    background-color: #f0ebf8;
 }
 
 .app {
-    background: #ccc;
+    background-color: #f0ebf8;
+
     height: 100%;
 }
 
@@ -23,9 +24,7 @@ img {
 
 .logo-img {
     width: 10%;
-
 }
-
 
 .title-heading_1 {
     color: #001373;
@@ -37,19 +36,21 @@ img {
     font-weight: 400;
     font-size: 30px;
     line-height: 36px;
-    color: #007BFF;
-
+    color: #007bff;
 }
 
 .nav {
     width: 100%;
     height: 60px;
-    background-color: #673AB7;
+    background-color: #673ab7;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+}
 
+.content {
+    padding-bottom: 60px;
 }
 
 .container {
@@ -94,6 +95,7 @@ img {
     line-height: 24px;
     color: #000000;
     padding: 5px 0 5px 20px;
+    background-color: #f2f3f5;
 }
 
 .form-data-wrap h3 {
@@ -109,7 +111,6 @@ img {
     line-height: 22px;
     /* identical to box height */
 
-
     color: #000000;
 }
 
@@ -117,14 +118,24 @@ img {
     float: right;
     width: 172px;
     height: 50px;
-    background: #007BFF;
+    background: #007bff;
     border-radius: 10px;
     color: #fff;
     border: none;
     margin-right: 116px;
-
 }
 
 .btn-back:hover {
     background-color: #0e58a7;
+}
+
+.go-back {
+    padding: 10px 44px;
+    background: #007bff;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 25px;
+    text-decoration: none;
+    float: right;
+    margin-right: 100px;
 }

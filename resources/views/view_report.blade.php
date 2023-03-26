@@ -47,7 +47,7 @@
                         </div>
                         @endforeach
                     </form> 
-                    <a href="{{ route('survey.view',['id'=>$survey->id]) }}">Quay lại</a>
+                    <a class="go-back" href="{{ route('survey.view',['id'=>$survey->id]) }}">Quay lại</a>
                 </div>
             </div>
         </div>

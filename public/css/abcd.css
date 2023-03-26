@@ -357,6 +357,13 @@ html {
     position: relative;
 }
 
+.statistical-section-review {
+    font-size: 25px;
+    color: #694fc4;
+    float: right;
+    padding-top: 30px;
+}
+
 .statistical-heading,
 .statistical-title,
 .statistical-item-name,
@@ -392,6 +399,13 @@ html {
     height: 308px;
     overflow-y: scroll;
     padding-top: 124px;
+}
+
+.statistical-render-exel {
+    font-size: 22px;
+    color: #007bff;
+    float: right;
+    padding-right: 156px;
 }
 
 .statistical-item-name {
