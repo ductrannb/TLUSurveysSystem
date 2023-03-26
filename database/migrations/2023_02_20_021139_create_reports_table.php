@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('result_id');
             $table->longText('content');
             $table->foreign('survey_id')->references('id')->on('surveys');
+            $table->foreign('result_id')->references('id')->on('results');
             $table->timestamps();
             $table->softDeletes();
         });

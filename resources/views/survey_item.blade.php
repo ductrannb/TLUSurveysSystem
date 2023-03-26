@@ -236,17 +236,22 @@
 </body>
 <script>
     function app() {
-        var jsonData = JSON.parse(JSON.parse($('#data-charts').data('json')));
+        try {
+            var jsonData = JSON.parse(JSON.parse($('#data-charts').data('json')));
+            jsonData.forEach(function(element) {
+                if(element.type == 1 || element.type == 2) {
+                    pieChart(element.question_id, element.data)
+                } else {
+                    horizonChart(element.question_id, element.data)
+                    // console.log(element.question_id, element.data)
+                }
+            });
+        } catch (e) {
+
+        }
         // console.log(jsonData)
         // console.log(typeof JSON.parse(JSON.parse($('#data-charts').data('json'))))
-        jsonData.forEach(function(element) {
-            if(element.type == 1 || element.type == 2) {
-                pieChart(element.question_id, element.data)
-            } else {
-                horizonChart(element.question_id, element.data)
-                // console.log(element.question_id, element.data)
-            }
-        });
+
         try {
             columnChart()
         } catch {}
@@ -399,7 +404,6 @@
     plusBtn.addEventListener('click', function addSurvey() {
         i++;
         j = 0;
-        console.log(i,j)
         addQuestion.insertAdjacentHTML("beforeend", resource(i,j));
         handleGetValueSelected()
         addInput()
