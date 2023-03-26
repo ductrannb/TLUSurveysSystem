@@ -53,7 +53,7 @@
             <?php 
 
             ?>
-            @if ($is_user == 1 && $survey->type == 1)
+            @if ($is_user == 1)
                 <p>Tổng điểm: {{ $result->score }} /10</p>
             @endif
             <h2 class="form-name">II. ĐÁNH GIÁ CỦA SINH VIÊN</h2>
@@ -89,7 +89,7 @@
                                     @endif   
                                 </div>
                             @endforeach
-                            @if ($is_user == 1 && $survey->type == 1)
+                            @if ($is_user == 1)
                                     <p type = 'hidden'>Câu trả lời đúng:</p>
                                     <p>{{ $correct }}</p>
                             @endif
@@ -110,19 +110,19 @@
                                     @endif
                                 </div>
                             @endforeach
-                            @if ($is_user == 1 && $survey->type == 1)
+                            @if ($is_user == 1)
                                 <p>Câu trả lời đúng:</p>
                                 <p>{{ $correct }}</p>
                             @endif
                         @elseif(abs($question->type) == 3)
                             <input class="form-data-answer" name="essay_answer[{{ $question->id }}]" value='{{$result->contentEssay($question->id)}}' readonly>
-                            @if ($is_user == 1 && $survey->type == 1)
+                            @if ($is_user == 1)
                                     <p>Câu trả lời đúng:</p>
                                     <p>{{ $question->essay_correct_answer }}</p>
                             @endif
                         @elseif(abs($question->type) == 4)
                             <textarea class="form-data-answer text-area"  name="essay_answer[{{ $question->id }}]" value='{{$result->contentEssay($question->id)}}' readonly ></textarea>
-                            @if ($is_user == 1 && $survey->type == 1)
+                            @if ($is_user == 1)
                                     <p>Câu trả lời đúng:</p>
                                     <p>{{ $question->essay_correct_answer }}</p>
                             @endif
