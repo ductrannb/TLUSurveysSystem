@@ -183,6 +183,7 @@
                 <span class="colum-name">Số lượng</span>
                 <span class="row-name">Điểm số</span>
             </div>
+            <a href="{{ route('view_report',['survey_id'=>$survey->id]) }}">Xem đóng góp ý kiến</a>
             @endif
         </form>
         @else
