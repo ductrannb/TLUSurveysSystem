@@ -9,6 +9,7 @@ use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\Exportable;
 
+
 class ResultExport implements FromQuery,WithMapping,WithHeadings,ShouldAutoSize
 {
     use Exportable;
