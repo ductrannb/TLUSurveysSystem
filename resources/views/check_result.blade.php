@@ -57,6 +57,9 @@
             <h2 class="form-name">II. ĐÁNH GIÁ CỦA SINH VIÊN</h2>
 
             @foreach($survey->questions as $question)
+            <?php 
+                $correct = '';
+            ?>
                 @if($question->type == 0)
                     @continue
                 @endif
@@ -96,12 +99,16 @@
                                     @endif
                                         <label for="answer-id-{{$answer->id . "-". $question->id}}">{{ $answer->content}}
                                         </label>
-
+                                    @if (App\Models\CorrectAnswer::where('question_id','=',$question->id)->pluck('answer_id')->contains($answer->id))
+                                        <?php 
+                                            $correct .= $answer->content . '||';
+                                        ?> 
+                                    @endif
                                 </div>
                             @endforeach
                             @if ($is_user == 1)
                                 <p>Câu trả lời đúng:</p>
-                
+                                <p>{{ $correct }}</p>
                             @endif
                         @elseif(abs($question->type) == 3)
                             <input class="form-data-answer" name="essay_answer[{{ $question->id }}]" value='{{$result->contentEssay($question->id)}}' readonly>
