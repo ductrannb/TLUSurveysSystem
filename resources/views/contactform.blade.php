@@ -107,7 +107,7 @@
                         @elseif(abs($question->type) == 3)
                             <input placeholder="Câu trả lời của bạn" class="form-data-answer" name="essay_answer[{{ $question->id }}]">
                         @elseif(abs($question->type) == 4)
-                            <textarea placeholder="Câu trả lời của bạn" class="form-data-answer text-area" name="essay_answer[{{ $question->id }}]></textarea>
+                            <textarea placeholder="Câu trả lời của bạn" class="form-data-answer text-area" name="essay_answer[{{ $question->id }}]"></textarea>
                         @endif
                         @if($question->type < 0)
                         <div class="form-warn">

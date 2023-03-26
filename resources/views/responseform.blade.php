@@ -51,7 +51,7 @@
                                 placeholder="ý kiến của bạn......"
                                 class="content-input" name="content"/>
                         </div>
-                        <a href="{{ route('check_result',['id'=>$survey->id,'result_id'=>$result_id]) }}">
+                        <a href="{{ route('check_result',['survey_id'=>$survey->id,'result_id'=>$result_id]) }}">
                             <p class="handle-link">Xem lại bài khảo sát</p>
                         </a>
                         <input type="submit" value="End" class="btn" />

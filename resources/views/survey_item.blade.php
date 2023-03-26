@@ -137,7 +137,7 @@
                     <div class="statistical-section-item">
                         <input value="{{$result->fullname}}" type="text" class="statistical-item-name" readonly>
                         <div class="statistical-item-icons">
-                            <a class="statistical-item-icon" href="">
+                            <a class="statistical-item-icon" href="{{ route('check_result', ['survey_id'=>$survey->id,'result_id'=>$result->id,'user_id'=>$survey->user_id]) }}">
                                 <i class="fa-regular fa-eye"></i>
                             </a>
                             <a class="statistical-item-icon" href="{{route('result.download', ['id'=>$result->id])}}">
