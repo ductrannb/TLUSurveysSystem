@@ -123,8 +123,7 @@
             @endforeach
                 <div class="handle">
                     <input type="submit" value="Gửi" class="submit-form-btn" />
-                    <input value='Xóa hết câu trả lời' type="reset"/>
-                 </p>
+                    <input class="delete-all-value" value='Xóa hết câu trả lời' type="reset"/>
                 </div>
             </form>
         </div>

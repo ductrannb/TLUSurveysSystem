@@ -110,12 +110,6 @@
                         </div>
 
                         <div class="survey-main-bottom">
-                            <div class="survey-constraint">
-                                <label for="">Bắt buộc</label>
-                                <div id="wrapper">
-                                    <input type="checkbox" name="" class="switch-toggle">
-                                </div>
-                            </div>
                             <i class="survey-trash-icon fa-solid fa-trash"></i>
                         </div>
                     </div>
