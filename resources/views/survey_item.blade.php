@@ -156,6 +156,7 @@
                     </div>
                     @endforeach
                 </div>
+                <a href="{{ route('export_excel',['id'=>$survey->id]) }}">Xuất file Excel</a>
             </div>
             @endif
             @foreach($survey->questions as $question)

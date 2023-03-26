@@ -86,7 +86,7 @@ Route::group([
 ], function () {
     Route::get('/', 'index');
     Route::post('create', 'create')->name('result.create');
-    Route::get('export/{id}', 'export');
+    Route::get('export/{id}', 'export')->name('export_excel');
     Route::get('download', 'download')->name('result.download');
     Route::get('check_result','checkResult')->name('check_result');
 });
