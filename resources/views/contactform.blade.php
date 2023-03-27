@@ -78,7 +78,7 @@
                         @elseif(abs($question->type) == 2)
                             @foreach($question->answers as $answer)
                                 <div class="form-data-choose">
-                                        <input required type="checkbox" id="answer-id-{{$answer->id . "-". $question->id}}" name="multi_answer[{{$question->id}}][{{$answer->id}}]" />
+                                        <input type="checkbox" id="answer-id-{{$answer->id . "-". $question->id}}" name="multi_answer[{{$question->id}}][{{$answer->id}}]" />
                                         <label for="answer-id-{{$answer->id . "-". $question->id}}">{{$answer->content}}
                                         </label>
                                 </div>
