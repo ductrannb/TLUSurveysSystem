@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
 </head>
 
 <body>
@@ -61,6 +62,8 @@
             @foreach($survey->questions as $question)
             <?php 
                 $correct = '';
+                $correct2 = array();
+
             ?>
                 @if($question->type == 0)
                     @continue
@@ -105,14 +108,19 @@
                                         </label>
                                     @if (App\Models\CorrectAnswer::where('question_id','=',$question->id)->pluck('answer_id')->contains($answer->id))
                                         <?php 
-                                            $correct .= $answer->content . '||';
+                                            array_push($correct2,$answer->content);
                                         ?> 
                                     @endif
                                 </div>
                             @endforeach
                             @if ($is_user == 1)
                                 <p>Câu trả lời đúng:</p>
-                                <p>{{ $correct }}</p>
+                                @foreach ($correct2 as $ans)
+                                    <p>
+                                        {{ $ans }}
+                                    </p>
+                                @endforeach
+                                
                             @endif
                         @elseif(abs($question->type) == 3)
                             <input class="form-data-answer" name="essay_answer[{{ $question->id }}]" value='{{$result->contentEssay($question->id)}}' readonly>
@@ -131,6 +139,11 @@
                 </div>
             @endforeach
         </div>
+        @if ($is_user == 1)
+            <a class="go-back" href="{{ route('survey.view',['id'=>$survey->id]) }}">Quay lại</a>
+        @else
+          <a class="go-back" href="{{ route('report',['survey_id'=>$survey->id,'result_id'=>$result->id]) }}">Quay lại</a>
+        @endif
     </div>
 </body>
 
